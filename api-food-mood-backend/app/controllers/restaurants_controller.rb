@@ -2,8 +2,8 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!
 
       def index
-          restaurants = current_user.all
-          render json: restaurants.to_json(include: [:reviews, :user] )
+          restaurants = current_user.restaurants
+          render json: restaurants.to_json(include: [:reviews, :users] )
       end
 
       def show

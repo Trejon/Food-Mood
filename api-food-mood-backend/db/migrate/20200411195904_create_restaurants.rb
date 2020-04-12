@@ -11,7 +11,6 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.string :price
       t.float :latitude
       t.float :longitude
-      t.belongs_to :user, null: false, foreign_key: true
 
       t.timestamps
     end
