@@ -4,8 +4,12 @@ class User < ApplicationRecord
   # devise :database_authenticatable, :registerable,
   #        :recoverable, :rememberable, :validatable
 
-has_many :ratings, dependent: :destroy
+has_many :reviews, dependent: :destroy
 has_many :restaurants, dependent: :destroy
+
+validates :name, presence: true
+validates :email, presence: true
+validates :password, presence: true
 
   devise :database_authenticatable,
           :jwt_authenticatable,

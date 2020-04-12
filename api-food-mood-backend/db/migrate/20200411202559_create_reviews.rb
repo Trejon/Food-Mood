@@ -1,7 +1,8 @@
-class CreateRatings < ActiveRecord::Migration[6.0]
+class CreateReviews < ActiveRecord::Migration[6.0]
   def change
-    create_table :ratings do |t|
-      t.float :value
+    create_table :reviews do |t|
+      t.float :rating
+      t.text :content
       t.datetime :date
       t.belongs_to :user, null: false, foreign_key: true
       t.belongs_to :restaurant, null: false, foreign_key: true
