@@ -33,16 +33,15 @@ class SignIn extends React.Component {
     return baseHeaders
   }
 
-  // login = (params) => {
-  // const res = fetch('http://localhost:3001/login', {
-  //     method: 'POST', 
-  //     headers: { 
-  //       'Content-Type': 'application/json' 
-  //     }, 
-  //     body: JSON.stringify(params)
-  //    })
-     
-  // }
+  login = (params) => {
+  const res = fetch('http://localhost:3001/login', {
+      method: 'POST', 
+      headers: { 
+        'Content-Type': 'application/json' 
+      }, 
+      body: JSON.stringify(params)
+     })
+  }
 
   // getJWTToken = async(params) => {
   //   const url = "http:localhost:3001/login"

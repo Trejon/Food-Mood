@@ -8,7 +8,7 @@ import Restaurant from './Restaurant';
 class FetchRestaurants extends React.Component{
   constructor() {
     super()
-
+ 
     this.state = {
       restaurants: [], 
       lat: null, 

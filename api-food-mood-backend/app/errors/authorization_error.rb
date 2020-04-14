@@ -1,3 +1,0 @@
-class AuthorizationError < StandardError
-
-end
