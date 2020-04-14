@@ -14,6 +14,11 @@ class FetchRestaurants extends React.Component{
     }
   }
 
+  //create lat and long in state
+  //TODO write latitude longitude geolocation method to update the state 
+  //implement ${this.state.lat} & ${this.state.long} in the fetch request to make sure 
+  //request are looking near the user
+
   fetchYelpApi = (term) => {
     fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=37.786882&longitude=-122.399972`, requestOptions)
     .then(response => response.json())
