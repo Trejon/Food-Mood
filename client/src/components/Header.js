@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
-import SignIn from './SignIn';
+import SignIn from './user/SignIn';
 
 const Header = () => {
   return(
@@ -8,8 +8,8 @@ const Header = () => {
       <Link to="/" className="item">
         Home
       </Link>
-      <Link to="/" className="item">
-        All Restaurants
+      <Link to="/lists" className="item">
+        Lists
       </Link>
       <div className="right menu">
         <button className="ui button primary">Sign in</button>

@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  resources :lists
   resources :users do
-    resources :reviews
+    resources :lists
   end
   resources :restaurants do
     resources :reviews
   end
 
-  resources :reviews
+  resources :lists
   resources :restaurants
   resources :users
   # devise_for :users

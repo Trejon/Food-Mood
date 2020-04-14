@@ -1,3 +1,6 @@
-export default reducer = () => {
-  return 123
-}
+import { combineReducers } from 'redux'; 
+import authReducer from './authReducer'; 
+
+export default combineReducers({
+  auth: authReducer
+});

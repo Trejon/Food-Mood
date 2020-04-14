@@ -1,9 +1,10 @@
 import React from 'react'; 
-import { connect } from 'react-redux'; 
-import { signIn } from '../../actions';
 
-class AuthForm extends React.Component {
+
+
+class SignUp extends React.Component {
   state = {
+    name: '',
     email: '', 
     password: ''
   }
@@ -20,7 +21,6 @@ class AuthForm extends React.Component {
     console.log(this.state)
   }
 
-
   render() {
     return(
       <div className="ui container">
@@ -29,6 +29,10 @@ class AuthForm extends React.Component {
             <div className="panel panel-default">
               <div className="panel-body">
               <form className="ui form" onSubmit={this.handleOnSubmit}>
+                <div className="field">
+                  <label>Name:</label>
+                  <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleOnChange} />
+                </div>
                 <div className="field">
                   <label>Email:</label>
                   <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleOnChange} />
@@ -48,4 +52,4 @@ class AuthForm extends React.Component {
   }
 }
 
-export default AuthForm;
+export default SignUp;

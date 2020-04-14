@@ -1,29 +1,65 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import RestaurantList from './restaurants/RestaurantList';
-import RestaurantCreate from './restaurants/RestaurantCreate';
-import RestaurantEdit from './restaurants/RestaurantEdit';
-import RestaurantDelete from './restaurants/RestaurantDelete';
-import RestaurantShow from './restaurants/RestaurantShow';
+import { Router, Route, Switch } from 'react-router-dom';
+import ListList from './lists/ListList';
+import ListCreate from './lists/ListCreate';
+import ListEdit from './lists/ListEdit';
+import ListDelete from './lists/ListDelete';
+import ListShow from './lists/ListShow';
+import FetchRestaurants from './restaurants/FetchRestaurants';
 import Header from './Header';
-import AuthForm from './user/AuthForm';
+import Home from './Home';
+import history from '../history';
+
+
 
 class App extends React.Component {
+
+  constructor() {
+    super(); 
+    this.state = {
+      loggedInStatus: 'NOT_LOGGED_IN', 
+      user: {}, 
+      errorMessage: ''
+    }
+  }
+
+  handleLogin = (data) => {
+    this.setState({
+      loggedInStatus: "LOGGED_IN", 
+      user: data.user
+    })
+
+  };
+
+  handleLogout = () => {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN", 
+      user: {}
+    })
+  };
+
   render() {
     return(
-      <BrowserRouter>
+      <Router history={history}>
         <div>
           <Header />
           <Switch>
-            <Route path="/" exact component={RestaurantList} />
-            <Route path="/restaurants/new" exact component={RestaurantCreate} />
-            <Route path="/restaurants/edit/:id" exact component={RestaurantEdit} />
-            <Route path="/restaurants/delete/:id" exact component={RestaurantDelete} />
-            <Route path="/restaurants/:id" exact component={RestaurantShow} />
+            <Route path="/" exact component={ListList} />
+            <Route path="/list/new" exact component={ListCreate} />
+            <Route path="/list/edit/:id" exact component={ListEdit} />
+            <Route path="/list/delete/:id" exact component={ListDelete} />
+            <Route path="/list/:id" exact component={ListShow} />
+            <Route path="/restaurants" exact component={FetchRestaurants} />
           </Switch>
-          <AuthForm />
+          <div>
+            <Home 
+              loggedInStatus={this.state.loggedInStatus} 
+              handleLogout={this.handleLogout} 
+              handleLogin={this.handleLogin} 
+            />
+          </div> 
         </div>
-      </BrowserRouter>
+      </Router>
     )
   }
 }
