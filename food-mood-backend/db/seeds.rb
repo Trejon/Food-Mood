@@ -8,7 +8,7 @@
 User.destroy_all
 Restaurant.destroy_all
 
-trejon = User.create!(email: 'tre@stallsworth.com', name: 'Tre', location: 'Denver, CO', password: 'password', password_confirmation: 'password')
+trejon = User.create!(email: 'tre@stallsworth.com', name: 'Tre', password: 'password', password_confirmation: 'password')
 
 favs = List.create!(name: 'Favorite Spots', user: trejon)
 must_try = List.create!(name: 'Must try restaurants', user: trejon)

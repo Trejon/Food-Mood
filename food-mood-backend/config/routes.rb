@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :users do
     resources :lists
   end
@@ -11,21 +12,9 @@ namespace :api do
     resources :restaurants
   end 
 end 
-  # devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+ 
   root to: "home#index"
 
-
-
-  devise_for :users,
-            path: '',
-            path_names: {
-              sign_in: 'login',
-              sign_out: 'logout',
-              registration: 'signup'
-            },
-            controllers: {
-              sessions: 'sessions',
-              registrations: 'registrations'
-            }
+  post "/api/v1/login", to: "api/v1/sessions#create"
+  get "/api/v1/get_current_user", to: "api/v1/sessions#get_current_user"
 end

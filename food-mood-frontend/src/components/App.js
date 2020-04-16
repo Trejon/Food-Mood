@@ -9,6 +9,8 @@ import FetchRestaurants from './restaurants/FetchRestaurants';
 import Header from './Header';
 import Home from './Home';
 import history from '../history';
+import { connect } from 'react-redux'; 
+import { getCurrentUser } from '../actions/currentUser';
 
 
 
@@ -38,6 +40,10 @@ class App extends React.Component {
     })
   };
 
+  componentDidMount() {
+    this.props.getCurrentUser()
+  }
+
   render() {
     return(
       <Router history={history}>
@@ -64,4 +70,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(null, { getCurrentUser })(App);
