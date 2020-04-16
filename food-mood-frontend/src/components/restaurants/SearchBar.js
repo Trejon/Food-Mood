@@ -1,5 +1,5 @@
 import React from 'react';
-import { requestOptions, url } from '../config.js.js'
+import { requestOptions, url } from '../config.js'
 
 class SearchBar extends React.Component {
 
@@ -32,7 +32,7 @@ class SearchBar extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state)
+    // console.log(this.state)
   }
 
 
@@ -41,7 +41,7 @@ class SearchBar extends React.Component {
   // }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return(
       <div className="search-bar ui segment">
         <form onSubmit={this.handleSubmit} className="ui form">

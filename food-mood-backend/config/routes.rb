@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :reviews
   end
-
-  resources :lists
-  resources :restaurants
-  resources :users
+namespace :api do 
+  namespace :v1 do 
+    resources :lists
+    resources :restaurants
+  end 
+end 
   # devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "home#index"

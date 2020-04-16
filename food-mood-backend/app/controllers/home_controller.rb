@@ -7,12 +7,12 @@ class HomeController < ApplicationController
 
     def profile
       user = current_user
-      render_resource(user, with: [:reviews, :restaurants])
+      render_resource(user, with: [:lists, :restaurants])
     end
 
-    def reviews
+    def lists
       user = current_user
-      reviews = user.reviews
-      render_resource(reviews, with: [:restaurant])
+      lists = user.lists
+      render_resource(lists, with: [:restaurants])
     end
 end

@@ -8,7 +8,9 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case GET_COORDS: 
-      return {...state, lat: true, long: action.payload }
+      return {
+        ...state, lat: action.payload.lat, long: action.payload.long  
+      }
     default: 
       return state;
   }

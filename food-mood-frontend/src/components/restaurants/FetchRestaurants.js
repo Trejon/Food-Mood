@@ -1,9 +1,10 @@
 import React from 'react'; 
 import SearchBar from './SearchBar';
-import { requestOptions, url } from '../config.js.js'
+import { requestOptions, url } from '../config.js'
 import yelp from '../../apis/yelp';
 import { connect } from 'react-redux';
 import Restaurant from './Restaurant';
+import { location } from '../../actions/location';
 
 class FetchRestaurants extends React.Component{
   constructor() {
@@ -16,9 +17,17 @@ class FetchRestaurants extends React.Component{
     }
   }
 
+  getLatAndLong = (lat, long) => {
+    return this.setState((currentState) => {
+      return {
+        lat, long
+      }
+    })
+  }
+
 getGeoLocation = () => {
      window.navigator.geolocation.getCurrentPosition(
-      position => this.setState({lat: position.coords.latitude, long: position.coords.longitude}),
+      position => this.getLatAndLong(position.coords.latitude, position.coords.longitude),
       err => this.setState({errorMessage: err.message})
     );
   }
@@ -41,8 +50,10 @@ getGeoLocation = () => {
   // }
 
   componentDidMount() {
+    // console.log(this.props)
     // this.fetchYelpApi();
-    this.getGeoLocation();
+    // this.getGeoLocation();
+    this.props.location()
   }
 
 
@@ -71,4 +82,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(FetchRestaurants);
+export default connect(mapStateToProps, { location })(FetchRestaurants);

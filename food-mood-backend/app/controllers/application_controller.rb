@@ -3,7 +3,17 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   rescue_from AuthorizationError, with: :unauthorized_error
 
+  
+
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+    # def current_user
+    #   User.find(session[:user_id])
+    # end
+
+    # def logged_in? 
+    #   !!current_user
+    # end 
 
     def render_resource(resource, with: nil)
         if resource.errors.empty?

@@ -3,6 +3,9 @@ class Api::V1::ListsController < ApplicationController
   def index 
     @lists = List.all
     render json: @lists.to_json(include: [:restaurants, :user])
+    # json_string = MovieSerializer.new(movie).serialized_json
+    # lists_json = ListSerializer.new(@lists).serialized_json
+    # render json: lists_json
   end 
 
   def create 
