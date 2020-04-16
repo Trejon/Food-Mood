@@ -4,8 +4,7 @@ class Api::V1::UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
-    render json: @users
+    render json: @users.to_json(include: [:restaurants, :lists], only: [:name, :email])
   end
 
   # GET /users/1

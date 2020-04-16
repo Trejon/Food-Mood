@@ -1,4 +1,5 @@
 import { SET_CURRENT_USER } from './types';
+import { resetLoginForm } from './loginForm';
 
 export const setCurrentUser = user => {
   return {
@@ -32,6 +33,7 @@ export const login = credentials => {
         alert(user.error)
       } else {
        dispatch(setCurrentUser(user))
+       dispatch(resetLoginForm())
       }
     })
     .catch(console.log)

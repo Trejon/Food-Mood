@@ -1,15 +1,17 @@
 class Api::V1::ListsController < ApplicationController
   
   def index 
-    @lists = List.all
-    render json: @lists.to_json(include: [:restaurants, :user])
-    # json_string = MovieSerializer.new(movie).serialized_json
-    # lists_json = ListSerializer.new(@lists).serialized_json
-    # render json: lists_json
+    if logged_in?
+      @lists = current_user.lists 
+      render json: @lists.to_json(include: [:restaurants, :user])
+    else 
+      render json: {
+        error: "You must be logged in to see lists."
+      }
+    end 
   end 
 
   def create 
-    byebug
     @list = List.new(list_params)
     if @list.save
       render json: @list

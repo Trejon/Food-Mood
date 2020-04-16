@@ -9,11 +9,9 @@ import FetchRestaurants from './restaurants/FetchRestaurants';
 import Header from './Header';
 import Home from './Home';
 import history from '../history';
-import Login from './user/Login';
-import SignUp from './user/SignUp';
-import Logout from './user/Logout';
 import { connect } from 'react-redux'; 
 import { getCurrentUser } from '../actions/currentUser';
+import MainContainer from './MainContainer';
 
 
 
@@ -50,8 +48,10 @@ class App extends React.Component {
       <Router history={history}>
         <div>
           <Header />
+          <MainContainer />
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/list/lists" exact component={ListList} />
             <Route path="/list/new" exact component={ListCreate} />
             <Route path="/list/edit/:id" exact component={ListEdit} />
             <Route path="/list/delete/:id" exact component={ListDelete} />
