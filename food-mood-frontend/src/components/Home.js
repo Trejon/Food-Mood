@@ -1,6 +1,8 @@
 import React from 'react';
 import Login from './user/Login';
 import SignUp from './user/SignUp';
+import Logout from './user/Logout';
+import { connect } from 'react-redux'; 
 import { render } from 'react-dom';
 
 class Home extends React.Component{
@@ -15,23 +17,25 @@ class Home extends React.Component{
 
 
   render() {
-    if (this.props.loggedInStatus === "NOT_LOGGED_IN"){
       return(
+        !this.props.currentUser ? 
         <div>
           <h1>Sign In!</h1>
             <Login handleSuccessfulAuth={this.handleSuccessfulAuth} />
           <h1>Sign Up!</h1>
             <SignUp handleSuccessfulAuth={this.handleSuccessfulAuth} />
-        </div>
+        </div> : <Logout />
       )
-    } else {
-      return(
-        <div> 
-          <h1>Hello</h1>
-        </div>
-      )
-    }
   }
+    
+
+
 } 
 
-export default Home;
+const mapStateToProps = ({ currentUser }) => {
+  return {
+    currentUser
+  }
+}
+
+export default connect(mapStateToProps)(Home);

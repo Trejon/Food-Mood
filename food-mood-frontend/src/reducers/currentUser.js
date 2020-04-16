@@ -4,8 +4,10 @@ export default (state = null, action) => {
       return {
         ...state, currentUser: action.user
       }
+    case 'CLEAR_CURRENT_USER':
+        return null
 
     default: 
       return state
   }
-}
+} 
