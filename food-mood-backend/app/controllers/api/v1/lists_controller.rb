@@ -3,7 +3,7 @@ class Api::V1::ListsController < ApplicationController
   def index 
     if logged_in?
       @lists = current_user.lists 
-      render json: @lists.to_json(include: [:restaurants, :user])
+      render json: ListSerializer.new(@lists)
     else 
       render json: {
         error: "You must be logged in to see lists."
@@ -14,7 +14,7 @@ class Api::V1::ListsController < ApplicationController
   def create 
     @list = List.new(list_params)
     if @list.save
-      render json: @list
+      render json: ListSerializer.new(@list)
     else
       render json: { error: 'Error creating new list' }
     end 
@@ -23,7 +23,7 @@ class Api::V1::ListsController < ApplicationController
 
   def show 
     @list = List.find(params[:id])
-    render json: @list.to_json(include: [:restaurants, :user])
+    render json: ListSerializer.new(@list)
   end 
 
   def destroy 

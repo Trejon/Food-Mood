@@ -1,12 +1,12 @@
 class Api::V1::RestaurantsController < ApplicationController
     def index 
       @restaurants = Restaurant.all
-      render json: @restaurants.to_json(include: [:lists])
+      render json: RestaurantSerializer.new(@restaurants)
     end 
   
     def show 
       @restaurant = Restaurant.find(params[:id])
-      render json: @restaurant.to_json(include: [:lists])
+      render json: RestaurantSerializer.new(@restaurant)
     end 
   
     def create 

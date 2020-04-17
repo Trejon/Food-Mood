@@ -4,11 +4,13 @@ import locationReducer from './locationReducer';
 import listReducer from './listReducer';
 import currentUser from './currentUser';
 import loginForm from './loginForm';
+import myLists from './myLists';
 
 export default combineReducers({
-  auth: authReducer, 
+  // auth: authReducer, 
   location: locationReducer, 
-  lists: listReducer, 
+  // lists: listReducer, 
   currentUser, 
-  loginForm
+  loginForm, 
+  myLists
 });

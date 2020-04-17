@@ -10,8 +10,8 @@ Restaurant.destroy_all
 
 trejon = User.create!(email: 'tre@stallsworth.com', name: 'Tre', password: 'password', password_confirmation: 'password')
 
-favs = List.create!(name: 'Favorite Spots', user: trejon)
-must_try = List.create!(name: 'Must try restaurants', user: trejon)
+favs = List.create!(name: 'Favorite Spots', description: "A list of my favorite restaurants to go to.", user: trejon)
+must_try = List.create!(name: 'Must try restaurants', description: "A list of restaurants I really want to try.", user: trejon)
 
 red_lobster = Restaurant.create!(name: 'Red Lobster', image_url: 'https://picsum.photos/200/300', url: 'https://www.redlobster.com/', phone: '434-343-2343', rating: 9.34, location: 'Denver, CO', price: '$50')
 red_robin = Restaurant.create!(name: 'Red Robin', image_url: 'https://picsum.photos/200/300', url: 'https://www.redrobin.com/', phone: '434-343-2343', rating: 9.54, location: 'Denver, CO', price: '$40')

@@ -20,11 +20,10 @@ class Home extends React.Component{
       return(
         !this.props.currentUser ? 
         <div>
-          <h1>Sign In!</h1>
-            <Login handleSuccessfulAuth={this.handleSuccessfulAuth} />
+          <h1>Please sign in above!</h1>
           <h1>Sign Up!</h1>
             <SignUp handleSuccessfulAuth={this.handleSuccessfulAuth} />
-        </div> : <Logout />
+        </div> : null
       )
   }
     

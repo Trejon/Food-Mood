@@ -18,7 +18,7 @@ const Header = ({ currentUser }) => {
         Lists
       </Link>
       <div className="">
-       <strong>Welcome, {currentUser.currentUser.name}</strong> 
+       <strong>Welcome, {currentUser.currentUser.data.attributes.name}</strong> 
       </div>
       <div className="right menu">
         <Logout />

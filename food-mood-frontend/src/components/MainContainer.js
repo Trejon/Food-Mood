@@ -1,9 +1,10 @@
-import React from 'react'; 
+import React from 'react';
+import MyLists from './MyLists'; 
 
 const MainContainer = () => {
   return(
     <div className="MainContainer">
-      I'm the main container
+      <MyLists />
     </div>
   )
 }

@@ -1,10 +1,11 @@
 import { SET_CURRENT_USER } from './types';
 import { resetLoginForm } from './loginForm';
+import { getMyLists } from './myLists';
 
 export const setCurrentUser = user => {
   return {
     type: SET_CURRENT_USER,
-    user: user
+    user
   }
 }
 
@@ -33,6 +34,7 @@ export const login = credentials => {
         alert(user.error)
       } else {
        dispatch(setCurrentUser(user))
+       dispatch(getMyLists())
        dispatch(resetLoginForm())
       }
     })
@@ -60,11 +62,12 @@ export const getCurrentUser = () => {
       }, 
     })
     .then(res => res.json())
-    .then(user => {
-      if (user.error) {
-        alert(user.error)
+    .then(response => {
+      if (response.error) {
+        alert(response.error)
       } else {
-       dispatch(setCurrentUser(user))
+       dispatch(setCurrentUser(response))
+       dispatch(getMyLists())
       }
     })
     .catch(console.log)

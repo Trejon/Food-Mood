@@ -4,13 +4,13 @@ class Api::V1::UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-    render json: @users.to_json(include: [:restaurants, :lists], only: [:name, :email])
+    render json: UserSerializer.new(@users)
   end
 
   # GET /users/1
   def show
     @user = User.find_by(id: params[:user_id])
-    render json: @user
+    render json: UserSerializer.new(@user).serialized_json
   end
 
   # POST /users

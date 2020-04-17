@@ -71,10 +71,10 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.currentUser
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     currentUser: state.currentUser
+//   }
+// }
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default connect(null, { getCurrentUser })(App);
