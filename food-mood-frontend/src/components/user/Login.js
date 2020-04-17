@@ -29,11 +29,11 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
             <form className="ui form" onSubmit={handleSubmit}>
               <div className="field">
                 <label>Email:</label>
-                <input type="text" placeholder="Email" value={loginFormData.email} name="email" onChange={handleChange} />
+                <input type="text" placeholder="Email" value={loginFormData.email} name="email" onChange={handleChange} required/>
               </div>
               <div className="field">
                 <label>Password:</label>
-                <input type="password" placeholder="password" value={loginFormData.password} name="password" onChange={handleChange}/>
+                <input type="password" placeholder="password" value={loginFormData.password} name="password" onChange={handleChange} required />
               </div>
               <button type="submit" className="ui button primary">Submit</button>
             </form>

@@ -1,6 +1,6 @@
 import React from 'react'; 
-
-
+import { signup } from '../../actions/currentUser';
+import { connect } from 'react-redux';
 
 class SignUp extends React.Component {
   state = {
@@ -18,7 +18,7 @@ class SignUp extends React.Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state)
+    this.props.signup(this.state)
   }
 
   render() {
@@ -31,16 +31,20 @@ class SignUp extends React.Component {
               <form className="ui form" onSubmit={this.handleOnSubmit}>
                 <div className="field">
                   <label>Name:</label>
-                  <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleOnChange} />
+                  <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleOnChange} required/>
                 </div>
                 <div className="field">
                   <label>Email:</label>
-                  <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleOnChange} />
+                  <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleOnChange} required/>
                 </div>
                 <div className="field">
                   <label>Password:</label>
-                  <input type="password" placeholder="password" value={this.state.password} name="password" onChange={this.handleOnChange}/>
+                  <input type="password" placeholder="password" value={this.state.password} name="password" onChange={this.handleOnChange} required/>
                 </div>
+                {/* <div className="field">
+                  <label>Password Confirmation:</label>
+                  <input type="password" placeholder="password confirmation" value={this.state.password_confirmation} name="password_confirmation" onChange={this.handleOnChange} required/>
+                </div> */}
                 <button type="submit" className="ui button primary">Submit</button>
               </form>
               </div>
@@ -52,4 +56,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp;
+export default connect(null, { signup })(SignUp);

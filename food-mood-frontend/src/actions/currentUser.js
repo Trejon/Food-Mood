@@ -1,6 +1,7 @@
 import { SET_CURRENT_USER } from './types';
 import { resetLoginForm } from './loginForm';
 import { getMyLists } from './myLists';
+import history from '../history';
 
 export const setCurrentUser = user => {
   return {
@@ -35,6 +36,7 @@ export const login = credentials => {
       } else {
        dispatch(setCurrentUser(user))
        dispatch(getMyLists())
+       history.push('/')
        dispatch(resetLoginForm())
       }
     })
@@ -49,6 +51,31 @@ export const logout = () => {
       credentials: 'include', 
       method: 'DELETE'
     })
+  }
+}
+
+export const signup = credentials => {
+  console.log('credentials are:', credentials)
+  return dispatch => {
+    return fetch("http://localhost:3001/api/v1/signup", {
+      credentials: "include",
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify(credentials)
+    })
+    .then(res => res.json())
+    .then(user => {
+      if (user.error) {
+        alert(user.error)
+      } else {
+       dispatch(setCurrentUser(user))
+       dispatch(getMyLists())
+       history.push('/')
+      }
+    })
+    .catch(console.log)
   }
 }
 

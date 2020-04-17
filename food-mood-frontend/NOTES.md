@@ -76,3 +76,38 @@ class Login extends React.Component {
 }
 
 export default Login; -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+const Header = ({ currentUser }) => {
+  if (!currentUser) {
+    return <Login />
+  } else {
+  return(
+    <div className="ui secondary pointing menu"> 
+      <Link to="/" className="item">
+        Home
+      </Link>
+      <Link to="/lists" className="item">
+        Lists
+      </Link>
+      <div className="">
+       <strong>Welcome, {currentUser.currentUser.data.attributes.name}</strong> 
+      </div>
+      <div className="right menu">
+        <Logout />
+      </div>
+    </div>
+  )
+  }
+} -->
