@@ -40,7 +40,14 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def destroy 
-    @list.destroy
+    if @list.destroy 
+      render json:  {data: "List successfully deleted" }, status: :ok
+    else 
+      error_resp = {
+        error: "Unable to delete list"
+      }
+      render json: error_resp, status: :unprocessable_entity
+    end 
   end 
 
   private 

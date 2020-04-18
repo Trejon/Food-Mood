@@ -1,12 +1,12 @@
 import React from 'react';
-import { updateList } from '../actions/myLists'; 
+import { updateList, deleteList } from '../actions/myLists'; 
 import {  setFormDataForEdit, resetListForm } from '../actions/listForm';
 import { connect } from 'react-redux';
 import ListForm from '../components/lists/ListForm';
 import { render } from 'react-dom';
 
 class EditListFormWrapper extends React.Component {
-  componentDidMount() {
+  componentDidMount() { 
     this.props.list && this.props.setFormDataForEdit(this.props.list)
   }
 
@@ -26,15 +26,21 @@ class EditListFormWrapper extends React.Component {
       listId: list.id,  
       userId
     })
-  }
+  }  
 
   render() {
+    const { deleteList, list } = this.props
+    const listId = list ? list.id : null
     return (
       <div>
-        <ListForm editMode handleSubmit={this.handleSubmit} />
+        <>
+          <ListForm editMode handleSubmit={this.handleSubmit} />
+          <br/>
+          <button className="negative ui button" onClick={() => deleteList(listId)}>Delete this list</button>
+        </>
       </div>
     );
     }
   }
 
-export default connect(null, { updateList, setFormDataForEdit, resetListForm })(EditListFormWrapper);
+export default connect(null, { updateList, setFormDataForEdit, resetListForm, deleteList })(EditListFormWrapper);
