@@ -1,3 +1,6 @@
+import history from '../history';
+import { resetNewListForm } from './newListForm'
+
 export const setMyLists = lists => {
   return {
     type: "SET_MY_LISTS",
@@ -57,7 +60,17 @@ export const createList = listData => {
       body: JSON.stringify(sendableListData)
     })
     .then(res => res.json())
-    .then(console.log)
+    .then(response => {
+      if (response.error) {
+        alert(response.error)
+      } else {
+        dispatch(addList(response.data))
+        dispatch(resetNewListForm())
+        history.push(`/lists/${response.data.id}`)
+        // Go somewhere else ---> list show
+        // add the new list to the store 
+      }
+    })
     .catch(console.log)
   }
-}
+} 

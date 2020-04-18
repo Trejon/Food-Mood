@@ -3,9 +3,9 @@ export default (state = [], action) => {
     case "SET_MY_LISTS":
       return action.lists
     case "ADD_LIST": 
-      return state.lists.concat(action.lists)
+      return state.concat(action.list)
     case "CLEAR_LISTS":
-      return []
+      return [] 
     default: 
       return state
   }

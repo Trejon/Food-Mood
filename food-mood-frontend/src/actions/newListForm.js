@@ -7,7 +7,8 @@
     }
   }
 
-
-
-
-// asynchronous
+  export const resetNewListForm = () => {
+    return {
+      type: 'RESET_LIST_FORM'
+    }
+  }
