@@ -1,6 +1,6 @@
 import { SET_CURRENT_USER } from './types';
 import { resetLoginForm } from './loginForm';
-import { getMyLists } from './myLists';
+import { getMyLists, clearLists } from './myLists';
 import history from '../history';
 
 export const setCurrentUser = user => {
@@ -15,7 +15,6 @@ export const setCurrentUser = user => {
     type: "CLEAR_CURRENT_USER"
   }
  }
-
 
 // asynchronous action creators
 export const login = credentials => {
@@ -38,6 +37,7 @@ export const login = credentials => {
        dispatch(getMyLists())
        history.push('/')
        dispatch(resetLoginForm())
+       // Get User location
       }
     })
     .catch(console.log)
@@ -47,6 +47,7 @@ export const login = credentials => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
+    dispatch(clearLists())
     return fetch('http://localhost:3001/api/v1/logout', {
       credentials: 'include', 
       method: 'DELETE'
@@ -73,6 +74,7 @@ export const signup = credentials => {
        dispatch(setCurrentUser(user))
        dispatch(getMyLists())
        history.push('/')
+       // Get User location
       }
     })
     .catch(console.log)

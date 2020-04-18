@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch, Link } from 'react-router-dom';
 import ListList from './components/lists/ListList';
 import ListCreate from './components/lists/ListCreate';
 import ListEdit from './components/lists/ListEdit';
@@ -11,7 +11,7 @@ import Login from './components/user/Login';
 import Signup from './components/user/SignUp';
 import Logout from './components/user/Logout';
 import MyLists from './components/MyLists';
-import Home from './components/Home';
+import LoginOrSignup from './components/LoginOrSignup';
 import history from './history';
 import { connect } from 'react-redux'; 
 import { getCurrentUser } from './actions/currentUser';
@@ -48,10 +48,11 @@ class App extends React.Component {
   }
 
   render() {
+    const { loggedIn } = this.props
     return(
       <Router history={history}>
         <div>
-          <Header />
+          {loggedIn ? <Header location={this.props.location} /> : null}
           <MainContainer />
           <Switch>
             {/* <Route path="/" exact component={Home} />
@@ -61,16 +62,13 @@ class App extends React.Component {
             <Route path="/list/delete/:id" exact component={ListDelete} />
             <Route path="/list/:id" exact component={ListShow} />
             <Route path="/restaurants" exact component={FetchRestaurants} /> */}
+            <Route path="/" exact component={LoginOrSignup} />
             <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={Signup} /> 
-            <Route path="/my-lists" exact component={MyLists} />  
+            <Route path="/lists" exact component={MyLists} />
+            <Route path="/lists/new" exact component={ListCreate} />
           </Switch>
           <div>
-            {/* <Home 
-              loggedInStatus={this.state.loggedInStatus} 
-              handleLogout={this.handleLogout} 
-              handleLogin={this.handleLogin} 
-            /> */}
           </div> 
         </div>
       </Router>
@@ -78,10 +76,10 @@ class App extends React.Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     currentUser: state.currentUser
-//   }
-// }
+const mapStateToProps = state => {
+  return {
+    loggedIn: !!state.currentUser
+  }
+}
 
-export default connect(null, { getCurrentUser })(App);
+export default connect(mapStateToProps, { getCurrentUser })(App);

@@ -4,7 +4,7 @@ import MyLists from './MyLists';
 const MainContainer = () => {
   return(
     <div className="MainContainer">
-      <MyLists />
+      
     </div>
   )
 }

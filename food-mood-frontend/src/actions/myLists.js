@@ -5,7 +5,18 @@ export const setMyLists = lists => {
   }
 }
 
+export const clearLists = () => {
+  return {
+    type: "CLEAR_LISTS", 
+  }
+}
 
+export const addList = list => {
+  return {
+    type: "ADD_LIST", 
+    list
+  }
+} 
 
 // Asynchronous actions
 
@@ -26,6 +37,27 @@ export const setMyLists = lists => {
         dispatch(setMyLists(response.data))
       }
     })
+    .catch(console.log)
+  }
+} 
+
+export const createList = listData => {
+  return dispatch => { 
+    const sendableListData = {
+        name: listData.name, 
+        description: listData.description, 
+        user_id: listData.userId
+    }
+    return fetch("http://localhost:3001/api/v1/lists", {
+      credentials: 'include', 
+      method: 'POST', 
+      headers: {
+        "Content-Type": "application/json"
+      }, 
+      body: JSON.stringify(sendableListData)
+    })
+    .then(res => res.json())
+    .then(console.log)
     .catch(console.log)
   }
 }

@@ -4,31 +4,19 @@ import SignUp from './user/SignUp';
 import Logout from './user/Logout';
 import { connect } from 'react-redux'; 
 import { render } from 'react-dom';
+import { Link } from 'react-router-dom'
+import MyLists from './MyLists';
 
 class Home extends React.Component{
-  handleSuccessfulAuth = (data) => {
-    this.props.handleLogin(data)
-  }
-
-  // handleLogoutClick = () => {
-
-
-  // }
-
 
   render() {
       return(
-        !this.props.currentUser ? 
         <div>
-          <h1>Please sign in above!</h1>
-          <h1>Sign Up!</h1>
-            <SignUp handleSuccessfulAuth={this.handleSuccessfulAuth} />
-        </div> : null
+          {!this.props.currentUser ?
+          <h1>Welcome, please <Link to="/login">Log In</Link> into your account or <Link to="/signup">Sign Up</Link></h1> : <MyLists /> }
+        </div>
       )
   }
-    
-
-
 } 
 
 const mapStateToProps = ({ currentUser }) => {

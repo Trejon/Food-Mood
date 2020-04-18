@@ -16,7 +16,10 @@ class Api::V1::ListsController < ApplicationController
     if @list.save
       render json: ListSerializer.new(@list)
     else
-      render json: { error: 'Error creating new list' }
+      error_resp = {
+        error: @list.errors.full_messages.to_sentence
+      }
+      render json: { error: @list.errors, status: :unprocessable_entity }
     end 
   end 
 
@@ -34,7 +37,7 @@ class Api::V1::ListsController < ApplicationController
   private 
   
   def list_params 
-    params.require(:list).permit(:name, :user_id)
+    params.require(:list).permit(:name, :description, :user_id)
   end 
 
 end

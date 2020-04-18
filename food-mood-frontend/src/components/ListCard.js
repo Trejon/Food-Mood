@@ -2,7 +2,9 @@ import React from 'react';
 
 const ListCard = ({ list }) => {
   return(
-    <p>{list.attributes.name}</p>
+    <>
+      <h3>{list.attributes.name}</h3>
+    </>
   )
 }
 

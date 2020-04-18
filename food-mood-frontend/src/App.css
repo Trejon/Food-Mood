@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.active {
+  color: greenyellow;
+}
+
+#loggedin {
+  font-size: 7px;
+}
