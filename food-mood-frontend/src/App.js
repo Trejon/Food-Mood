@@ -5,6 +5,7 @@ import ListCreate from './components/lists/ListCreate';
 import ListEdit from './components/lists/ListEdit';
 import ListDelete from './components/lists/ListDelete';
 import ListShow from './components/lists/ListShow';
+import ListCard from './components/ListCard';
 import FetchRestaurants from './components/restaurants/FetchRestaurants';
 import Header from './components/Header';
 import Login from './components/user/Login';
@@ -16,6 +17,7 @@ import history from './history';
 import { connect } from 'react-redux'; 
 import { getCurrentUser } from './actions/currentUser';
 import MainContainer from './components/MainContainer';
+import NewListForm from './components/lists/NewListForm';
 
 
 
@@ -48,7 +50,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn } = this.props
+    const { loggedIn, lists } = this.props
     return(
       <Router history={history}>
         <div>
@@ -67,6 +69,16 @@ class App extends React.Component {
             <Route path="/signup" exact component={Signup} /> 
             <Route path="/lists" exact component={MyLists} />
             <Route path="/lists/new" exact component={ListCreate} />
+            <Route path="/lists/:id" exact render={props => {
+              const list = lists.find(list => list.id === props.match.params.id)
+              return <ListCard list={list} />
+              }
+              }/>
+              <Route path="/lists/:id/edit" exact render={props => {
+              const list = lists.find(list => list.id === props.match.params.id)
+              return <NewListForm list={list} />
+              }
+              }/>
           </Switch>
           <div>
           </div> 
@@ -78,7 +90,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: !!state.currentUser
+    loggedIn: !!state.currentUser, 
+    lists: state.myLists
   }
 }
 
