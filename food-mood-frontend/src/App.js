@@ -17,7 +17,10 @@ import history from './history';
 import { connect } from 'react-redux'; 
 import { getCurrentUser } from './actions/currentUser';
 import MainContainer from './components/MainContainer';
-import NewListForm from './components/lists/NewListForm';
+import ListForm from './components/lists/ListForm';
+import { setFormDataForEdit } from './actions/listForm';
+import NewListFormWrapper from './components/NewListFormWrapper';
+import EditListFormWrapper from './components/EditListFormWrapper';
 
 
 
@@ -50,7 +53,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn, lists } = this.props
+    const { loggedIn, lists, setFormDataForEdit } = this.props
     return(
       <Router history={history}>
         <div>
@@ -68,7 +71,7 @@ class App extends React.Component {
             <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={Signup} /> 
             <Route path="/lists" exact component={MyLists} />
-            <Route path="/lists/new" exact component={ListCreate} />
+            <Route path="/lists/new" exact component={NewListFormWrapper} />
             <Route path="/lists/:id" exact render={props => {
               const list = lists.find(list => list.id === props.match.params.id)
               return <ListCard list={list} />
@@ -76,7 +79,7 @@ class App extends React.Component {
               }/>
               <Route path="/lists/:id/edit" exact render={props => {
               const list = lists.find(list => list.id === props.match.params.id)
-              return <NewListForm list={list} />
+              return <EditListFormWrapper list={list} />
               }
               }/>
           </Switch>
@@ -95,4 +98,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default connect(mapStateToProps, { getCurrentUser, setFormDataForEdit })(App);

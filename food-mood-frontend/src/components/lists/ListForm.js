@@ -1,26 +1,18 @@
 import React from 'react'; 
-import { updateNewListForm } from '../../actions/newListForm';
+import { updateListForm } from '../../actions/listForm';
 import { createList } from '../../actions/myLists';
 import { connect } from 'react-redux';
 
-const NewListForm = ({ formData, updateNewListForm, createList, userId}) => {
+const ListForm = ({ formData, updateListForm, userId, list, handleSubmit, editMode }) => {
   const { name, description } = formData
   
   const handleChange = event => {
     const { name, value} = event.target
-    updateNewListForm(name, value)
-  }
- 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    createList({
-      ...formData, 
-      userId
-    })
-  }
+    updateListForm(name, value)
+  } 
   
   return (
-    <form className="ui form" onSubmit={handleSubmit}> 
+    <form className="ui form" onSubmit={event => handleSubmit(event, formData)}> 
       <input 
         name="name"
         onChange={handleChange}
@@ -33,7 +25,7 @@ const NewListForm = ({ formData, updateNewListForm, createList, userId}) => {
         value={description}
         placeholder="Description"
       />
-      <button className="ui primary button" type="submit">Submit</button>
+      <button className="ui primary button" type="submit">{editMode ? "Update List" : "Create List"}</button>
     </form>
   )
 }
@@ -41,9 +33,9 @@ const NewListForm = ({ formData, updateNewListForm, createList, userId}) => {
 const mapStateToProps = state => {
   const userId =  state.currentUser ? state.currentUser.currentUser.data.id : ""
   return {
-    formData: state.newListForm, 
+    formData: state.ListForm, 
     userId
   }
 }
 
-export default connect(mapStateToProps, { updateNewListForm, createList })(NewListForm);
+export default connect(mapStateToProps, { updateListForm })(ListForm);

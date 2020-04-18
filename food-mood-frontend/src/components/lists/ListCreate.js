@@ -1,5 +1,5 @@
 import React from 'react'; 
-import ListForm from './NewListForm';
+import ListForm from './ListForm';
 
 const ListCreate = () => {
   return( 

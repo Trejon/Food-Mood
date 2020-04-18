@@ -5,7 +5,7 @@ import listReducer from './listReducer';
 import currentUser from './currentUser';
 import loginForm from './loginForm';
 import myLists from './myLists';
-import newListForm from './newListForm';
+import ListForm from './listForm';
 
 export default combineReducers({
   // auth: authReducer, 
@@ -14,5 +14,5 @@ export default combineReducers({
   currentUser, 
   loginForm, 
   myLists, 
-  newListForm
+  ListForm
 });
