@@ -9,21 +9,21 @@ import MyLists from './lists/MyLists';
 
 const Header = ({ currentUser, loggedIn }) => {
   return(
-    <div className="ui teal six item inverted menu">
+    <div className="ui teal seven item inverted menu">
       <div className="header item">
-        <NavLink exact activeClassName="active" to="/lists"><h1>Lists</h1></NavLink>
+        <NavLink exact activeClassName="active" to="/lists"><h4>Lists</h4></NavLink>
       </div>
         
       <div className="header item">
-        <NavLink exact activeClassName="active" to="/lists/new"><h1>Create List</h1></NavLink>
+        <NavLink exact activeClassName="active" to="/lists/new"><h4>Create List</h4></NavLink>
       </div>
 
       <div className="header item">
-        <NavLink exact activeClassName="active" to="/restaurants"><h1>Browse Restaurants</h1></NavLink>
+        <NavLink exact activeClassName="active" to="/restaurants"><h4>Browse Restaurants</h4></NavLink>
       </div>
 
       <div className="header item">
-        <NavLink exact activeClassName="active" to="/restaurants"><h1>Browse Recipes</h1></NavLink>
+        <NavLink exact activeClassName="active" to="/restaurants"><h4>Browse Recipes</h4></NavLink>
       </div>
         
         <div className="right menu">
