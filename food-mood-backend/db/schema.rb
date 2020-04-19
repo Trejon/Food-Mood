@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_054651) do
+ActiveRecord::Schema.define(version: 2020_04_19_181426) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
@@ -21,23 +21,20 @@ ActiveRecord::Schema.define(version: 2020_04_16_054651) do
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
-  create_table "lists_restaurants", id: false, force: :cascade do |t|
-    t.integer "list_id", null: false
-    t.integer "restaurant_id", null: false
-    t.index ["list_id", "restaurant_id"], name: "index_lists_restaurants_on_list_id_and_restaurant_id", unique: true
-  end
-
-  create_table "restaurants", force: :cascade do |t|
+  create_table "meals", force: :cascade do |t|
     t.string "name"
-    t.string "image_url"
+    t.string "meal_type"
+    t.string "kind"
+    t.string "description"
     t.string "url"
-    t.string "phone"
-    t.float "rating"
-    t.string "location"
-    t.string "price"
+    t.date "meal_date"
+    t.integer "user_id", null: false
+    t.integer "list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end 
+    t.index ["list_id"], name: "index_meals_on_list_id"
+    t.index ["user_id"], name: "index_meals_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -48,4 +45,6 @@ ActiveRecord::Schema.define(version: 2020_04_16_054651) do
   end
 
   add_foreign_key "lists", "users"
+  add_foreign_key "meals", "lists"
+  add_foreign_key "meals", "users"
 end

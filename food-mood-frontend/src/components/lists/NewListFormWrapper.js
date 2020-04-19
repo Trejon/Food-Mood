@@ -1,7 +1,7 @@
 import React from 'react';
-import { createList } from '../actions/myLists'; 
+import { createList } from '../../actions/myLists'; 
 import { connect } from 'react-redux';
-import ListForm from '../components/lists/ListForm';
+import ListForm from './ListForm';
 
 const NewListFormWrapper = ({ createList }) => {
 

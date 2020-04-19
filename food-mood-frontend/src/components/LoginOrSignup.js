@@ -5,7 +5,7 @@ import Logout from './user/Logout';
 import { connect } from 'react-redux'; 
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom'
-import MyLists from './MyLists';
+import MyLists from './lists/MyLists';
 
 class Home extends React.Component{
 

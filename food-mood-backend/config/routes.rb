@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  
+
 namespace :api do 
   namespace :v1 do
     resources :lists 
+    resources :meals
     resources :users do
       resources :lists
     end
-    resources :restaurants do
-      resources :lists
-    end
+      resources :lists do 
+        resources :meals
+      end 
   end 
 end 
  

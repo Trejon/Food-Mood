@@ -37,7 +37,7 @@ class ListCard extends Component {
 
   render() {
     const { list } = this.props
-    const listRestaurants = list ? list.attributes.restaurants.map(restaurant => <li key={restaurant.id}><h1>{restaurant.name}</h1> Website:{restaurant.url} Rating:{restaurant.rating} Phone Number: {restaurant.display_phone} <img src={restaurant.image_url}/></li>) : null
+    // const listRestaurants = list ? list.attributes.restaurants.map(restaurant => <li key={restaurant.id}><h1>{restaurant.name}</h1> Website:{restaurant.url} Rating:{restaurant.rating} Phone Number: {restaurant.display_phone} <img src={restaurant.image_url}/></li>) : null
 
     return (
       this.props.list ?  
@@ -46,7 +46,7 @@ class ListCard extends Component {
               <p>{list.attributes.description}</p>
               <div>
               <h1>RESTAURANTS ON THIS LIST:</h1>
-                {listRestaurants}
+                {/* {listRestaurants} */}
                 </div>
               <Link to={`/lists/${list.id}/edit`}>Edit this list</Link>
           </div> : 

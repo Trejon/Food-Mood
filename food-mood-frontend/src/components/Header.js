@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 import Login from './user/Login';
 import Logout from './user/Logout';
 import SignUp from './user/SignUp';
-import MyLists from './MyLists';
-import ListCreate from './lists/ListCreate';
+import MyLists from './lists/MyLists';
+
 
 const Header = ({ currentUser, loggedIn }) => {
   return(
-    <div className="ui teal four item inverted menu">
+    <div className="ui teal six item inverted menu">
       <div className="header item">
         <NavLink exact activeClassName="active" to="/lists"><h1>Lists</h1></NavLink>
       </div>
@@ -20,6 +20,10 @@ const Header = ({ currentUser, loggedIn }) => {
 
       <div className="header item">
         <NavLink exact activeClassName="active" to="/restaurants"><h1>Browse Restaurants</h1></NavLink>
+      </div>
+
+      <div className="header item">
+        <NavLink exact activeClassName="active" to="/restaurants"><h1>Browse Recipes</h1></NavLink>
       </div>
         
         <div className="right menu">

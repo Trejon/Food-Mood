@@ -6,5 +6,5 @@ class User < ApplicationRecord
   validates :password, presence: true
 
   has_many :lists, dependent: :destroy
-  has_many :restaurants, through: :lists
+  has_many :meals, dependent: :destroy
 end

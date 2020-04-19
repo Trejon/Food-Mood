@@ -1,18 +1,13 @@
 import React from 'react';
 import { Router, Route, Switch, Link } from 'react-router-dom';
 import './App.css'
-import ListList from './components/lists/ListList';
-import ListCreate from './components/lists/ListCreate';
-import ListEdit from './components/lists/ListEdit';
-import ListDelete from './components/lists/ListDelete';
-import ListShow from './components/lists/ListShow';
-import ListCard from './components/ListCard';
+import ListCard from './components/lists/ListCard';
 import FetchRestaurants from './components/restaurants/FetchRestaurants';
 import Header from './components/Header';
 import Login from './components/user/Login';
 import Signup from './components/user/SignUp';
 import Logout from './components/user/Logout';
-import MyLists from './components/MyLists';
+import MyLists from './components/lists/MyLists';
 import LoginOrSignup from './components/LoginOrSignup';
 import history from './history';
 import { connect } from 'react-redux'; 
@@ -20,8 +15,8 @@ import { getCurrentUser, getUserCoords } from './actions/currentUser';
 import MainContainer from './components/MainContainer';
 import ListForm from './components/lists/ListForm';
 import { setFormDataForEdit } from './actions/listForm';
-import NewListFormWrapper from './components/NewListFormWrapper';
-import EditListFormWrapper from './components/EditListFormWrapper';
+import NewListFormWrapper from './components/lists/NewListFormWrapper';
+import EditListFormWrapper from './components/lists/EditListFormWrapper';
 
 
 

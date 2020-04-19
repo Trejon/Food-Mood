@@ -1,18 +1,17 @@
 class ListSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :description, :restaurants
+  # attributes :name, :description, :restaurants
+  attributes :name, :description
   belongs_to :user, serializer: UserSerializer
   
-  attribute :restaurants do |list|
-    list.restaurants.map do |rest|
+  attribute :meals do |list|
+    list.meals.map do |m|
       {
-        name: rest.name,
-        image_url: rest.image_url,
-        url: rest.url, 
-        phone: rest.phone, 
-        rating: rest.rating, 
-        location: rest.location,
-        price: rest.price
+        meal_type: m.meal_type,
+        kind: m.kind,
+        description: m.description, 
+        url: m.url, 
+        date: m.meal_date, 
       }
     end 
   end 

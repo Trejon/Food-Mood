@@ -23,14 +23,6 @@ export const setCurrentUser = user => {
   }
  }
 
-// asynchronous action creators
-/* getGeoLocation = () => {
-     window.navigator.geolocation.getCurrentPosition(
-      position => this.getLatAndLong(position.coords.latitude, position.coords.longitude),
-      err => this.setState({errorMessage: err.message})
-    );
-  } */
-
 
 export const getUserCoords = () => {
   return dispatch => {
@@ -80,7 +72,6 @@ export const logout = () => {
 }
 
 export const signup = credentials => {
-  console.log('credentials are:', credentials)
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/signup", {
       credentials: "include",

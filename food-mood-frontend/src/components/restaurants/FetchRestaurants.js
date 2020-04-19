@@ -35,7 +35,7 @@ class FetchRestaurants extends React.Component{
   componentDidUpdate(prevProps) {
     // !prevProps.location && console.log(this.props)
     if (this.props.location !== prevProps.location) {
-      // this.fetchYelpApi()
+      this.fetchYelpApi()
     }
     // this.fetchYelpApi()
   }

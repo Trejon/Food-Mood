@@ -1,4 +1,4 @@
 class List < ApplicationRecord
   belongs_to :user
-  has_and_belongs_to_many :restaurants
+  has_many :meals, dependent: :destroy
 end

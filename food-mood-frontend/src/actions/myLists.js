@@ -1,5 +1,5 @@
 import history from '../history';
-import { resetListForm } from './listForm'
+import { resetListForm } from './listForm';
 
 export const setMyLists = lists => {
   return {

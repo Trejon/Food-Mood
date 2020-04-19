@@ -1,8 +1,8 @@
 import React from 'react';
-import { updateList, deleteList } from '../actions/myLists'; 
-import {  setFormDataForEdit, resetListForm } from '../actions/listForm';
+import { updateList, deleteList } from '../../actions/myLists'; 
+import {  setFormDataForEdit, resetListForm } from '../../actions/listForm';
 import { connect } from 'react-redux';
-import ListForm from '../components/lists/ListForm';
+import ListForm from './ListForm';
 import { render } from 'react-dom';
 
 class EditListFormWrapper extends React.Component {
