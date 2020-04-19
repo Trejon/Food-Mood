@@ -3,10 +3,13 @@ class ListSerializer
   # attributes :name, :description, :restaurants
   attributes :name, :description
   belongs_to :user, serializer: UserSerializer
+  has_many :meals, serializer: MealSerializer
   
   attribute :meals do |list|
     list.meals.map do |m|
       {
+        id: m.id,
+        name: m.name, 
         meal_type: m.meal_type,
         kind: m.kind,
         description: m.description, 
