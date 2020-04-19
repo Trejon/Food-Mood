@@ -3,6 +3,7 @@ import { Router, Route, Switch, Link } from 'react-router-dom';
 import './App.css'
 import ListCard from './components/lists/ListCard';
 import FetchRestaurants from './components/restaurants/FetchRestaurants';
+import FetchRecipes from './components/recipes/FetchRecipes';
 import Header from './components/Header';
 import Login from './components/user/Login';
 import Signup from './components/user/SignUp';
@@ -43,7 +44,8 @@ class App extends React.Component {
           {loggedIn ? <Header location={this.props.location} /> : null}
           <MainContainer />
           <Switch>
-            <Route path="/restaurants" exact component={FetchRestaurants} /> */}
+            <Route path="/restaurants" exact component={FetchRestaurants} />
+            <Route path="/recipes" exact component={FetchRecipes} />
             <Route path="/" exact component={LoginOrSignup} />
             <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={Signup} /> 
@@ -59,6 +61,11 @@ class App extends React.Component {
               return <EditListFormWrapper list={list} />
               }
               }/>
+              {/* <Route path="/meals/:id" exact render={props => {
+              const meal = meals.find(meal => meal.id === props.match.params.id)
+              return <MealCard meal={meal} />
+              }
+              }/> */}
           </Switch>
         </div>
       </Router>

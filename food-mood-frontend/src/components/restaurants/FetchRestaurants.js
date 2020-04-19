@@ -55,13 +55,14 @@ class FetchRestaurants extends React.Component{
     if(!this.state.restaurants) {
       return(
         <div>
-          FetchRestaurants
+          <h5>Search Restaurants Near You</h5>
           <SearchBar search={this.fetchYelpApi} />
         </div>
       )
     } 
     return(
       <div>
+        <h5>Search Restaurants Near You</h5>
         <SearchBar search={this.fetchYelpApi} />
         <Restaurant restaurants={this.state.restaurants} />
       </div>
@@ -71,7 +72,7 @@ class FetchRestaurants extends React.Component{
 
 const mapStateToProps = state => {
   return {
-    restaurants: state.restaurants, 
+    // restaurants: state.restaurants, 
     location: state.location
   }
 }

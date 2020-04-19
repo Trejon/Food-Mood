@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 const MyLists = (props) => {
   const listCards = props.lists.length > 0 ? 
-    props.lists.map(l => (<p key={l.id}><Link to={`/lists/${l.id}`}>{l.attributes.name}</Link><br /></p>)) : <h2>This is my lists with an empty array of lists</h2>
+    props.lists.map(l => (<h4 key={l.id}><Link to={`/lists/${l.id}`}>{l.attributes.name}</Link><br /></h4>)) : <h2>This is my lists with an empty array of lists</h2>
   return(
     <>
-    <h1>Heres your lists:</h1>
-      {listCards}
+    <h2>Here's your planned lists</h2>
+      <ul>{listCards}</ul>
     </> 
     
   )
