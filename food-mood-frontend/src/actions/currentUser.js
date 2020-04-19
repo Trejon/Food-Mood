@@ -108,7 +108,7 @@ export const getCurrentUser = () => {
     .then(res => res.json())
     .then(response => {
       if (response.error) {
-        alert(response.error)
+        console.log(response.error)
       } else {
        dispatch(setCurrentUser(response))
        dispatch(getMyLists())

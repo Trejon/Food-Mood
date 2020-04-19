@@ -9,25 +9,25 @@ import MyLists from './lists/MyLists';
 
 const Header = ({ currentUser, loggedIn }) => {
   return(
-    <div className="ui teal seven item inverted menu">
-      <div className="header item">
+    <div className="ui teal seven item menu">
+      <div className="header item navitem">
         <NavLink exact activeClassName="active" to="/lists"><h4>Lists</h4></NavLink>
       </div>
         
-      <div className="header item">
+      <div className="header item navitem">
         <NavLink exact activeClassName="active" to="/lists/new"><h4>Create List</h4></NavLink>
       </div>
 
-      <div className="header item">
-        <NavLink exact activeClassName="active" to="/restaurants"><h4>Browse Restaurants</h4></NavLink>
+      <div className="header item navitem">
+        <NavLink exact activeClassName="active" to="/restaurants"><h4>Search Restaurants</h4></NavLink>
       </div>
 
-      <div className="header item">
-        <NavLink exact activeClassName="active" to="/recipes"><h4>Browse Recipes</h4></NavLink>
+      <div className="header item navitem">
+        <NavLink exact activeClassName="active" to="/recipes"><h4>Search Recipes</h4></NavLink>
       </div>
         
         <div className="right menu">
-          {loggedIn ? <><p className="item">Currently logged in as {currentUser.currentUser.data.attributes.name}</p> <div className="item"><Logout/></div></> : null}
+          {loggedIn ? <><p className="item loggedin">Currently logged in as {currentUser.currentUser.data.attributes.name}</p> <div className="ui item logout"><Logout/></div></> : null}
         </div>
       
     </div>

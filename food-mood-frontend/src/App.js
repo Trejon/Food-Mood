@@ -41,7 +41,7 @@ class App extends React.Component {
     return(
       <Router history={history}>
         <div className="app">
-          {loggedIn ? <Header location={this.props.location} /> : null}
+          {loggedIn ? <Header location={this.props.location} /> : null }
           <MainContainer />
           <Switch>
             <Route path="/restaurants" exact component={FetchRestaurants} />

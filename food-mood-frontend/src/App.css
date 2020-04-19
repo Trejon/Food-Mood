@@ -1,13 +1,20 @@
-/* .app {
-  background-image: url("./images/food-mood-app-background.jpeg");
-} */
-
-.active {
-  color: greenyellow;
+.ui.item.logout {
+  font-size: 10px;
+  position: absolute;
+  right: -50px;
+  height: 75px;
 }
 
-#loggedin {
+.ui.item {
+  position: relative;
+}
+
+.item.loggedin {
   font-size: 10px;
+  position: absolute;
+  right: -75px;
+  width: 200px;
+  height: 50px;
 }
 
 .ui.menu {
@@ -28,4 +35,12 @@
 
 .yelppicture {
   height: 300px;
+}
+
+h4:last-child{
+  color: aliceblue;
+}
+
+.active h4:last-child{
+  color: black;
 }
