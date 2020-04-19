@@ -1,15 +1,8 @@
-import { GET_COORDS } from '../actions/types';
-
-const INITIAL_STATE = {
-  lat: null, 
-  long: null
-};
-
-export default (state = INITIAL_STATE, action) => {
+export default (state = null, action) => {
   switch(action.type) {
-    case GET_COORDS: 
+    case 'GET_USER_LOCATION': 
       return {
-        ...state, lat: action.payload.lat, long: action.payload.long  
+        ...state, location: action.location
       }
     default: 
       return state;

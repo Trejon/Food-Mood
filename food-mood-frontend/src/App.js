@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch, Link } from 'react-router-dom';
+import './App.css'
 import ListList from './components/lists/ListList';
 import ListCreate from './components/lists/ListCreate';
 import ListEdit from './components/lists/ListEdit';
@@ -15,7 +16,7 @@ import MyLists from './components/MyLists';
 import LoginOrSignup from './components/LoginOrSignup';
 import history from './history';
 import { connect } from 'react-redux'; 
-import { getCurrentUser } from './actions/currentUser';
+import { getCurrentUser, getUserCoords } from './actions/currentUser';
 import MainContainer from './components/MainContainer';
 import ListForm from './components/lists/ListForm';
 import { setFormDataForEdit } from './actions/listForm';
@@ -34,38 +35,19 @@ class App extends React.Component {
     }
   }
 
-  // handleLogin = (data) => {
-  //   this.setState({
-  //     loggedInStatus: "LOGGED_IN", 
-  //     user: data.user
-  //   })
-  // };
-
-  // handleLogout = () => {
-  //   this.setState({
-  //     loggedInStatus: "NOT_LOGGED_IN", 
-  //     user: {}
-  //   })
-  // };
-
   componentDidMount() {
     this.props.getCurrentUser()
+    this.props.getUserCoords()
   }
 
   render() {
     const { loggedIn, lists, setFormDataForEdit } = this.props
     return(
       <Router history={history}>
-        <div>
+        <div className="app">
           {loggedIn ? <Header location={this.props.location} /> : null}
           <MainContainer />
           <Switch>
-            {/* <Route path="/" exact component={Home} />
-            <Route path="/list/lists" exact component={ListList} />
-            <Route path="/list/new" exact component={ListCreate} />
-            <Route path="/list/edit/:id" exact component={ListEdit} />
-            <Route path="/list/delete/:id" exact component={ListDelete} />
-            <Route path="/list/:id" exact component={ListShow} />
             <Route path="/restaurants" exact component={FetchRestaurants} /> */}
             <Route path="/" exact component={LoginOrSignup} />
             <Route path="/login" exact component={Login} />
@@ -83,8 +65,6 @@ class App extends React.Component {
               }
               }/>
           </Switch>
-          <div>
-          </div> 
         </div>
       </Router>
     )
@@ -98,4 +78,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentUser, setFormDataForEdit })(App);
+export default connect(mapStateToProps, { getCurrentUser, setFormDataForEdit, getUserCoords })(App);

@@ -1,18 +1,19 @@
-.App {
-  text-align: center;
-}
+/* .app {
+  background-image: url("./images/food-mood-app-background.jpeg");
+} */
 
 .active {
   color: greenyellow;
 }
 
 #loggedin {
-  font-size: 7px;
+  font-size: 10px;
 }
 
 .ui.menu {
   font-size: 1rem;
-  background-color: aqua;
+  padding-top: 1%;
+  background-color: #8FBC8F;
 }
 
 .ui.pointer.menu {

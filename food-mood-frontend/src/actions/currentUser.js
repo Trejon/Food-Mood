@@ -3,6 +3,13 @@ import { resetLoginForm } from './loginForm';
 import { getMyLists, clearLists } from './myLists';
 import history from '../history';
 
+export const getUserLocation = location => {
+  return {
+    type: 'GET_USER_LOCATION', 
+    location
+  }
+}
+
 export const setCurrentUser = user => {
   return {
     type: SET_CURRENT_USER,
@@ -17,8 +24,25 @@ export const setCurrentUser = user => {
  }
 
 // asynchronous action creators
+/* getGeoLocation = () => {
+     window.navigator.geolocation.getCurrentPosition(
+      position => this.getLatAndLong(position.coords.latitude, position.coords.longitude),
+      err => this.setState({errorMessage: err.message})
+    );
+  } */
+
+
+export const getUserCoords = () => {
+  return dispatch => {
+    return window.navigator.geolocation.getCurrentPosition(
+      position => dispatch(getUserLocation({latitude: position.coords.latitude,longitude: position.coords.longitude})),
+      err => console.log({errorMessage: err.message})
+    );
+    }
+  }
+
+
 export const login = credentials => {
-  console.log('credentials are:', credentials)
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
