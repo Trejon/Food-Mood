@@ -1,5 +1,5 @@
 import React from 'react'; 
-import Search from './RecipeSearch';
+import RecipeSearch from './RecipeSearch';
 import { connect } from 'react-redux';
 import Recipe from './Recipe';
 
@@ -11,6 +11,28 @@ class FetchRecipes extends React.Component{
       recipes: [], 
     }
   }
+
+  // async getResults() {
+  //   try {
+  //     const res = await axios(`https://forkify-api.herokuapp.com/api/search?&q=${this.query}`);
+  //     this.result = res.data.recipes;
+  //     // console.log(this.result);
+  //   } catch(error) {
+  //       alert(error);
+  //   }
+  // }
+
+    fetchRecipes = (query) => {
+      fetch(`https://forkify-api.herokuapp.com/api/search?&q=${query}`)
+        .then(res => res.json())
+        .then(result => this.setState({
+          recipes: result.recipes
+        }))
+    }
+
+    componentDidUpdate() {
+      console.log(this.state)
+    }
   
   //request are looking near the user
 
@@ -45,18 +67,19 @@ class FetchRecipes extends React.Component{
 
 
   render() {
-    if(!this.state.restaurants) {
+    if(!this.state.recipes) {
       return(
         <div>
           <h5>Search Recipes</h5>
-          {/* <SearchBar  /> */}
+          <RecipeSearch search={this.fetchRecipes} />
         </div>
       )
     } 
     return(
       <div>
         <h5>Search Recipes</h5>
-        {/* <SearchBar  /> */}
+        <RecipeSearch search={this.fetchRecipes} />
+        <Recipe recipes={this.state.recipes} />
       </div>
     )
   }

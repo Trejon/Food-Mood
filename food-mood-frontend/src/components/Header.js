@@ -23,7 +23,7 @@ const Header = ({ currentUser, loggedIn }) => {
       </div>
 
       <div className="header item">
-        <NavLink exact activeClassName="active" to="/restaurants"><h4>Browse Recipes</h4></NavLink>
+        <NavLink exact activeClassName="active" to="/recipes"><h4>Browse Recipes</h4></NavLink>
       </div>
         
         <div className="right menu">
