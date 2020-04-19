@@ -9,10 +9,23 @@ import ListCreate from './lists/ListCreate';
 
 const Header = ({ currentUser, loggedIn }) => {
   return(
-    <div className="ui pointer menu">
-        <NavLink exact activeClassName="active" to="/lists">Lists  |  </NavLink>
-        <NavLink exact activeClassName="active" to="/lists/new">Create List  |  </NavLink>
-        {loggedIn ? <><p id="loggedin">Logged in as {currentUser.currentUser.data.attributes.name}</p> <Logout/></> : null}
+    <div className="ui teal four item inverted menu">
+      <div className="header item">
+        <NavLink exact activeClassName="active" to="/lists"><h1>Lists</h1></NavLink>
+      </div>
+        
+      <div className="header item">
+        <NavLink exact activeClassName="active" to="/lists/new"><h1>Create List</h1></NavLink>
+      </div>
+
+      <div className="header item">
+        <NavLink exact activeClassName="active" to="/restaurants"><h1>Browse Restaurants</h1></NavLink>
+      </div>
+        
+        <div className="right menu">
+          {loggedIn ? <><p className="item">Currently logged in as {currentUser.currentUser.data.attributes.name}</p> <div className="item"><Logout/></div></> : null}
+        </div>
+      
     </div>
   )
 }

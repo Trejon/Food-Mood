@@ -1,5 +1,6 @@
 import React from 'react';
 import { requestOptions, url } from '../config.js'
+import { connect } from 'react-redux';
 
 class SearchBar extends React.Component {
 
@@ -16,20 +17,8 @@ class SearchBar extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    // console.log(this.state.term)
-    this.fetchYelpApi(this.state.term);
+    this.props.search(this.state.term);
   };
-
-  fetchYelpApi = (term) => {
-    fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${this.props.lat}&longitude=${this.props.long}`, requestOptions)
-    .then(response => response.json())
-    .then(result => {
-      this.setState({
-        restaurants: result.businesses
-      })
-    })
-    .catch(error => console.log('error', error));
-  }
 
   componentDidUpdate() {
     // console.log(this.state)
@@ -58,4 +47,10 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+const mapStateToProps = state => {
+  return {
+    location: state.location
+  }
+}
+
+export default connect(mapStateToProps)(SearchBar);

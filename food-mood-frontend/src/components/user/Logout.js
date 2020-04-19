@@ -1,11 +1,13 @@
 import React from 'react'; 
 import { connect } from 'react-redux';
 import { logout } from '../../actions/currentUser';
+import history from '../../history';
 
 const Logout = ({ logout }) => {
   const handleLogout = (event) => {
     event.preventDefault() 
     logout()
+    history.push('/')
   }
 
   return(
@@ -15,7 +17,7 @@ const Logout = ({ logout }) => {
           <div className="panel panel-default">
             <div className="panel-body">
             <form className="ui form" onSubmit={handleLogout}> 
-              <button type="submit" className="ui button primary">Logout</button>
+              <button type="submit" className="ui button negative">Logout</button>
             </form>
             </div>
           </div>

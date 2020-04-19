@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import Restaurant from './Restaurant';
 // import { location } from '../../actions/location';
 
+
+// this.props.location.location
+
+
 class FetchRestaurants extends React.Component{
   constructor() {
     super()
@@ -17,21 +21,28 @@ class FetchRestaurants extends React.Component{
   
   //request are looking near the user
 
-  // fetchYelpApi = (term) => {
-  //   fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${this.props.location.location.latitude}&longitude=${this.props.location.location.longitude}`, requestOptions)
-  //   .then(response => response.json())
-  //   .then(result => {
-  //     this.setState({
-  //       restaurants: result.businesses
-  //     })
-  //   })
-  //   .catch(error => console.log('error', error));
-  // }
+  fetchYelpApi = (term) => {
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${this.props.location.location.latitude}&longitude=${this.props.location.location.longitude}`, requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      this.setState({
+        restaurants: result.businesses
+      })
+    })
+    .catch(error => console.log('error', error));
+  }
 
   componentDidUpdate(prevProps) {
+    // !prevProps.location && console.log(this.props)
+    if (this.props.location !== prevProps.location) {
+      // this.fetchYelpApi()
+    }
     // this.fetchYelpApi()
-    console.log(this.props.location.location)
   }
+
+  // componentDidUpdate(prevProps) {
+  //   this.props.list && !prevProps.list && this.props.setFormDataForEdit(this.props.list)
+  // }
  
   componentDidMount() {
     // console.log(this.props)
@@ -51,8 +62,8 @@ class FetchRestaurants extends React.Component{
     } 
     return(
       <div>
+        <SearchBar search={this.fetchYelpApi} />
         <Restaurant restaurants={this.state.restaurants} />
-        <SearchBar search={this.fetchYelpApi} lat={this.state.lat} long={this.state.long} />
       </div>
     )
   }
