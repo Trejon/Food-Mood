@@ -1,6 +1,7 @@
 import { SET_CURRENT_USER } from './types';
 import { resetLoginForm } from './loginForm';
 import { getMyLists, clearLists } from './myLists';
+import { getMyMeals, clearMeals } from './myMeals';
 import history from '../history';
 
 export const getUserLocation = location => {
@@ -51,6 +52,7 @@ export const login = credentials => {
       } else {
        dispatch(setCurrentUser(user))
        dispatch(getMyLists())
+       dispatch(getMyMeals())
        history.push('/')
        dispatch(resetLoginForm())
        // Get User location
@@ -88,6 +90,7 @@ export const signup = credentials => {
       } else {
        dispatch(setCurrentUser(user))
        dispatch(getMyLists())
+       dispatch(getMyMeals())
        history.push('/')
        // Get User location
       }
@@ -112,6 +115,7 @@ export const getCurrentUser = () => {
       } else {
        dispatch(setCurrentUser(response))
        dispatch(getMyLists())
+       dispatch(getMyMeals())
       }
     })
     .catch(console.log)

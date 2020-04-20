@@ -10,7 +10,10 @@ class ListCard extends Component {
 
     return (
       this.props.list ?  
-            <div>
+            <div className="ui relaxed divided list">
+              <div className="item">
+                
+              </div>
               <h2>{list.attributes.name}</h2>
               <p>{list.attributes.description}</p>
               <div>

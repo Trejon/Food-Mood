@@ -4,12 +4,25 @@ import { Link } from 'react-router-dom';
 
 const MyLists = (props) => {
   const listCards = props.lists.length > 0 ? 
-    props.lists.map(l => (<h4 key={l.id}><Link to={`/lists/${l.id}`}>{l.attributes.name}</Link><br /></h4>)) : <h2>This is my lists with an empty array of lists</h2>
+    props.lists.map(l => (<div className="item" 
+    key={l.id}>
+      <i className="large list icon"></i>
+       <div className="content">
+        <div className="header"><h5><Link 
+          to={`/lists/${l.id}`}>{l.attributes.name}
+        </Link></h5></div>
+        <div className="description">{l.attributes.description}</div>
+       </div>
+      </div>)) : <h2>You currently don't have any lists.</h2>
+
+
   return(
-    <>
-    <h2>Here's your planned lists</h2>
-      <ul>{listCards}</ul>
-    </> 
+    <div>
+    <h3>These are your lists:</h3>
+    <div className="ui list">
+      {listCards}
+      </div>
+    </div> 
     
   )
 }

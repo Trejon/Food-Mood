@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, Switch, Link } from 'react-router-dom';
 import './App.css'
 import ListCard from './components/lists/ListCard';
+import MealCard from './components/meals/MealCard';
 import FetchRestaurants from './components/restaurants/FetchRestaurants';
 import FetchRecipes from './components/recipes/FetchRecipes';
 import Header from './components/Header';
@@ -61,11 +62,11 @@ class App extends React.Component {
               return <EditListFormWrapper list={list} />
               }
               }/>
-              {/* <Route path="/meals/:id" exact render={props => {
-              const meal = meals.find(meal => meal.id === props.match.params.id)
-              return <MealCard meal={meal} />
+              <Route path="/meals/:id" exact render={props => {
+              // const meal = meals.find(meal => meal.id === props.match.params.id)
+              return <MealCard  />
               }
-              }/> */}
+              }/>
           </Switch>
         </div>
       </Router>

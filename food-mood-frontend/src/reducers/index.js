@@ -5,6 +5,7 @@ import listReducer from './listReducer';
 import currentUser from './currentUser';
 import loginForm from './loginForm';
 import myLists from './myLists';
+import myMeals from './myMeals';
 import ListForm from './listForm';
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
   currentUser, 
   loginForm, 
   myLists, 
-  ListForm
+  myMeals,
+  ListForm, 
 });
