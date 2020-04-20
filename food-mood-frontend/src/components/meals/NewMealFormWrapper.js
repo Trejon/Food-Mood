@@ -3,21 +3,30 @@ import { createMeal } from '../../actions/myMeals';
 import { connect } from 'react-redux';
 import MealForm from './MealForm';
 
-const NewMealFormWrapper = ({ createMeal }) => {
+const NewMealFormWrapper = ({ createMeal, listId, userId }) => {
 
-  const handleSubmit = (event, formData, userId ) => {
+  const handleSubmit = (event, formData) => {
     event.preventDefault()
     createMeal({
       ...formData,  
-      userId
+      userId, 
+      listId
     })
   }
 
+
   return (
     <div>
-      <MealForm handleSubmit={handleSubmit} />
+      <MealForm listId={listId} handleSubmit={handleSubmit} />
     </div>
   );
 }
 
-export default connect(null, { createMeal })(NewMealFormWrapper);
+const mapStateToProps = state => {
+  const userId =  state.currentUser ? state.currentUser.currentUser.data.id : ""
+  return {
+    userId
+  }
+}
+
+export default connect(mapStateToProps, { createMeal })(NewMealFormWrapper);

@@ -6,10 +6,10 @@ const Restaurant = (props) => {
   <div className="column"> 
     <div className="ui fluid card">
       <div className="image">
-        <img style={{height: '500px'}} src={restaurant.image_url}/>
+        <img style={{height: '500px'}} src={restaurant.image_url} alt={restaurant.name} />
       </div>
       <div className="content">
-        <a className="header" href={restaurant.url} target="_blank"><h3>{restaurant.name}</h3></a>
+        <a className="header" href={restaurant.url} target="_blank" rel="noopener noreferrer"><h3>{restaurant.name}</h3></a>
         <div className="description">
           <h5>Phone Number: {restaurant.display_phone}</h5>
         </div> 

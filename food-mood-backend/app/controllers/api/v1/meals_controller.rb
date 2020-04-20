@@ -16,9 +16,8 @@ class Api::V1::MealsController < ApplicationController
   # POST /meals
   def create
     @meal = Meal.new(meal_params)
-
     if @meal.save
-      render json: @meal
+      render json: MealSerializer.new(@meal)
     else
       render json: { error: 'Error creating new meal' }
     end 
@@ -27,7 +26,7 @@ class Api::V1::MealsController < ApplicationController
   # PATCH/PUT /meals/1
   def update
     if @meal.update(meal_params)
-      render json: @meal
+      render json: MealSerializer.new(@meal)
     else
       render json: @meal.errors, status: :unprocessable_entity
     end
@@ -46,6 +45,6 @@ class Api::V1::MealsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def meal_params
-      params.require(:meal).permit(:meal_type, :kind, :description, :url, :meal_date)
+      params.require(:meal).permit(:name, :meal_type, :kind, :description, :url, :meal_date, :user_id, :list_id)
     end
 end

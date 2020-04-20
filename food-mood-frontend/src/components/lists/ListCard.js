@@ -1,33 +1,36 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import NewMealFormWrapper from '../meals/NewMealFormWrapper';
 
 class ListCard extends Component {
 
 
   render() {
     const { list } = this.props
-    const listMeals = list ? list.attributes.meals.map(meal => <li key={meal.id}><Link to={`/meals/${meal.id}`}><h3>{meal.name}</h3></Link><h5>Meal: {meal.meal_type}</h5> <h5>Type: {meal.kind}</h5><h5>Description: {meal.description}</h5> <a href={meal.url} target="_blank">URL</a> <h5>Date: {meal.date} </h5></li>) : null
+    const listMeals = list ? list.attributes.meals.map(meal => <li key={meal.id}><Link to={`/meals/${meal.id}`}><h5>{meal.name}</h5></Link></li>) : null
 
     return (
       this.props.list ?  
-            <div className="ui relaxed divided list">
-              <div className="item">
-                
-              </div>
-              <h2>{list.attributes.name}</h2>
-              <p>{list.attributes.description}</p>
-              <div>
-              <h1>MEALS ON THIS LIST:</h1>
-                {listMeals}
+          <div>
+            <div className="ui one column grid">
+              <div className="column">
+                <div className="ui fluid card">
+                  <div className="content">
+                    <div className="header"><h3>{list.attributes.name}</h3></div>
+                    <h4>Restaurants and Recipes:</h4>
+                    <ul>{listMeals}</ul>
+                  </div>
                 </div>
-                <br/>
-              <Link to={`/lists/${list.id}/edit`}><h5>Edit this list</h5></Link>
-          </div> : 
+                <Link to={`/lists/${list.id}/edit`}><h5>Edit this list</h5></Link>
+            </div>
+          </div> 
+          <h1>Add a new meal:</h1>
+            <NewMealFormWrapper listId={list.id}/>  
+            </div>
+          : 
           <p>This is the list card with no list!</p>
     );
   }
 }
 
 export default ListCard;
-
-

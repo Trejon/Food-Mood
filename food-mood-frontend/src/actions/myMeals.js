@@ -1,5 +1,5 @@
 import history from '../history';
-// import { resetMealForm } from './mealForm';
+import { resetMealForm } from './mealForm';
 
 export const setMyMeals = meals => {
   return {
@@ -62,8 +62,13 @@ export const createMeal = mealData => {
   return dispatch => { 
     const sendableMealData = {
         name: mealData.name, 
+        kind: mealData.kind, 
+        meal_type: mealData.meal_type, 
         description: mealData.description, 
-        user_id: mealData.userId
+        url: mealData.url, 
+        meal_date: mealData.meal_date,
+        user_id: mealData.userId, 
+        list_id: mealData.listId
     }
     return fetch("http://localhost:3001/api/v1/meals", {
       credentials: 'include', 
@@ -79,7 +84,7 @@ export const createMeal = mealData => {
         alert(response.error)
       } else {
         dispatch(addMeal(response.data))
-        // dispatch(resetMealForm())
+        dispatch(resetMealForm())
         history.push(`/meals/${response.data.id}`)
         // Go somewhere else ---> meal show
         // add the new meal to the store 

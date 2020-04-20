@@ -3,9 +3,9 @@ import { updateMealForm } from '../../actions/mealForm';
 import { createMeal } from '../../actions/myMeals';
 import { connect } from 'react-redux';
 
-const MealForm = ({ formData, updateListForm, userId, list, handleSubmit, editMode }) => {
-  const { name, description } = formData
-  
+const MealForm = ({ formData, updateMealForm, meal, listId, handleSubmit, userId, editMode }) => {
+  const { name, kind, meal_type, description, url, meal_date } = formData
+
   const handleChange = event => {
     const { name, value} = event.target
     updateMealForm(name, value)
@@ -43,7 +43,7 @@ const MealForm = ({ formData, updateListForm, userId, list, handleSubmit, editMo
         value={url}
         placeholder="Link to Recipe or Restaurant?"
       /><br /><br/>
-      <input 
+      <input type="date"
         name="meal_date"
         onChange={handleChange}
         value={meal_date}

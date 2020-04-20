@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn, lists, setFormDataForEdit } = this.props
+    const { loggedIn, lists, setFormDataForEdit, meals } = this.props
     return(
       <Router history={history}>
         <div className="app">
@@ -63,8 +63,8 @@ class App extends React.Component {
               }
               }/>
               <Route path="/meals/:id" exact render={props => {
-              // const meal = meals.find(meal => meal.id === props.match.params.id)
-              return <MealCard  />
+              const meal = meals.find(meal => meal.id === props.match.params.id)
+              return <MealCard  meal={meal} />
               }
               }/>
           </Switch>
@@ -77,7 +77,8 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return {
     loggedIn: !!state.currentUser, 
-    lists: state.myLists
+    lists: state.myLists, 
+    meals: state.myMeals
   }
 }
 

@@ -15,7 +15,6 @@ const MyMeals = (props) => {
        </div>
       </div>)) : <h2>You currently don't have any meals.</h2>
 
-
   return(
     <div>
     <h3>These are your lists:</h3>

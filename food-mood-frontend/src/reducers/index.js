@@ -7,6 +7,7 @@ import loginForm from './loginForm';
 import myLists from './myLists';
 import myMeals from './myMeals';
 import ListForm from './listForm';
+import MealForm from './mealForm';
 
 export default combineReducers({
   // auth: authReducer, 
@@ -16,5 +17,6 @@ export default combineReducers({
   loginForm, 
   myLists, 
   myMeals,
-  ListForm, 
+  ListForm,
+  MealForm
 });
