@@ -4,7 +4,6 @@ import NewMealFormWrapper from '../meals/NewMealFormWrapper';
 
 class ListCard extends Component {
 
-
   render() {
     const { list } = this.props
     const listMeals = list ? list.attributes.meals.map(meal => <li key={meal.id}><Link to={`/meals/${meal.id}`}><h5>{meal.name}</h5></Link></li>) : null
@@ -21,10 +20,10 @@ class ListCard extends Component {
                     <ul>{listMeals}</ul>
                   </div>
                 </div>
-                <Link to={`/lists/${list.id}/edit`}><h5>Edit this list</h5></Link>
+                <Link list={list} to={`/lists/${list.id}/edit`}><h5>Edit this list</h5></Link>
             </div>
           </div> 
-          <h1>Add a new meal:</h1>
+          <h1>Add a new meal to this list:</h1>
             <NewMealFormWrapper listId={list.id}/>  
             </div>
           : 

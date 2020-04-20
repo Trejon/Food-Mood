@@ -19,7 +19,7 @@ import ListForm from './components/lists/ListForm';
 import { setFormDataForEdit } from './actions/listForm';
 import NewListFormWrapper from './components/lists/NewListFormWrapper';
 import EditListFormWrapper from './components/lists/EditListFormWrapper';
-
+import EditMealFormWrapper from './components/meals/EditMealFormWrapper';
 
 
 class App extends React.Component {
@@ -65,6 +65,11 @@ class App extends React.Component {
               <Route path="/meals/:id" exact render={props => {
               const meal = meals.find(meal => meal.id === props.match.params.id)
               return <MealCard  meal={meal} />
+              }
+              }/>
+              <Route path="/meals/:id/edit" exact render={props => {
+              const meal = meals.find(meal => meal.id === props.match.params.id)
+              return <EditMealFormWrapper meal={meal} />
               }
               }/>
           </Switch>

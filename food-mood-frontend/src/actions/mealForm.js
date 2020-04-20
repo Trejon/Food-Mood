@@ -23,7 +23,7 @@ export const setFormDataForEdit = meal => {
     meal_date: meal.attributes.meal_date
   }
   return {
-    type: 'SET_FORM_DATA_FOR_EDIT', 
+    type: 'SET_MEAL_FORM_DATA_FOR_EDIT', 
     mealFormData
   }
 }

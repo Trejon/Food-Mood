@@ -98,7 +98,11 @@ export const updateMeal = mealData => {
   return dispatch => { 
     const sendableMealData = {
         name: mealData.name, 
-        description: mealData.description
+        kind: mealData.kind, 
+        meal_type: mealData.meal_type, 
+        description: mealData.description, 
+        url: mealData.url, 
+        meal_date: mealData.meal_date,
     }
     console.log(sendableMealData)
     return fetch(`http://localhost:3001//api/v1/meals/${mealData.mealId}`, {

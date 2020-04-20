@@ -17,7 +17,7 @@ export default (state=initalState, action) => {
       return returnVal
     case "RESET_MEAL_FORM":
       return initalState
-    case "SET_FORM_DATA_FOR_EDIT": 
+    case "SET_MEAL_FORM_DATA_FOR_EDIT": 
       return action.mealFormData
     default: 
       return state
