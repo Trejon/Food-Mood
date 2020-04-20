@@ -121,7 +121,7 @@ export const updateList = listData => {
 
 export const deleteList = listId => {
   return dispatch => { 
-    return fetch(`http://localhost:3001//api/v1/lists/${listId}`, {
+    return fetch(`http://localhost:3001/api/v1/lists/${listId}`, {
       credentials: 'include', 
       method: "DELETE", 
       headers: {

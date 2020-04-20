@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_181426) do
 
   create_table "meals", force: :cascade do |t|
     t.string "name"
-    t.string "meal_type"
+    t.string "meal_type", default: "lunch"
     t.string "kind"
     t.string "description"
     t.string "url"

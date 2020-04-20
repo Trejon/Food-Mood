@@ -15,7 +15,7 @@ const Restaurant = (props) => {
         </div> 
         <div className="extra">
           Rating: 
-          <div className="ui star rating" data-rating={restaurant.rating.toString()}>{restaurant.rating}</div> 
+          <div className="ui star rating" data-rating={restaurant.rating}> {restaurant.rating}</div> 
         </div>
       </div>
     </div>

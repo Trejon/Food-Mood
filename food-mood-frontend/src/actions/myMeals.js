@@ -130,7 +130,7 @@ export const updateMeal = mealData => {
 
 export const deleteMeal = mealId => {
   return dispatch => { 
-    return fetch(`http://localhost:3001//api/v1/meals/${mealId}`, {
+    return fetch(`http://localhost:3001/api/v1/meals/${mealId}`, {
       credentials: 'include', 
       method: "DELETE", 
       headers: {
@@ -143,7 +143,7 @@ export const deleteMeal = mealId => {
         alert(response.error)
       } else {
         dispatch(deleteMealSuccess(mealId))
-        history.push('/meals')
+        history.push('/lists')
         // Go somewhere else ---> meal show
         // add the new meal to the store 
       }
