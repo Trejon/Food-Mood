@@ -44,3 +44,22 @@ h4:last-child{
 .active h4:last-child{
   color: black;
 }
+
+.cluster-marker {
+  color: #fff; 
+  background: #1978c8;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.restaurant-marker {
+  background: none;
+  border: none;
+}
+
+.restaurant-marker img {
+  width: 25px;
+}

@@ -4,6 +4,7 @@ import { requestOptions, url } from '../config.js'
 import yelp from '../../apis/yelp';
 import { connect } from 'react-redux';
 import Restaurant from './Restaurant';
+import GoogleMaps from '../../apis/GoogleMaps';
 // import { location } from '../../actions/location';
 
 
@@ -57,6 +58,7 @@ class FetchRestaurants extends React.Component{
         <div>
           <h5>Search Restaurants Near You</h5>
           <SearchBar search={this.fetchYelpApi} />
+          <GoogleMaps restaurants={this.state.restaurants} />
         </div>
       )
     } 
@@ -65,6 +67,7 @@ class FetchRestaurants extends React.Component{
         <h5>Search Restaurants Near You</h5>
         <SearchBar search={this.fetchYelpApi} />
         <Restaurant restaurants={this.state.restaurants} />
+        <GoogleMaps restaurants={this.state.restaurants} />
       </div>
     )
   }

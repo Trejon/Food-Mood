@@ -20,6 +20,7 @@ import { setFormDataForEdit } from './actions/listForm';
 import NewListFormWrapper from './components/lists/NewListFormWrapper';
 import EditListFormWrapper from './components/lists/EditListFormWrapper';
 import EditMealFormWrapper from './components/meals/EditMealFormWrapper';
+import GoogleMaps from './apis/GoogleMaps';
 
 
 class App extends React.Component {
@@ -45,6 +46,9 @@ class App extends React.Component {
           {loggedIn ? <Header location={this.props.location} /> : <Header /> }
           <MainContainer />
           <Switch>
+
+           <Route path="/map" exact component={GoogleMaps} />
+
             <Route path="/restaurants" exact component={FetchRestaurants} />
             <Route path="/recipes" exact component={FetchRecipes} />
             <Route path="/" exact component={LoginOrSignup} />
