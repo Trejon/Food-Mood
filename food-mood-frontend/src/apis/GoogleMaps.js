@@ -2,8 +2,6 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react'; 
 import { mapsKey } from '../components/config';
 import { connect } from 'react-redux';
-import { requestOptions, url } from '../components/config'
-
 
 class GoogleMaps extends React. Component{
 
@@ -38,15 +36,25 @@ class GoogleMaps extends React. Component{
     <div>
       <button className="restaurant-marker">
         <img style={{height: '50px', width: '50px'}} src="/img/pin.png" alt="Food-Mood" />
-        {props.name}
+        <div className="marker-text">
+          <strong>{props.name}</strong>
+        </div>
       </button>
     </div>
     )
   }
+
+  // const infoWindow = (restaurant) => {
+  //   return (
+  //     <div>
+  //       {restaurant}
+  //     </div>
+  //   )
+  // }
   
     if (this.props.location) {
       return(
-        <div style={{ height: "100vh", width: "100%" }}>
+        <div style={{ height: "100vh", width: "100%", position: 'relative'}}>
           <GoogleMapReact 
             bootstrapURLKeys={{ key: mapsKey}}
             defaultCenter={{lat, lng}}
@@ -77,3 +85,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(GoogleMaps);
+

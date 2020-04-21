@@ -13,10 +13,10 @@ const Recipe = (props) => {
         <div className="description">
           <h5>Published by: {recipe.publisher}</h5>
         </div> 
-        <div className="extra">
+        {/* <div className="extra">
           Publisher Website: 
-          <a href={recipe.source_url} target="_blank" rel="noopener noreferrer"><h3>{recipe.publisher_url}</h3></a>
-        </div>
+          <a href={recipe.source_url} target="_blank" rel="noopener noreferrer"><h5>{recipe.publisher_url}</h5></a>
+        </div> */}
       </div>
     </div>
   </div>);

@@ -26,6 +26,11 @@ const Header = ({ currentUser, loggedIn }) => {
         <div className="header item navitem">
           <NavLink exact activeClassName="active" to="/recipes"><h4>Search Recipes</h4></NavLink>
         </div>
+
+
+        <div className="right menu">
+          <strong className="logo">FoodMood</strong>
+        </div>
           
           <div className="right menu">
             {loggedIn ? <><p className="item loggedin">Currently logged in as {currentUser.currentUser.data.attributes.name}</p> <div className="ui item logout"><Logout/></div></> : null}
@@ -37,10 +42,13 @@ const Header = ({ currentUser, loggedIn }) => {
     return (
       <div className="ui teal one item menu">
         <div className="header item navitem">
-        <h1>Welcome to <a href=''>Food-Mood</a>, please <Link to="/login">Log In</Link> into your account or <Link to="/signup">Sign Up</Link></h1>
+        <h1>Welcome to FoodMood, please <Link to="/login">Log In</Link> into your account or <Link to="/signup">Sign Up</Link></h1>
         </div>
           
-          
+        <div className="right menu">
+              <strong className="logo">FoodMood</strong>
+        </div>
+
           <div className="right menu">
             {loggedIn ? <><p className="item loggedin">Currently logged in as {currentUser.currentUser.data.attributes.name}</p> <div className="ui item logout"><Logout/></div></> : null}
           </div>

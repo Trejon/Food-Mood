@@ -14,8 +14,8 @@ const Restaurant = (props) => {
           <h5>Phone Number: {restaurant.display_phone}</h5>
         </div> 
         <div className="extra">
-          Rating: 
-          <div className="ui star rating" data-rating={restaurant.rating}> {restaurant.rating}</div> 
+          <h5>Rating: 
+          <div className="ui star rating" data-rating={restaurant.rating}><h5>{restaurant.rating}</h5></div></h5>
         </div>
       </div>
     </div>
