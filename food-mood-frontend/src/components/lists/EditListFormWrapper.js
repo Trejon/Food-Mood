@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import ListForm from './ListForm';
 import { render } from 'react-dom';
 
+import history from '../../history';
+import ListDelete from './ListDelete';
+import { Link } from 'react-router-dom';
+
 class EditListFormWrapper extends React.Component {
   componentDidMount() { 
     this.props.list && this.props.setFormDataForEdit(this.props.list)
@@ -36,7 +40,11 @@ class EditListFormWrapper extends React.Component {
         <>
           <ListForm editMode handleSubmit={this.handleSubmit} />
           <br/>
-          <button className="negative ui button" onClick={() => deleteList(listId)}>Delete this list</button>
+          <Link list={list} to={`/lists/delete/${listId}`}><h5>Delete this list</h5></Link>
+          {/* <button className="negative ui button" onClick={() => history.push(`/lists/delete/${listId}`)}>Delete this list</button> */}
+          {/* <Link to={`/lists/delete/${listId}`} className="ui button negative" component={ListDelete} list={list} >
+            Delete
+          </Link> */}
         </>
       </div>
     );

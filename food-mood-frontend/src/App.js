@@ -22,6 +22,8 @@ import EditListFormWrapper from './components/lists/EditListFormWrapper';
 import EditMealFormWrapper from './components/meals/EditMealFormWrapper';
 import GoogleMaps from './apis/GoogleMaps';
 
+import ListDelete from './components/lists/ListDelete'
+
 
 class App extends React.Component {
   constructor() {
@@ -66,6 +68,10 @@ class App extends React.Component {
               return <EditListFormWrapper list={list} />
               }
               }/>
+              <Route path="/lists/delete/:id" exact render={props => {
+                const list = lists.find(list => list.id === props.match.params.id)
+                return <ListDelete list={list} />
+              }} />
               <Route path="/meals/:id" exact render={props => {
               const meal = meals.find(meal => meal.id === props.match.params.id)
               return <MealCard  meal={meal} />

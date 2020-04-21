@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import { mapsKey } from '../components/config';
 import { connect } from 'react-redux';
 
-class GoogleMaps extends React. Component{
+class GoogleMaps extends React.Component{
 
   constructor() {
     super()
