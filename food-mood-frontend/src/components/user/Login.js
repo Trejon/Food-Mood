@@ -16,7 +16,6 @@ const Login = ({ loginFormData, updateLoginForm, login }) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    // getJWTToken(loginFormData)
     login(loginFormData)
   }
 

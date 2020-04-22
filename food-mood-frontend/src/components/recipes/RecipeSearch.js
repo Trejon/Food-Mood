@@ -2,8 +2,7 @@ import React from 'react';
 
 class RecipeSearch extends React.Component {
   state = {
-    query: '',
-    recipes: []
+    query: ''
   };
 
     handleChange = (e) => {
