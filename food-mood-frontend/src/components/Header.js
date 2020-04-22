@@ -2,12 +2,17 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom'; 
 import { connect } from 'react-redux'
 import Logout from './user/Logout';
-
-
+ 
+ 
 const Header = ({ currentUser, loggedIn }) => {
   if (currentUser) {
     return(
-      <div className="ui teal seven item menu">
+      <div className="ui teal six item menu">
+
+        <div className="header item navitem">
+          <NavLink style={{ color: 'rgb(250, 239, 135, 0.967)', 'font-size': '40px', position: 'absolute', 'border-style': 'double'}} exact to="">FoodMood</NavLink>
+        </div>
+
         <div className="header item navitem">
           <NavLink exact activeClassName="active" to="/lists"><h4>Lists</h4></NavLink>
         </div>
@@ -24,12 +29,13 @@ const Header = ({ currentUser, loggedIn }) => {
           <NavLink exact activeClassName="active" to="/recipes"><h4>Search Recipes</h4></NavLink>
         </div>
 
-
-        <div className="right menu">
+          {/* <div className="header item navitem">
           <strong className="logo">FoodMood</strong>
-        </div>
+          </div> */}
+
           
           <div className="right menu">
+            
             {loggedIn ? <><p className="item loggedin">Currently logged in as {currentUser.currentUser.data.attributes.name}</p> <div className="ui item logout"><Logout/></div></> : null}
           </div>
         

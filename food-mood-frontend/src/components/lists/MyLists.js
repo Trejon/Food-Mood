@@ -13,7 +13,7 @@ const MyLists = (props) => {
         </Link></h5></div>
         <div className="description">{l.attributes.description}</div>
        </div>
-      </div>)) : <h2>You currently don't have any lists.</h2>
+      </div>)) : <h2>Create lists to start adding restaurants and recipes!</h2>
 
 
   return(

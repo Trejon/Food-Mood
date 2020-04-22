@@ -48,7 +48,7 @@ class GoogleMaps extends React.Component{
           <GoogleMapReact 
             bootstrapURLKeys={{ key: mapsKey}}
             defaultCenter={{lat, lng}}
-            defaultZoom={10} 
+            defaultZoom={11} 
             yesIWantToUseGoogleMapApiInternals
             onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
             >
