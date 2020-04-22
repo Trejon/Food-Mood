@@ -16,8 +16,7 @@ const Restaurant = (props) => {
           <h5>Address: {restaurant.location.address1} {restaurant.location.city} {restaurant.location.state} {restaurant.location.zip_code}</h5>
         </div> 
         <div className="extra">
-          <h5>Rating: 
-          <div className="ui star rating" data-rating={restaurant.rating}><h5>{restaurant.rating}</h5></div></h5>
+          <h5>Rating: {restaurant.rating} ({restaurant.review_count} reviews)</h5>
         </div>
       </div>
 
