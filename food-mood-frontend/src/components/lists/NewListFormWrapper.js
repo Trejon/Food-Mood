@@ -3,7 +3,7 @@ import { createList } from '../../actions/myLists';
 import { connect } from 'react-redux';
 import ListForm from './ListForm';
 
-const NewListFormWrapper = ({ createList }) => {
+const NewListFormWrapper = ({ createList, recipe }) => {
 
   const handleSubmit = (event, formData, userId ) => {
     event.preventDefault()

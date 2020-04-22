@@ -3,7 +3,7 @@ import { updateMealForm } from '../../actions/mealForm';
 import { createMeal } from '../../actions/myMeals';
 import { connect } from 'react-redux';
 
-const MealForm = ({ formData, updateMealForm, meal, listId, handleSubmit, userId, editMode }) => {
+const MealForm = ({ formData, updateMealForm, meal, listId, handleSubmit, userId, editMode, recipe }) => {
   const { name, kind, meal_type, description, url, meal_date } = formData
 
   const handleChange = event => {

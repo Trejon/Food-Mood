@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { format } from 'date-fns'
 
 class MealCard extends Component {
   
@@ -9,20 +10,26 @@ class MealCard extends Component {
   render() {
     const { meal } = this.props
     return (
-       meal ? <div className="ui relaxed divided list">
-                <div className="item">
-                   
+       meal ? <div className="ui centered card" style={{width: '500px'}}>
+                <div className="center aligned content">
+                  <div className="header">
+                    <h2>{meal.attributes.name}</h2>
                   </div>
-                  <h2>{meal.attributes.name}</h2>
-                  <p>{meal.attributes.kind}</p>
-                  <p>{meal.attributes.meal_type}</p>
-                  <p>{meal.attributes.description}</p>
-                  <p>{meal.attributes.url}</p>
-                  <p>{meal.attributes.meal_date}</p>
-                  <div>
-                    </div>
-                    <br/>
-                  <Link to={`/meals/${meal.id}/edit`}><h5>Edit this meal</h5></Link>
+                  <div className="meta">
+                    <p>{meal.attributes.kind}</p>
+                  </div>
+                  <div className="description">
+                    <ul>
+                      <h4>{meal.attributes.meal_type}</h4>
+                      <h4>{meal.attributes.description}</h4>
+                      <h4>{format(new Date(meal.attributes.meal_date), 'MM-dd-yyyy')}</h4>
+                      <h5><a href={meal.attributes.url} target="_blank">Website</a></h5>
+                    </ul>
+                  </div>
+                </div>
+                <div className="center aligned extra content">
+                  <Link className="ui button primary" to={`/meals/${meal.id}/edit`}><h5>Edit this meal</h5></Link>
+                </div>
               </div> : 
               <p>This is the meal card with no meal!</p>
         );  

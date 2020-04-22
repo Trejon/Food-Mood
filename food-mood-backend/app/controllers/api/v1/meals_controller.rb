@@ -21,6 +21,7 @@ class Api::V1::MealsController < ApplicationController
   # POST /meals
   def create
     @meal = Meal.new(meal_params)
+    byebug
     if @meal.save
       render json: MealSerializer.new(@meal)
     else
@@ -31,6 +32,7 @@ class Api::V1::MealsController < ApplicationController
   # PATCH/PUT /meals/1
   def update
     if @meal.update(meal_params)
+      byebug
       render json: MealSerializer.new(@meal)
     else
       render json: @meal.errors, status: :unprocessable_entity

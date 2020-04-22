@@ -3,7 +3,7 @@ import { createMeal } from '../../actions/myMeals';
 import { connect } from 'react-redux';
 import MealForm from './MealForm';
 
-const NewMealFormWrapper = ({ createMeal, listId, userId }) => {
+const NewMealFormWrapper = ({ createMeal, listId, userId, recipe }) => {
 
   const handleSubmit = (event, formData) => {
     event.preventDefault()
@@ -14,10 +14,9 @@ const NewMealFormWrapper = ({ createMeal, listId, userId }) => {
     })
   }
 
-
   return (
     <div>
-      <MealForm listId={listId} handleSubmit={handleSubmit} />
+      <MealForm recipe={recipe} listId={listId} handleSubmit={handleSubmit} />
     </div>
   );
 }

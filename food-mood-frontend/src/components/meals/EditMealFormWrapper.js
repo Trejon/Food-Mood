@@ -1,13 +1,28 @@
 import React from 'react';
-import { updateMeal, deleteMeal } from '../../actions/myMeals'; 
+import { updateMeal, deleteMeal, createMeal } from '../../actions/myMeals'; 
 import {  setFormDataForEdit, resetMealForm } from '../../actions/mealForm';
 import { connect } from 'react-redux';
 import MealForm from './MealForm';
 import { render } from 'react-dom';
+import {v1 as uuid} from 'uuid';
 
 class EditMealFormWrapper extends React.Component {
   componentDidMount() { 
+    if (this.props.recipe){
+      let meal = {
+        attributes: {
+          name: this.props.recipe.title,
+          meal_type: '',
+          kind: 'recipe',
+          description: '',
+          url: this.props.recipe.source_url,
+          date: new Date()
+        }
+      }
+      meal && this.props.setFormDataForEdit(meal)
+    } else {
     this.props.meal && this.props.setFormDataForEdit(this.props.meal)
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -15,17 +30,28 @@ class EditMealFormWrapper extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.resetMealForm()
+    this.props.resetMealForm() 
   }
 
-  handleSubmit = (event, formData, userId ) => {
-     const { updateMeal, meal } = this.props
+  handleSubmit = (event, formData ) => {
+     const { updateMeal, createMeal, meal, userId, listId } = this.props
+     let mealId = !this.props.recipe ? meal.id : uuid()
+     console.log(this.props)
     event.preventDefault()
-    updateMeal({
-      ...formData,
-      mealId: meal.id,  
-      userId
-    })
+    if(this.props.pulledRecipe === true) {
+      createMeal({
+        ...formData, 
+        mealId: mealId, 
+        userId, 
+        listId: listId
+      })
+    } else {
+       updateMeal({
+        ...formData,
+        mealId: mealId,  
+        userId
+        })
+    }     
   }  
 
   render() {
@@ -34,7 +60,7 @@ class EditMealFormWrapper extends React.Component {
     return (
       <div>
         <>
-          <MealForm editMode handleSubmit={this.handleSubmit} />
+          <MealForm editMode recipe={this.props.recipe} handleSubmit={this.handleSubmit} />
           <br/>
           <button className="negative ui button" onClick={() => deleteMeal(mealId)}>Delete this meal</button>
         </>
@@ -43,4 +69,11 @@ class EditMealFormWrapper extends React.Component {
     }
   }
 
-export default connect(null, { updateMeal, setFormDataForEdit, resetMealForm, deleteMeal })(EditMealFormWrapper);
+  const mapStateToProps = state => {
+    const userId =  state.currentUser ? state.currentUser.currentUser.data.id : ""
+    return {
+      userId
+    }
+  }
+
+export default connect(mapStateToProps, { updateMeal, setFormDataForEdit, resetMealForm, deleteMeal, createMeal })(EditMealFormWrapper);
