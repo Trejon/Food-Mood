@@ -1,5 +1,9 @@
 import React from 'react'; 
 import history from '../../history';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Dropdown } from 'semantic-ui-react'
+
 
 const Restaurant = (props) => {
 
@@ -20,17 +24,15 @@ const Restaurant = (props) => {
         </div>
       </div>
 
-      <button className="ui primary button" onClick={() => history.push('/lists')}>Add To List</button>
+      {/* <button className="ui primary button" onClick={() => history.push('/lists')}>Add To List</button> */}
 
-      {/* <div className="ui selection dropdown">
-            <input type="hidden" name="gender" />
-            <i className="dropdown icon"></i>
-            <div className="default text primary">Choose a list</div>
-            <div className="menu">
-              <div className="item" data-value="1">List 1</div>
-              <div className="item" data-value="0">List 2</div>
-            </div>
-          </div> */}
+      <Dropdown className="ui button primary" text='Add to list'>
+          <Dropdown.Menu className="menu">
+           { props.lists.map(l => (
+                // <Dropdown.Item key={l.id} text={l.attributes.name} onClick={() => redirectToListAdd(l)}/>))}
+                <Link className='item' key={l.id} to={{pathname: `/lists/${l.id}`, query: {renderedMeal: restaurant, mealType: 'restaurant'}}}>{l.attributes.name}</Link>))}
+          </Dropdown.Menu>
+        </Dropdown>
 
           </div> 
   </div>);
@@ -42,4 +44,10 @@ const Restaurant = (props) => {
   )
 }
 
-export default Restaurant;
+const mapStateToProps = state => {
+  return {
+    lists: state.myLists
+  }
+}
+
+export default connect(mapStateToProps)(Restaurant);

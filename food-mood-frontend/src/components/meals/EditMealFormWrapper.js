@@ -12,20 +12,33 @@ import { Link } from 'react-router-dom';
 
 class EditMealFormWrapper extends React.Component {
   componentDidMount() { 
-    if (this.props.recipe){
+    console.log(this.props.mealType)
+    if (this.props.mealType === 'recipe'){
       let meal = {
         attributes: {
-          name: this.props.recipe.title,
+          name: this.props.renderedMeal.title,
           meal_type: '',
           kind: 'recipe',
           description: '',
-          url: this.props.recipe.source_url,
+          url: this.props.renderedMeal.source_url,
           date: new Date()
         }
       }
       meal && this.props.setFormDataForEdit(meal)
-    } else {
-    this.props.meal && this.props.setFormDataForEdit(this.props.meal)
+    } else if (this.props.mealType === 'restaurant') {
+        let meal = {
+          attributes: {
+            name: this.props.renderedMeal.name,
+            meal_type: '',
+            kind: 'restaurant',
+            description: '',
+            url: this.props.renderedMeal.url,
+            date: new Date()
+          }
+        }
+        meal && this.props.setFormDataForEdit(meal)
+     } else {
+      this.props.meal && this.props.setFormDataForEdit(this.props.meal)
     }
   }
 
@@ -39,7 +52,7 @@ class EditMealFormWrapper extends React.Component {
 
   handleSubmit = (event, formData ) => {
      const { updateMeal, createMeal, meal, userId, listId } = this.props
-     let mealId = !this.props.recipe ? meal.id : uuid()
+     let mealId = !this.props.renderedMeal ? meal.id : uuid()
     event.preventDefault()
     if(this.props.pulledRecipe === true) {
       createMeal({
@@ -63,7 +76,7 @@ class EditMealFormWrapper extends React.Component {
     return (
       <div>
         <>
-          <MealForm editMode recipe={this.props.recipe} handleSubmit={this.handleSubmit} />
+          <MealForm editMode renderedMeal={this.props.renderedMeal} handleSubmit={this.handleSubmit} />
           <br/>
           <Link meal={meal} to={`/meals/delete/${mealId}`}><h5>Delete this meal</h5></Link>
           {/* <button className="negative ui button" onClick={() => deleteMeal(mealId)}>Delete this meal</button> */}

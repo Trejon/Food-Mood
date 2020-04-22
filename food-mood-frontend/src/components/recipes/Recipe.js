@@ -6,10 +6,10 @@ import { Dropdown } from 'semantic-ui-react'
 
 const Recipe = (props) => {
 
-  const redirectToListAdd = (l) => {
-    history.push(`/lists/${l.id}`)
+  // const redirectToListAdd = (l) => {
+  //   history.push(`/lists/${l.id}`)
 
-  }
+  // }
 
   let recipes = props.recipes.map(recipe => 
   <div className="column" key={recipe.recipe_id}> 
@@ -28,7 +28,7 @@ const Recipe = (props) => {
           <Dropdown.Menu className="menu">
            { props.lists.map(l => (
                 // <Dropdown.Item key={l.id} text={l.attributes.name} onClick={() => redirectToListAdd(l)}/>))}
-                <Link className='item' key={l.id} to={{pathname: `/lists/${l.id}`, query: {recipe: recipe}}}>{l.attributes.name}</Link>))}
+                <Link className='item' key={l.id} to={{pathname: `/lists/${l.id}`, query: {renderedMeal: recipe, mealType: 'recipe'}}}>{l.attributes.name}</Link>))}
           </Dropdown.Menu>
         </Dropdown>
 

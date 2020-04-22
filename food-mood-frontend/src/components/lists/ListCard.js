@@ -12,7 +12,9 @@ class ListCard extends Component {
   // }
 
   render() {
-    const recipe = this.props.location.query ? this.props.location.query.recipe : null
+    const renderedMeal = this.props.location.query ? this.props.location.query.renderedMeal : null
+    const mealType = this.props.location.query ? this.props.location.query.mealType : null
+
     const { list } = this.props
     const listMeals = list ? list.attributes.meals.map(meal => <li key={meal.id}><Link to={`/meals/${meal.id}`}><h5>{meal.name}</h5></Link></li>) : null
 
@@ -32,7 +34,7 @@ class ListCard extends Component {
             </div>
           </div> 
           <h1>Add a new meal to this list:</h1>
-           { recipe ? <EditMealFormWrapper pulledRecipe recipe={recipe} list={list} listId={list.id}/> : <NewMealFormWrapper recipe={recipe} listId={list.id}/>  }
+           { renderedMeal ? <EditMealFormWrapper pulledRecipe mealType={mealType} renderedMeal={renderedMeal} list={list} listId={list.id}/> : <NewMealFormWrapper mealType={mealType} renderedMeal={renderedMeal} listId={list.id}/>  }
             </div>
           : 
           <p>This is the list card with no list!</p>
