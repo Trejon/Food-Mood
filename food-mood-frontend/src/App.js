@@ -23,6 +23,7 @@ import EditMealFormWrapper from './components/meals/EditMealFormWrapper';
 import GoogleMaps from './apis/GoogleMaps';
 
 import ListDelete from './components/lists/ListDelete'
+import MealDelete from './components/meals/MealDelete'
 
 
 class App extends React.Component {
@@ -82,6 +83,10 @@ class App extends React.Component {
               return <EditMealFormWrapper meal={meal} />
               }
               }/>
+              <Route path="/meals/delete/:id" exact render={props => {
+                const meal = meals.find(meal => meal.id === props.match.params.id)
+                return <MealDelete meal={meal} />
+              }} />
           </Switch>
         </div>
       </Router>

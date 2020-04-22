@@ -60,7 +60,6 @@ export const updateMealSuccess = meal => {
 
 export const createMeal = mealData => {
   return dispatch => { 
-    console.log("im in create meal")
     const sendableMealData = {
         name: mealData.name, 
         kind: mealData.kind, 

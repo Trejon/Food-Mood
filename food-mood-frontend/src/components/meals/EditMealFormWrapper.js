@@ -6,6 +6,10 @@ import MealForm from './MealForm';
 import { render } from 'react-dom';
 import {v1 as uuid} from 'uuid';
 
+import history from '../../history';
+import MealDelete from './MealDelete';
+import { Link } from 'react-router-dom';
+
 class EditMealFormWrapper extends React.Component {
   componentDidMount() { 
     if (this.props.recipe){
@@ -36,7 +40,6 @@ class EditMealFormWrapper extends React.Component {
   handleSubmit = (event, formData ) => {
      const { updateMeal, createMeal, meal, userId, listId } = this.props
      let mealId = !this.props.recipe ? meal.id : uuid()
-     console.log(this.props)
     event.preventDefault()
     if(this.props.pulledRecipe === true) {
       createMeal({
@@ -62,7 +65,8 @@ class EditMealFormWrapper extends React.Component {
         <>
           <MealForm editMode recipe={this.props.recipe} handleSubmit={this.handleSubmit} />
           <br/>
-          <button className="negative ui button" onClick={() => deleteMeal(mealId)}>Delete this meal</button>
+          <Link meal={meal} to={`/meals/delete/${mealId}`}><h5>Delete this meal</h5></Link>
+          {/* <button className="negative ui button" onClick={() => deleteMeal(mealId)}>Delete this meal</button> */}
         </>
       </div>
     );

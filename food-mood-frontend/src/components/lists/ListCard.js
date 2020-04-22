@@ -4,11 +4,14 @@ import NewMealFormWrapper from '../meals/NewMealFormWrapper';
 import EditMealFormWrapper from '../meals/EditMealFormWrapper';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
+import { getMyMeals } from '../../actions/myMeals'
 
 class ListCard extends Component {
+  // componentDidMount() {
+  //   getMyMeals()    
+  // }
 
   render() {
-
     const recipe = this.props.location.query ? this.props.location.query.recipe : null
     const { list } = this.props
     const listMeals = list ? list.attributes.meals.map(meal => <li key={meal.id}><Link to={`/meals/${meal.id}`}><h5>{meal.name}</h5></Link></li>) : null
@@ -37,4 +40,4 @@ class ListCard extends Component {
   }
 }
 
-export default withRouter(connect()(ListCard));
+export default withRouter(connect(null, { getMyMeals })(ListCard));
