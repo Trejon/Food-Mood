@@ -31,20 +31,16 @@ class SignUp extends React.Component {
               <form className="ui form" onSubmit={this.handleOnSubmit}>
                 <div className="field">
                   <label>Name:</label>
-                  <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleOnChange} required/>
+                  <input type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleOnChange} autoComplete="off" required/>
                 </div>
                 <div className="field">
                   <label>Email:</label>
-                  <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleOnChange} required/>
+                  <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleOnChange} autoComplete="off" required/>
                 </div>
                 <div className="field">
                   <label>Password:</label>
-                  <input type="password" placeholder="password" value={this.state.password} name="password" onChange={this.handleOnChange} required/>
+                  <input type="password" placeholder="password" value={this.state.password} name="password" onChange={this.handleOnChange} autoComplete="off" required/>
                 </div>
-                {/* <div className="field">
-                  <label>Password Confirmation:</label>
-                  <input type="password" placeholder="password confirmation" value={this.state.password_confirmation} name="password_confirmation" onChange={this.handleOnChange} required/>
-                </div> */}
                 <button type="submit" className="ui button primary">Submit</button>
               </form>
               </div>

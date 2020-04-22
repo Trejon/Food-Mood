@@ -29,7 +29,7 @@ const MyLists = (props) => {
 
 const mapStateToProps = ({ myLists }) => {
   return {
-    lists: myLists
+    lists: myLists,
   }
 }
 

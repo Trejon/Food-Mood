@@ -1,9 +1,9 @@
 import React from 'react'; 
 import { updateMealForm } from '../../actions/mealForm';
-import { createMeal } from '../../actions/myMeals';
 import { connect } from 'react-redux';
 
-const MealForm = ({ formData, updateMealForm, meal, listId, handleSubmit, userId, editMode }) => {
+
+const MealForm = ({ formData, updateMealForm, handleSubmit, editMode }) => {
   const { name, kind, meal_type, description, url, meal_date } = formData
 
   const handleChange = event => {
@@ -18,6 +18,7 @@ const MealForm = ({ formData, updateMealForm, meal, listId, handleSubmit, userId
         onChange={handleChange}
         value={name}
         placeholder="Name"
+        required
       /><br /><br/>
       <input 
         name="kind"
@@ -29,7 +30,7 @@ const MealForm = ({ formData, updateMealForm, meal, listId, handleSubmit, userId
         name="meal_type"
         onChange={handleChange}
         value={meal_type}
-        placeholder="Breakfast, Lunch, Dinner?"
+        placeholder="Breakfast, Brunch, Lunch, Snack or Dinner?"
       /><br /><br/>
       <input 
         name="description"

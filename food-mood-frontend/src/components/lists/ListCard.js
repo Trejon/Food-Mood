@@ -7,10 +7,7 @@ import { withRouter } from "react-router";
 import { getMyMeals } from '../../actions/myMeals'
 
 class ListCard extends Component {
-  // componentDidMount() {
-  //   getMyMeals()    
-  // }
-
+ 
   render() {
     const renderedMeal = this.props.location.query ? this.props.location.query.renderedMeal : null
     const mealType = this.props.location.query ? this.props.location.query.mealType : null
@@ -42,4 +39,12 @@ class ListCard extends Component {
   }
 }
 
-export default withRouter(connect(null, { getMyMeals })(ListCard));
+const mapStateToProps = ({ myMeals }, {list}) => {
+  // const meals = myMeals.filter(meal => meal.list_id === this.props.list.id)
+  // console.log(meals)
+  return {
+    meals: myMeals
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { getMyMeals })(ListCard));

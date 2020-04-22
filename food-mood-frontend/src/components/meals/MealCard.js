@@ -23,7 +23,7 @@ class MealCard extends Component {
                       <h4>{meal.attributes.meal_type}</h4>
                       <h4>{meal.attributes.description}</h4>
                       <h4>{format(new Date(meal.attributes.meal_date), 'MM-dd-yyyy')}</h4>
-                      <h5><a href={meal.attributes.url} target="_blank">Website</a></h5>
+                      <h5><a href={meal.attributes.url} target="_blank" rel="noopener noreferrer">Website</a></h5>
                     </ul>
                   </div>
                 </div>

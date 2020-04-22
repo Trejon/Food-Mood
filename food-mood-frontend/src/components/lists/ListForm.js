@@ -1,6 +1,5 @@
 import React from 'react'; 
 import { updateListForm } from '../../actions/listForm';
-import { createList } from '../../actions/myLists';
 import { connect } from 'react-redux';
 
 const ListForm = ({ formData, updateListForm, userId, list, handleSubmit, editMode }) => {

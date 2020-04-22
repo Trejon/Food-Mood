@@ -4,20 +4,10 @@ import { mapsKey } from '../components/config';
 import { connect } from 'react-redux';
 
 class GoogleMaps extends React.Component{
-
-  constructor() {
-    super()
-    
-    this.state = {
-      mapRef: null, 
-      zoom: 10, 
-      bounds: null
-    }
-  }
   
   handleApiLoaded = (map, maps) => {
     const myPosition = {lat: this.props.location.location.latitude, lng: this.props.location.location.longitude}
-    let marker = new maps.Marker({
+    new maps.Marker({
       position: myPosition,
       map,
       title: 'Here I am!'
@@ -28,7 +18,7 @@ class GoogleMaps extends React.Component{
     const lat = this.props.location ? this.props.location.location.latitude : null
     const lng = this.props.location ? this.props.location.location.longitude : null
 
-  const restLocations = this.props.restaurants.map(res => { return {lat: res.coordinates.latitude, lng: res.coordinates.longitude}})
+  // const restLocations = this.props.restaurants.map(res => { return {lat: res.coordinates.latitude, lng: res.coordinates.longitude}})
 
 
   const Marker = props => {

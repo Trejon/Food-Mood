@@ -1,10 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom'; 
 import { connect } from 'react-redux'
-import Login from './user/Login';
 import Logout from './user/Logout';
-import SignUp from './user/SignUp';
-import MyLists from './lists/MyLists';
 
 
 const Header = ({ currentUser, loggedIn }) => {

@@ -1,15 +1,9 @@
 import React from 'react'; 
 import SearchBar from './SearchBar';
-import { requestOptions, url } from '../config.js'
-import yelp from '../../apis/yelp';
+import { requestOptions } from '../config.js'
 import { connect } from 'react-redux';
 import Restaurant from './Restaurant';
 import GoogleMaps from '../../apis/GoogleMaps';
-// import { location } from '../../actions/location';
-
-
-// this.props.location.location
-
 
 class FetchRestaurants extends React.Component{
   constructor() {
@@ -19,8 +13,6 @@ class FetchRestaurants extends React.Component{
       restaurants: [], 
     }
   }
-  
-  //request are looking near the user
 
   fetchYelpApi = (term) => {
     fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${this.props.location.location.latitude}&longitude=${this.props.location.location.longitude}`, requestOptions)
@@ -34,23 +26,10 @@ class FetchRestaurants extends React.Component{
   }
 
   componentDidUpdate(prevProps) {
-    // !prevProps.location && console.log(this.props)
     if (this.props.location !== prevProps.location) {
       this.fetchYelpApi()
     }
-    // this.fetchYelpApi()
   }
-
-  // componentDidUpdate(prevProps) {
-  //   this.props.list && !prevProps.list && this.props.setFormDataForEdit(this.props.list)
-  // }
- 
-  componentDidMount() {
-    // console.log(this.props)
-    // this.fetchYelpApi();
-    // this.props.location()
-  }
-
 
   render() {
     if(!this.state.restaurants) {
@@ -74,8 +53,7 @@ class FetchRestaurants extends React.Component{
 }
 
 const mapStateToProps = state => {
-  return {
-    // restaurants: state.restaurants, 
+  return { 
     location: state.location
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { requestOptions, url } from '../config.js'
 import { connect } from 'react-redux';
 
 class SearchBar extends React.Component {
