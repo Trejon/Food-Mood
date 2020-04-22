@@ -40,7 +40,7 @@ const Restaurant = (props) => {
       {restaurants}
     </div>
   )
-}
+} 
 
 const mapStateToProps = state => {
   return {

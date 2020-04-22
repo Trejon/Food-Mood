@@ -7,13 +7,26 @@ import { withRouter } from "react-router";
 import { getMyMeals } from '../../actions/myMeals'
 
 class ListCard extends Component {
+
+  // componentDidUpdate(prevProps) {
+  //   // this.forceUpdate()
+  //   if (prevProps.meals !== this.props.meals) {
+  //     let meals = this.props.meals.filter(meal => meal.attributes.list.id == this.props.listId)
+  //   console.log('These are prevProps', prevProps, 'These are current:', this.props, 'These are new meals:', meals)
+  //   return meals
+  //   }
+  // }
+
+
  
   render() {
     const renderedMeal = this.props.location.query ? this.props.location.query.renderedMeal : null
     const mealType = this.props.location.query ? this.props.location.query.mealType : null
-
     const { list } = this.props
-    const listMeals = list ? list.attributes.meals.map(meal => <li key={meal.id}><Link to={`/meals/${meal.id}`}><h5>{meal.name}</h5></Link></li>) : null
+
+    const meals = list && this.props.myMeals ? this.props.myMeals.filter(meal => meal.attributes.list.id == this.props.listId) : null
+
+    const listMeals = list && meals ? meals.map(meal => <li key={meal.id}><Link to={`/meals/${meal.id}`}><h5>{meal.attributes.name}</h5></Link></li>) : null
 
     return (
       this.props.list ?  
@@ -27,7 +40,7 @@ class ListCard extends Component {
                     <ul>{listMeals}</ul>
                   </div>
                 </div>
-                <Link list={list} to={`/lists/${list.id}/edit`}><h5>Edit this list</h5></Link>
+                <Link className="ui primary button" list={list} to={`/lists/${list.id}/edit`}><h5>Edit this list</h5></Link>
             </div>
           </div> 
           <h1>Add a new meal to this list:</h1>
@@ -39,11 +52,11 @@ class ListCard extends Component {
   }
 }
 
-const mapStateToProps = ({ myMeals }, {list}) => {
+const mapStateToProps = (state) => {
   // const meals = myMeals.filter(meal => meal.list_id === this.props.list.id)
   // console.log(meals)
   return {
-    meals: myMeals
+    myMeals: state.myMeals
   }
 }
 

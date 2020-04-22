@@ -73,7 +73,7 @@ class EditMealFormWrapper extends React.Component {
         <>
           <MealForm editMode renderedMeal={this.props.renderedMeal} handleSubmit={this.handleSubmit} />
           <br/>
-          <Link meal={meal} to={`/meals/delete/${mealId}`}><h5>Delete this meal</h5></Link>
+          <Link className="ui primary button" meal={meal} to={`/meals/delete/${mealId}`}><h5>Delete this meal</h5></Link>
         </>
       </div>
     );

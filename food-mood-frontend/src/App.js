@@ -49,7 +49,7 @@ class App extends React.Component {
             <Route path="/lists/new" exact component={NewListFormWrapper} />
             <Route path="/lists/:id" exact render={props => {
               const list = lists.find(list => list.id === props.match.params.id)
-              return <ListCard list={list} />
+              return <ListCard listId={props.match.params.id} list={list} />
               }
               }/>
               <Route path="/lists/:id/edit" exact render={props => {
@@ -62,7 +62,7 @@ class App extends React.Component {
                 return <ListDelete list={list} />
               }} />
               <Route path="/meals/:id" exact render={props => {
-              const meal = meals.find(meal => meal.id === props.match.params.id)
+              const meal = meals ? meals.find(meal => meal.id === props.match.params.id) : null
               return <MealCard  meal={meal} />
               }
               }/>

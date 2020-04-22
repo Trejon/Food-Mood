@@ -1,4 +1,4 @@
-export default (state = [], action) => {
+export default (state = null, action) => {
   switch(action.type) {
     case "SET_MY_MEALS":
       return action.meals
@@ -9,7 +9,7 @@ export default (state = [], action) => {
     case "DELETE_MEAL": 
       return state.filter(meal => meal.id === action.mealId ? false : true)
     case "CLEAR_MEALS": 
-      return [] 
+      return null 
     default: 
       return state
   }
