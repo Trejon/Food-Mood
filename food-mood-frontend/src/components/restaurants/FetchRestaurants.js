@@ -1,6 +1,6 @@
 import React from 'react'; 
 import SearchBar from './SearchBar';
-import { requestOptions } from '../config.js'
+import { requestOptions } from '../../apis/config.js'
 import { connect } from 'react-redux';
 import Restaurant from './Restaurant';
 import GoogleMaps from '../../apis/GoogleMaps';

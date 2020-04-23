@@ -1,6 +1,6 @@
 import React from 'react'; 
 import GoogleMapReact from 'google-map-react'; 
-import { mapsKey } from '../components/config';
+import { mapsKey } from './config';
 import { connect } from 'react-redux';
 
 class GoogleMaps extends React.Component{

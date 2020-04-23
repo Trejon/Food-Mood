@@ -81,8 +81,6 @@ export const createList = listData => {
         dispatch(addList(response.data))
         dispatch(resetListForm())
         history.push(`/lists/${response.data.id}`)
-        // Go somewhere else ---> list show
-        // add the new list to the store 
       }
     })
     .catch(console.log)
@@ -95,7 +93,6 @@ export const updateList = listData => {
         name: listData.name, 
         description: listData.description
     }
-    console.log(sendableListData)
     return fetch(`http://localhost:3001//api/v1/lists/${listData.listId}`, {
       credentials: 'include', 
       method: "PATCH", 

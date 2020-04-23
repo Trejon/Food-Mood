@@ -69,29 +69,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Header);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// return (
-//   <div className="ui pointer menu">
-//     { currentUser ? <strong>Welcome, {currentUser.currentUser.data.attributes.name}</strong> : ""}
-//     {/* { currentUser ? <Logout/> : <Login/> } */}
-//     { currentUser ? <Logout /> : 
-//       <div>
-//         <h1><Link to='/login'>Login</Link> or <Link to='/signup'>Signup</Link></h1>
-//       </div>
-//     }
-//   </div>
-// )

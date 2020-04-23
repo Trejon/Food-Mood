@@ -19,17 +19,7 @@ class SearchBar extends React.Component {
     this.props.search(this.state.term);
   };
 
-  componentDidUpdate() {
-    // console.log(this.state)
-  }
-
-
-  // componentDidMount() {
-  //   this.fetchYelpApi(this.state.term)
-  // }
-
   render() {
-    // console.log(this.props)
     return(
       <div className="search-bar ui segment">
         <form onSubmit={this.handleSubmit} className="ui form">

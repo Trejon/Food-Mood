@@ -96,7 +96,6 @@ export const createMeal = mealData => {
  
 export const updateMeal = mealData => {
   return dispatch => { 
-    console.log(mealData.mealId)
     const sendableMealData = {
         name: mealData.name, 
         kind: mealData.kind, 
@@ -105,7 +104,6 @@ export const updateMeal = mealData => {
         url: mealData.url, 
         meal_date: mealData.meal_date,
     }
-    console.log(sendableMealData)
     return fetch(`http://localhost:3001//api/v1/meals/${mealData.mealId}`, {
       credentials: 'include', 
       method: "PATCH", 

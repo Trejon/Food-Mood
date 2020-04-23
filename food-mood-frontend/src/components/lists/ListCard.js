@@ -45,8 +45,6 @@ class ListCard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // const meals = myMeals.filter(meal => meal.list_id === this.props.list.id)
-  // console.log(meals)
   return {
     myMeals: state.myMeals
   }
