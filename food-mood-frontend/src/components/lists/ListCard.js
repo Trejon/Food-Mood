@@ -16,7 +16,7 @@ class ListCard extends Component {
     const mealType = this.props.location.query ? this.props.location.query.mealType : null
     const { list } = this.props
 
-    const meals = list && this.props.myMeals ? this.props.myMeals.filter(meal => meal.attributes.list.id === this.props.listId) : null
+    const meals = list && this.props.myMeals ? this.props.myMeals.filter(meal => meal.attributes.list.id == this.props.listId) : null
 
     const listMeals = list && meals ? meals.map(meal => <li key={meal.id}><Link to={`/meals/${meal.id}`}><h5>{meal.attributes.name}</h5></Link></li>) : null
 
