@@ -17,12 +17,14 @@ const ListForm = ({ formData, updateListForm, userId, list, handleSubmit, editMo
         onChange={handleChange}
         value={name}
         placeholder="Name"
+        autoComplete="off"
       /><br /><br/>
       <input 
         name="description"
         onChange={handleChange}
         value={description}
         placeholder="Description"
+        autoComplete="off"
       />
       <button className="ui primary button" type="submit">{editMode ? "Update List" : "Create List"}</button>
     </form>

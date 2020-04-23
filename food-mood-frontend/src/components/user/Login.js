@@ -30,7 +30,7 @@ class AuthForm extends React.Component {
               <form className="ui form" onSubmit={this.handleOnSubmit}>
                 <div className="field">
                   <label>Email:</label>
-                  <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleOnChange} />
+                  <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleOnChange} autoComplete="off" />
                 </div>
                 <div className="field">
                   <label>Password:</label>
