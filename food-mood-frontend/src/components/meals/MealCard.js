@@ -24,7 +24,7 @@ class MealCard extends Component {
                       <h4>{meal.attributes.description}</h4>
                       <h4>{format(new Date(meal.attributes.meal_date), 'MM-dd-yyyy')}</h4>
                       <h5><a href={meal.attributes.url} target="_blank" rel="noopener noreferrer">Website</a></h5>
-                      <h5>List: {meal.attributes.list.name}</h5>
+                      <Link to={`/lists/${meal.attributes.list_id}`}><h5>List: {meal.attributes.list.name}</h5></Link>
                     </ul>
                   </div>
                 </div>

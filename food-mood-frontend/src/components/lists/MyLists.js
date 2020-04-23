@@ -22,6 +22,7 @@ const MyLists = (props) => {
     <div className="ui list">
       {listCards}
       </div>
+      <Link className="ui button primary" to='/lists/new'>Create New List</Link>
     </div> 
     
   )
