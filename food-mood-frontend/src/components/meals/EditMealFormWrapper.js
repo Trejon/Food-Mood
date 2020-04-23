@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import MealForm from './MealForm';
 import {v1 as uuid} from 'uuid';
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns'
 
 class EditMealFormWrapper extends React.Component {
   componentDidMount() { 
@@ -16,7 +17,7 @@ class EditMealFormWrapper extends React.Component {
           kind: 'recipe',
           description: '',
           url: this.props.renderedMeal.source_url,
-          date: new Date()
+          date: format(new Date(), 'MM-dd-yyyy')
         }
       }
       meal && this.props.setFormDataForEdit(meal)
@@ -28,7 +29,7 @@ class EditMealFormWrapper extends React.Component {
             kind: 'restaurant',
             description: '',
             url: this.props.renderedMeal.url,
-            date: new Date()
+            date: format(new Date(), 'MM-dd-yyyy')
           }
         }
         meal && this.props.setFormDataForEdit(meal)
@@ -52,14 +53,14 @@ class EditMealFormWrapper extends React.Component {
     if(this.props.pulledRecipe === true) {
       createMeal({
         ...formData, 
-        mealId: mealId, 
+        mealId, 
         userId, 
-        listId: listId
+        listId
       })
     } else {
        updateMeal({
         ...formData,
-        mealId: mealId,  
+        mealId,  
         userId
         })
     }     

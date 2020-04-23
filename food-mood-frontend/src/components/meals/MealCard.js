@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 
 class MealCard extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   render() {
     const { meal } = this.props
     return (
