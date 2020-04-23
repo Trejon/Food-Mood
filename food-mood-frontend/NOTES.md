@@ -1,81 +1,56 @@
 <!-- Login -----------------
-import React from 'react'; 
-import axios from 'axios';
-import history from '../../history';
+// import React from 'react'; 
+// import { connect } from 'react-redux';
+// import { updateLoginForm } from '../../actions/loginForm';
+// import { login } from '../../actions/currentUser';
 
-class Login extends React.Component {
-  // constructor(props) {
-  //   super(props)
+// const Login = ({ loginFormData, updateLoginForm, login }) => {
+ 
+//   const handleChange = event => {
+//     const { name, value } = event.target
+//     const updatedFormInfo = { 
+//       ...loginFormData, 
+//       [name]: value
+//     }
+//     updateLoginForm(updatedFormInfo)
+//   }
 
-  //   this.state = {
-  //     email: '', 
-  //     password: '', 
-  //     loginErrors: '', 
-  //     user: {}, 
-  //     token: ''
-  //   }
-  // }
+//   const handleSubmit = event => {
+//     event.preventDefault()
+//     login(loginFormData)
+//   }
 
-  handleOnChange = (event) => {
-    const { value, name } = event.target; 
-    this.setState({
-      [name]: value
-    })
-  }
+//   return(
+//     <div className="ui container">
+//       <div className="row">
+//         <div className="col-md-8 col-md-offset-2">
+//           <div className="panel panel-default">
+//             <div className="panel-body">
+//             <form className="ui form" onSubmit={handleSubmit}>
+//               <div className="field">
+//                 <label>Email:</label>
+//                 <input type="text" placeholder="Email" value={loginFormData.email} name="email" onChange={handleChange} required/>
+//               </div>
+//               <div className="field">
+//                 <label>Password:</label>
+//                 <input type="password" placeholder="password" value={loginFormData.password} name="password" onChange={handleChange} required />
+//               </div>
+//               <button type="submit" className="ui button primary">Submit</button>
+//             </form>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+// }
 
-  login = (params) => {
-  const res = fetch('http://localhost:3001/login', {
-      method: 'POST', 
-      headers: { 
-        'Content-Type': 'application/json' 
-      }, 
-      body: JSON.stringify(params)
-     })
-  }
+// const mapStateToProps = state => {
+//   return {
+//     loginFormData: state.loginForm
+//   }
+// }
 
-  getJWTToken = async(params) => {
-    const resToken = await fetch('http://localhost:3001/login', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(params) }).then(res => res.headers.get('authorization'))
-    return resToken
-  }
-
-
-
-  handleOnSubmit = async(event) => {
-    event.preventDefault();
-    const { email, password } = this.state;
-    const params = {
-      user: {email, password}
-    }
-  }
-
-  render() {
-    return(
-      <div className="ui container">
-        <div className="row">
-          <div className="col-md-8 col-md-offset-2">
-            <div className="panel panel-default">
-              <div className="panel-body">
-              <form className="ui form" onSubmit={this.handleOnSubmit}>
-                <div className="field">
-                  <label>Email:</label>
-                  <input type="text" placeholder="Email" value={this.state.email} name="email" onChange={this.handleOnChange} />
-                </div>
-                <div className="field">
-                  <label>Password:</label>
-                  <input type="password" placeholder="password" value={this.state.password} name="password" onChange={this.handleOnChange}/>
-                </div>
-                <button type="submit" className="ui button primary">Submit</button>
-              </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-}
-
-export default Login; -->
+// export default connect(mapStateToProps, { updateLoginForm, login })(Login);
 
 
 
@@ -136,3 +111,74 @@ return (
       }
     </div>
   )
+
+
+
+  ----------------------QuickSort---------------------------
+   function selectionSort(arr) {
+   for (let i = 0; i < arr.length; i++) {
+     let indexOfMin = i;
+
+     for (let j = i+1; j < arr.length; j++) {
+       if(arr[j] < arr[indexOfMin]) {
+         indexOfMin = j;
+       }
+     }
+
+     if (indexOfMin !== i){
+       let lesser = arr[indexOfMin];
+       arr[indexOfMin] = arr[i];
+       arr[i] =lesser;
+     }
+   }
+   return arr;
+ }
+
+ let array1 = [1,2,3,4,5,6,7,8,9,10]
+ let array2 = [304, 530, 100, 23, 1234, 500, 494, 903]
+
+
+ selectionSort(array2)
+
+var items = [5,3,7,6,2,9];
+function swap(items, leftIndex, rightIndex){
+    var temp = items[leftIndex];
+    items[leftIndex] = items[rightIndex];
+    items[rightIndex] = temp;
+}
+function partition(items, left, right) {
+    var pivot   = items[Math.floor((right + left) / 2)], middle element
+        i       = left, left pointer
+        j       = right; right pointer
+    while (i <= j) {
+        while (items[i] < pivot) {
+            i++;
+        }
+        while (items[j] > pivot) {
+            j--;
+        }
+        if (i <= j) {
+            swap(items, i, j); sawpping two elements
+            i++;
+            j--;
+        }
+    }
+    return i;
+}
+
+function quickSort(items, left, right) {
+    var index;
+    if (items.length > 1) {
+        index = partition(items, left, right); index returned from partition
+        if (left < index - 1) { more elements on the left side of the pivot
+            quickSort(items, left, index - 1);
+        }
+        if (index < right) { more elements on the right side of the pivot
+            quickSort(items, index, right);
+        }
+    }
+    return items;
+}
+ first call to quick sort
+var sortedArray = quickSort(items, 0, items.length - 1);
+console.log(sortedArray); prints [2,3,5,6,7,9]
