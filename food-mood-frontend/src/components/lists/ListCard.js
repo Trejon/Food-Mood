@@ -7,24 +7,16 @@ import { withRouter } from "react-router";
 import { getMyMeals } from '../../actions/myMeals'
 
 class ListCard extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
 
-  // componentDidUpdate(prevProps) {
-  //   // this.forceUpdate()
-  //   if (prevProps.meals !== this.props.meals) {
-  //     let meals = this.props.meals.filter(meal => meal.attributes.list.id == this.props.listId)
-  //   console.log('These are prevProps', prevProps, 'These are current:', this.props, 'These are new meals:', meals)
-  //   return meals
-  //   }
-  // }
-
-
- 
   render() {
     const renderedMeal = this.props.location.query ? this.props.location.query.renderedMeal : null
     const mealType = this.props.location.query ? this.props.location.query.mealType : null
     const { list } = this.props
 
-    const meals = list && this.props.myMeals ? this.props.myMeals.filter(meal => meal.attributes.list.id == this.props.listId) : null
+    const meals = list && this.props.myMeals ? this.props.myMeals.filter(meal => meal.attributes.list.id === this.props.listId) : null
 
     const listMeals = list && meals ? meals.map(meal => <li key={meal.id}><Link to={`/meals/${meal.id}`}><h5>{meal.attributes.name}</h5></Link></li>) : null
 

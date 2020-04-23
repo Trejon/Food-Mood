@@ -50,7 +50,7 @@ const MealForm = ({ formData, updateMealForm, handleSubmit, editMode }) => {
         value={meal_date}
         placeholder="Date"
       /><br /><br/>
-      <button className="ui primary button" type="submit">{editMode ? "Update Meal" : "Create Meal"}</button>
+      <button className="ui primary button" type="submit">{editMode ? "Add Meal" : "Create Meal"}</button>
     </form>
   )
 }

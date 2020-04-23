@@ -10,7 +10,7 @@ const Header = ({ currentUser, loggedIn }) => {
       <div className="ui teal six item menu">
 
         <div className="header item navitem">
-          <NavLink style={{ color: 'rgb(250, 239, 135, 0.967)', 'font-size': '40px', position: 'absolute', 'border-style': 'double'}} exact to="">FoodMood</NavLink>
+          <NavLink style={{ color: 'rgb(250, 239, 135, 0.967)', 'fontSize': '40px', position: 'absolute', 'borderStyle': 'double'}} exact to="">FoodMood</NavLink>
         </div>
 
         <div className="header item navitem">

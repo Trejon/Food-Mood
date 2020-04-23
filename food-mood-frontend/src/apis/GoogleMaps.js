@@ -33,14 +33,6 @@ class GoogleMaps extends React.Component{
     </div>
     )
   }
-
-  // const infoWindow = (restaurant) => {
-  //   return (
-  //     <div>
-  //       {restaurant}
-  //     </div>
-  //   )
-  // }
   
     if (this.props.location) {
       return(

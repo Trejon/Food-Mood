@@ -6,7 +6,10 @@ import MealCard from './components/meals/MealCard';
 import FetchRestaurants from './components/restaurants/FetchRestaurants';
 import FetchRecipes from './components/recipes/FetchRecipes';
 import Header from './components/Header';
-import Login from './components/user/Login';
+
+// import Login from './components/user/Login';
+import AuthForm from './components/user/AuthForm';
+
 import Signup from './components/user/SignUp';
 import MyLists from './components/lists/MyLists';
 import Home from './components/Home';
@@ -28,6 +31,7 @@ class App extends React.Component {
   componentDidMount() {
     this.props.getCurrentUser()
     this.props.getUserCoords()
+    window.scrollTo(0, 0)
   }
 
   render() {
@@ -43,7 +47,7 @@ class App extends React.Component {
             <Route path="/restaurants" exact component={FetchRestaurants} />
             <Route path="/recipes" exact component={FetchRecipes} />
             <Route path="/" exact component={Home} />
-            <Route path="/login" exact component={Login} />
+            <Route path="/login" exact component={AuthForm} />
             <Route path="/signup" exact component={Signup} /> 
             <Route path="/lists" exact component={MyLists} />
             <Route path="/lists/new" exact component={NewListFormWrapper} />

@@ -1,5 +1,5 @@
 import { SET_CURRENT_USER } from './types';
-import { resetLoginForm } from './loginForm';
+// import { resetLoginForm } from './loginForm';
 import { getMyLists, clearLists } from './myLists';
 import { getMyMeals } from './myMeals';
 import history from '../history';
@@ -54,7 +54,7 @@ export const login = credentials => {
        dispatch(getMyLists())
        dispatch(getMyMeals())
        history.push('/')
-       dispatch(resetLoginForm())
+      //  dispatch(resetLoginForm())
        // Get User location
       }
     })
