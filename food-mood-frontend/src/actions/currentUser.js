@@ -1,11 +1,11 @@
-import { SET_CURRENT_USER } from './types';
+import { SET_CURRENT_USER, GET_USER_LOCATION, CLEAR_CURRENT_USER } from './types';
 import { getMyLists, clearLists } from './myLists';
 import { getMyMeals } from './myMeals';
 import history from '../history';
 
 export const getUserLocation = location => {
   return {
-    type: 'GET_USER_LOCATION', 
+    type: GET_USER_LOCATION, 
     location
   }
 }
@@ -19,7 +19,7 @@ export const setCurrentUser = user => {
 
  export const clearCurrentUser = () => {
   return  {
-    type: "CLEAR_CURRENT_USER"
+    type: CLEAR_CURRENT_USER
   }
  }
 
