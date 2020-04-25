@@ -1,36 +1,37 @@
 import history from '../history';
 import { resetListForm } from './listForm';
+import { SET_MY_LISTS, CLEAR_LISTS, ADD_LIST, DELETE_LIST, UPDATE_LIST } from './types';
 
 export const setMyLists = lists => {
   return {
-    type: "SET_MY_LISTS",
+    type: SET_MY_LISTS,
     lists
   }
 }
 
 export const clearLists = () => {
   return {
-    type: "CLEAR_LISTS", 
+    type: CLEAR_LISTS, 
   }
 }
 
 export const addList = list => {
   return {
-    type: "ADD_LIST", 
+    type: ADD_LIST, 
     list
   }
 } 
 
 export const deleteListSuccess = listId => {
   return {
-    type: "DELETE_LIST", 
+    type: DELETE_LIST, 
     listId
   }
 } 
 
 export const updateListSuccess = list => {
   return {
-    type: "UPDATE_LIST", 
+    type: UPDATE_LIST, 
     list
   }
 } 

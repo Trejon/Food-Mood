@@ -1,36 +1,37 @@
 import history from '../history';
 import { resetMealForm } from './mealForm';
+import { SET_MY_MEALS, CLEAR_MEALS, ADD_MEAL, DELETE_MEAL, UPDATE_MEAL } from './types';
 
 export const setMyMeals = meals => {
   return {
-    type: "SET_MY_MEALS",
+    type: SET_MY_MEALS,
     meals
   }
 }
 
 export const clearMeals = () => {
   return {
-    type: "CLEAR_MEALS", 
+    type: CLEAR_MEALS, 
   }
 }
 
 export const addMeal = meal => {
   return {
-    type: "ADD_MEAL", 
+    type: ADD_MEAL, 
     meal
   }
 } 
 
 export const deleteMealSuccess = mealId => {
   return {
-    type: "DELETE_MEAL", 
+    type: DELETE_MEAL, 
     mealId
   }
 } 
 
 export const updateMealSuccess = meal => {
   return {
-    type: "UPDATE_MEAL", 
+    type: UPDATE_MEAL, 
     meal
   }
 } 
