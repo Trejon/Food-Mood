@@ -12,7 +12,7 @@ export const getUserLocation = location => {
 
 export const setCurrentUser = user => {
   return {
-    type: 'SET_CURRENT_USER',
+    type: SET_CURRENT_USER,
     user
   }
 }
