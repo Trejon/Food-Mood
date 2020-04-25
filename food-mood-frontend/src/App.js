@@ -19,7 +19,6 @@ import NewListFormWrapper from './components/lists/NewListFormWrapper';
 import EditListFormWrapper from './components/lists/EditListFormWrapper';
 import EditMealFormWrapper from './components/meals/EditMealFormWrapper';
 import GoogleMaps from './apis/GoogleMaps';
-
 import ListDelete from './components/lists/ListDelete'
 import MealDelete from './components/meals/MealDelete'
 
@@ -39,7 +38,6 @@ class App extends React.Component {
           {loggedIn ? <Header location={this.props.location} /> : <Header /> }
           <MainContainer />
           <Switch>
-
             <Route path="/map" exact component={GoogleMaps} />
             <Route path="/restaurants" exact component={FetchRestaurants} />
             <Route path="/recipes" exact component={FetchRecipes} />
