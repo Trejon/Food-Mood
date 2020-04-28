@@ -10,7 +10,7 @@ const Header = ({ currentUser, loggedIn }) => {
       <div className="ui teal six item menu">
 
         <div className="header item navitem">
-          <NavLink style={{ color: 'rgb(250, 239, 135, 0.967)', 'fontSize': '40px', position: 'absolute', 'borderStyle': 'double'}} exact to="">FoodMood</NavLink>
+          <NavLink style={{ color: 'rgb(250, 239, 135, 0.967)', 'fontSize': '40px', 'borderStyle': 'double'}} exact to="">FoodMood</NavLink>
         </div>
 
         <div className="header item navitem">
@@ -28,28 +28,24 @@ const Header = ({ currentUser, loggedIn }) => {
         <div className="header item navitem">
           <NavLink exact activeClassName="active" to="/recipes"><h4>Search Recipes</h4></NavLink>
         </div>
-
-          {/* <div className="header item navitem">
-          <strong className="logo">FoodMood</strong>
-          </div> */}
-
-          
-          <div className="right menu">
+  
+        <div className="right menu">
             
-            {loggedIn ? <><p className="item loggedin">Currently logged in as {currentUser.currentUser.data.attributes.name}</p> <div className="ui item logout"><Logout/></div></> : null}
-          </div>
+          {loggedIn ? <><p className="item loggedin">Currently logged in as {currentUser.currentUser.data.attributes.name}</p> <div className="ui item logout"><Logout/></div></> : null}
+        </div>
         
       </div>
     )
   } else {
     return (
       <div className="ui teal one item menu">
+
         <div className="header item navitem">
-        <h1>Welcome to FoodMood, please <Link to="/login">Log In</Link> into your account or <Link to="/signup">Sign Up</Link></h1>
+          <h1>Welcome to FoodMood, please <Link to="/login">Log In</Link> into your account or <Link to="/signup">Sign Up</Link></h1>
         </div>
           
         <div className="right menu">
-              <strong className="logo">FoodMood</strong>
+          <strong className="logo">FoodMood</strong>
         </div>
 
           <div className="right menu">
