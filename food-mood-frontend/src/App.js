@@ -13,7 +13,6 @@ import Home from './components/Home';
 import history from './history';
 import { connect } from 'react-redux'; 
 import { getCurrentUser, getUserCoords } from './actions/currentUser';
-import MainContainer from './components/MainContainer';
 import { setFormDataForEdit } from './actions/listForm';
 import NewListFormWrapper from './components/lists/NewListFormWrapper';
 import EditListFormWrapper from './components/lists/EditListFormWrapper';
@@ -36,7 +35,6 @@ class App extends React.Component {
       <Router history={history}>
         <div className="app">
           {loggedIn ? <Header location={this.props.location} /> : <Header /> }
-          <MainContainer />
           <Switch>
             <Route path="/map" exact component={GoogleMaps} />
             <Route path="/restaurants" exact component={FetchRestaurants} />
