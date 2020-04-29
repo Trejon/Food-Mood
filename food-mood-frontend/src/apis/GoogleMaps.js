@@ -20,7 +20,6 @@ class GoogleMaps extends React.Component{
 
   // const restLocations = this.props.restaurants.map(res => { return {lat: res.coordinates.latitude, lng: res.coordinates.longitude}})
 
-
   const Marker = props => {
     return (
     <div>

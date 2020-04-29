@@ -13,7 +13,7 @@ export default (state=initalState, action) => {
       return returnVal
     case "RESET_LIST_FORM":
       return initalState
-    case "SET_FORM_DATA_FOR_EDIT": 
+    case "SET_LIST_FORM_DATA_FOR_EDIT": 
       return action.listFormData
     default: 
       return state
