@@ -23,6 +23,7 @@ import MealDelete from './components/meals/MealDelete'
 
 
 class App extends React.Component {
+  
   componentDidMount() {
     this.props.getCurrentUser()
     this.props.getUserCoords()
