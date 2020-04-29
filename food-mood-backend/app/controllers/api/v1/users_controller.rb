@@ -15,10 +15,7 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /users
   def create
-    # @user = User.create(name: params[:name], email: params[:email], password: params[:password])
     @user = User.create(user_params) 
-    @user.password = params[:password]
-    byebug
     if @user.save
       session[:user_id] = @user.id
       render json: UserSerializer.new(@user), status: :created
@@ -52,6 +49,6 @@ class Api::V1::UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_digest)
+      params.require(:user).permit(:name, :email).merge(password: params[:password])
     end
 end
