@@ -21,7 +21,6 @@ import { UPDATE_LIST_FORM, RESET_LIST_FORM, SET_LIST_FORM_DATA_FOR_EDIT } from '
       name: list.attributes.name, 
       description: list.attributes.description
     }
-    console.log(listFormData)
     return {
       type: SET_LIST_FORM_DATA_FOR_EDIT, 
       listFormData

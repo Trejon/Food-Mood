@@ -64,7 +64,7 @@ class App extends React.Component {
               }
               }/>
               <Route path="/meals/:id/edit" exact render={props => {
-              const meal = meals.find(meal => meal.id === props.match.params.id)
+              const meal = meals ? meals.find(meal => meal.id === props.match.params.id) : null
               return <EditMealFormWrapper meal={meal} />
               }
               }/>

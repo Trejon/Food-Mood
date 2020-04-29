@@ -36,7 +36,7 @@ class EditListFormWrapper extends React.Component {
         <>
           <ListForm editMode handleSubmit={this.handleSubmit} />
           <br/>
-          <Link className="ui primary button" list={list} to={`/lists/delete/${listId}`}><h5>Delete this list</h5></Link>
+          <Link className="ui negative button" list={list} to={`/lists/delete/${listId}`}><h5>Delete this list</h5></Link>
         </>
       </div>
     );
