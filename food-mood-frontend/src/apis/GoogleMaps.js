@@ -1,6 +1,6 @@
 import React from 'react'; 
 import GoogleMapReact from 'google-map-react'; 
-import { mapsKey } from './config';
+// import { mapsKey } from './config';
 import { connect } from 'react-redux';
 
 class GoogleMaps extends React.Component{
@@ -37,7 +37,7 @@ class GoogleMaps extends React.Component{
       return(
         <div style={{ height: "100vh", width: "100%", position: 'relative'}}>
           <GoogleMapReact 
-            bootstrapURLKeys={{ key: mapsKey}}
+            // bootstrapURLKeys={{ key: mapsKey}}
             defaultCenter={{lat, lng}}
             defaultZoom={11} 
             yesIWantToUseGoogleMapApiInternals
