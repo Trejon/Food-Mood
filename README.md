@@ -1,9 +1,8 @@
 # README
 ## Food-Mood
-A React restaurant and recipe search application using fetch requests to access a Rails API backend. Uses Redux to keep central storage for the majority of the application. Employed Semantic UI framework for better styling. Uses bcrypt for a basic login, using session cookies and the redux store to track logged in status. Only intended for local development environment.
+A React restaurant and recipe search application using fetch requests to access a Rails API backend. Uses Redux to keep central storage for the majority of the application. Employed Semantic UI framework for better styling. Uses bcrypt for a basic login, using session cookies and the redux store to track logged in status.
 
 ## Installation
- Uses an SQL database
 
 ```bash
   cd food-mood
