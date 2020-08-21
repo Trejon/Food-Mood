@@ -1,6 +1,7 @@
 import React from 'react'; 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import './List.css'
 
 class MyLists extends React.Component{
   // constructor() {
@@ -42,7 +43,7 @@ class MyLists extends React.Component{
 
 
   return(
-    <div>
+    <div className="list-content">
     <h3>These are your lists:</h3>
     <div className="ui list">
       {listCards}

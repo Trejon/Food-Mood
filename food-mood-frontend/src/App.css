@@ -16,10 +16,7 @@
 
 .item.loggedin {
   font-size: 10px;
-  position: absolute;
-  right: 50px;
-  width: 200px;
-  height: 100;
+  right: 125%;
 }
 
 .ui.menu {

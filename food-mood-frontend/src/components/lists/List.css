@@ -1,0 +1,30 @@
+.list-content {
+    margin-left: 30px;
+}
+
+.card-name {
+     display: unset;
+     text-decoration-line: underline;
+     margin: 3% 50% 3% 50%;
+     color: teal !important;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.list-form {
+    display: grid;
+    margin: 5%;
+}
+
+.list-input {
+    width: 60% !important;
+    margin: 0 50% 0px 20% !important;
+    box-shadow: 0 5px 10px 5px cornflowerblue !important;
+}
+
+.list-btn {
+    width: 62%;
+    margin: 3% 50% 0 20% !important;
+}
