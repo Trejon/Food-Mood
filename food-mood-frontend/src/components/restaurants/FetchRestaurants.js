@@ -34,7 +34,6 @@ class FetchRestaurants extends React.Component {
       latitude: this.props.location.location.latitude,
       longitude: this.props.location.location.longitude,
     };
-    console.log(data);
     fetch("http://localhost:3001/api/v1/search", {
       method: "POST",
       headers: {
