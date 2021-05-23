@@ -7,7 +7,7 @@ class CreateMeals < ActiveRecord::Migration[6.0]
       t.string :description
       t.string :url
       t.date :meal_date
-      t.belongs_to :user, null: false, foreign_key: true 
+      t.belongs_to :user, null: false, foreign_key: true
       t.belongs_to :list, null: false, foreign_key: true
 
       t.timestamps

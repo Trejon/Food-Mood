@@ -1,9 +1,8 @@
 import React from "react";
 import SearchBar from "./SearchBar";
-// import { requestOptions } from "../../apis/config";
 import { connect } from "react-redux";
 import Restaurant from "./Restaurant";
-// import GoogleMaps from '../../apis/GoogleMaps';
+import GoogleMaps from "../../apis/GoogleMaps";
 
 class FetchRestaurants extends React.Component {
   constructor() {
@@ -14,25 +13,51 @@ class FetchRestaurants extends React.Component {
     };
   }
 
+  // fetchYelpApi = (term) => {
+  //   fetch(
+  //     `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${this.props.location.location.latitude}&longitude=${this.props.location.location.longitude}`,
+  //     requestOptions
+  //   )
+  //     .then((response) => console.log(JSON.parse(response)))
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       this.setState({
+  //         restaurants: result.businesses,
+  //       });
+  //     })
+  //     .catch((error) => console.log("error", error));
+  // };
+
   fetchYelpApi = (term) => {
-    fetch(
-      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&latitude=${this.props.location.location.latitude}&longitude=${this.props.location.location.longitude}`
-      // requestOptions
-    )
+    const data = {
+      term: term,
+      latitude: this.props.location.location.latitude,
+      longitude: this.props.location.location.longitude,
+    };
+    console.log(data);
+    fetch("http://localhost:3001/api/v1/search", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
       .then((response) => response.json())
-      .then((result) => {
-        this.setState({
-          restaurants: result.businesses,
-        });
-      })
-      .catch((error) => console.log("error", error));
+      .then(
+        (result) =>
+          this.setState({
+            restaurants: result.businesses,
+          })
+        // .catch((error) => console.log("error", error))
+      );
   };
 
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      this.fetchYelpApi();
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.location !== prevProps.location) {
+  //     this.fetchYelpApi();
+  //   }
+  // }
 
   render() {
     if (!this.state.restaurants) {
@@ -41,7 +66,7 @@ class FetchRestaurants extends React.Component {
           <h5>Search Restaurants Near You</h5>
           <SearchBar search={this.fetchYelpApi} />
           <br />
-          {/* <GoogleMaps restaurants={this.state.restaurants} /> */}
+          <GoogleMaps restaurants={this.state.restaurants} />
         </div>
       );
     }
@@ -51,7 +76,7 @@ class FetchRestaurants extends React.Component {
         <SearchBar search={this.fetchYelpApi} />
         <Restaurant restaurants={this.state.restaurants} />
         <br />
-        {/* <GoogleMaps restaurants={this.state.restaurants} /> */}
+        <GoogleMaps restaurants={this.state.restaurants} />
       </div>
     );
   }
