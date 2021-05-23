@@ -12,8 +12,9 @@ class Home extends React.Component {
               <br />
               <h3>
                 A meal tracking app designed to work for you. Plan your meals by
-                browsing recipes or searching for nearby restaurants. Enable
-                your location to enjoy all of the features.
+                browsing recipes or searching for nearby restaurants. Or create
+                your own and add them to your logs. Enable your location to
+                enjoy all of the features.
               </h3>
               <h6>Note: Google Map will have a filter due to the free API.</h6>
             </div>
