@@ -1,5 +1,6 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: %i[show update destroy]
+
   #
   # GET /users
   def index
@@ -15,14 +16,12 @@ class Api::V1::UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.create(user_params) 
+    @user = User.create(user_params)
     if @user.save
       session[:user_id] = @user.id
       render json: UserSerializer.new(@user), status: :created
     else
-      resp = {
-        error: @user.errors.full_messages.to_sentence
-      }
+      resp = { error: @user.errors.full_messages.to_sentence }
       render json: resp, status: :unprocessable_entity
     end
   end
@@ -42,13 +41,17 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      params.require(:user).permit(:name, :email).merge(password: params[:password])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def user_params
+    params
+      .require(:user)
+      .permit(:name, :email)
+      .merge(password: params[:password])
+  end
 end

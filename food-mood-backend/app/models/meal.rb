@@ -9,14 +9,14 @@ class Meal < ApplicationRecord
 
   #   def downcase_type_fields
   #     self.meal_type = self.meal_type.downcase! unless self.meal_type.nil?
-  #   end 
+  #   end
 
   #   validates :kind, inclusion: { in: %w(restaurant recipe),
   #     message: "%{value} is not a valid meal kind" }
 
   #   def downcase_kind_fields
   #     self.kind = self.kind.downcase! unless self.kind.nil?
-  #   end 
+  #   end
 
   #   def strip_whitespace
   #     self.name = self.name.strip unless self.name.nil?
@@ -25,5 +25,4 @@ class Meal < ApplicationRecord
   #     self.description = self.description.strip unless self.description.nil?
   #     self.url = self.url.strip unless self.url.nil?
   #   end
-
 end

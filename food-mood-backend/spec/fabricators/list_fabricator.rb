@@ -1,2 +1,1 @@
-Fabricator(:list) do
-end
+Fabricator(:list) {}
