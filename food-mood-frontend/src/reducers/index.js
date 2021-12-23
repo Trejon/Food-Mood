@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'; 
+import { combineReducers } from 'redux';
 import locationReducer from './locationReducer';
 import currentUser from './currentUser';
 import myLists from './myLists';
@@ -7,10 +7,10 @@ import ListForm from './listForm';
 import MealForm from './mealForm';
 
 export default combineReducers({
-  location: locationReducer, 
-  currentUser,  
-  myLists, 
+  location: locationReducer,
+  currentUser,
+  myLists,
   myMeals,
   ListForm,
-  MealForm
+  MealForm,
 });
