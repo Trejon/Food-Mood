@@ -50,7 +50,7 @@ class AuthForm extends React.Component {
                     />
                   </div>
                   <button type="submit" className="ui button primary">
-                    Submit
+                    Log In
                   </button>
                 </form>
               </div>

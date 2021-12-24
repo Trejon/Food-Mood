@@ -1,6 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import MyLists from './lists/MyLists';
+import history from '../history';
+
+import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react';
+import AuthForm from './user/Login';
+
+const DividerExampleVerticalForm = () => (
+  <Segment placeholder>
+    <Grid columns={2} relaxed="very" stackable>
+      <Grid.Column verticalAlign="middle">
+        <Button
+          content="Sign up"
+          icon="signup"
+          size="big"
+          onClick={() => history.push('/signup')}
+        />
+      </Grid.Column>
+
+      <Grid.Column>
+        <AuthForm />
+      </Grid.Column>
+    </Grid>
+
+    <Divider vertical></Divider>
+  </Segment>
+);
 class Home extends React.Component {
   render() {
     return (
@@ -10,14 +35,10 @@ class Home extends React.Component {
           <div className="ui message">
             <div className="ui center aligned header">
               <br />
-              <h3>
-                A meal tracking app designed to work for you.Plan your meals by
-                browsing recipes or searching for nearby restaurants.Or create
-                your own and add them to your logs.Enable your location to enjoy
-                all of the features.{' '}
-              </h3>{' '}
+              <h3>Enable your location to enjoy all of the features. </h3>{' '}
               <h6>
                 {' '}
+                <DividerExampleVerticalForm />
                 Note: Google Map will have a filter due to the free API.{' '}
               </h6>{' '}
             </div>{' '}
