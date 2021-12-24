@@ -1,6 +1,7 @@
 import React from 'react';
 import { signup } from '../../actions/currentUser';
 import { connect } from 'react-redux';
+import { Input, Form } from 'semantic-ui-react';
 
 class SignUp extends React.Component {
   state = {
@@ -22,6 +23,7 @@ class SignUp extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="ui container">
         <div className="row">
@@ -30,38 +32,38 @@ class SignUp extends React.Component {
               <div className="panel-body">
                 <form className="ui form" onSubmit={this.handleOnSubmit}>
                   <div className="field">
-                    <label>Name:</label>
-                    <input
+                    <Input
                       type="text"
                       placeholder="Name"
                       value={this.state.name}
                       name="name"
                       onChange={this.handleOnChange}
                       autoComplete="off"
+                      focus
                       required
                     />
                   </div>
                   <div className="field">
-                    <label>Email:</label>
-                    <input
+                    <Input
                       type="text"
                       placeholder="Email"
                       value={this.state.email}
                       name="email"
                       onChange={this.handleOnChange}
                       autoComplete="off"
+                      focus
                       required
                     />
                   </div>
                   <div className="field">
-                    <label>Password:</label>
-                    <input
+                    <Form.Input
                       type="password"
                       placeholder="password"
                       value={this.state.password}
                       name="password"
                       onChange={this.handleOnChange}
                       autoComplete="off"
+                      focus
                       required
                     />
                   </div>

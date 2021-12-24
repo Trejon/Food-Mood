@@ -29,7 +29,6 @@ class AuthForm extends React.Component {
               <div className="panel-body">
                 <form className="ui form" onSubmit={this.handleOnSubmit}>
                   <div className="field">
-                    <label>Email:</label>
                     <input
                       type="text"
                       placeholder="Email"
@@ -40,7 +39,6 @@ class AuthForm extends React.Component {
                     />
                   </div>
                   <div className="field">
-                    <label>Password:</label>
                     <input
                       type="password"
                       placeholder="password"
