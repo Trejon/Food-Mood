@@ -77,7 +77,11 @@ h4:last-child {
 
 .homeGrid {
     position: relative;
-    left: -240px;
+    left: -20px;
     transition: none 0s ease 0s;
     cursor: move;
+}
+
+.ui.input>input {
+    max-width: 200%;
 }
