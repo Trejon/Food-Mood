@@ -23,58 +23,61 @@ class SignUp extends React.Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="ui container">
         <div className="row">
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="ui form" onSubmit={this.handleOnSubmit}>
+                <form className="ui form signUp" onSubmit={this.handleOnSubmit}>
                   <div className="field">
-                    <Input
+                    <input
+                      className="formInputEl"
                       type="text"
                       placeholder="Name"
                       value={this.state.name}
                       name="name"
                       onChange={this.handleOnChange}
                       autoComplete="off"
-                      focus
+                      // focus
                       required
                     />
-                  </div>
+                  </div>{' '}
                   <div className="field">
-                    <Input
+                    <input
+                      className="formInputEl"
                       type="text"
                       placeholder="Email"
                       value={this.state.email}
                       name="email"
                       onChange={this.handleOnChange}
                       autoComplete="off"
-                      focus
+                      // focus
                       required
                     />
-                  </div>
+                  </div>{' '}
                   <div className="field">
-                    <Form.Input
+                    <input
+                      className="formInputEl"
                       type="password"
                       placeholder="password"
                       value={this.state.password}
                       name="password"
                       onChange={this.handleOnChange}
                       autoComplete="off"
-                      focus
+                      // focus
                       required
                     />
-                  </div>
+                  </div>{' '}
                   <button type="submit" className="ui button primary">
-                    Sign Up
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+                    Sign Up{' '}
+                  </button>{' '}
+                </form>{' '}
+              </div>{' '}
+            </div>{' '}
+          </div>{' '}
+        </div>{' '}
       </div>
     );
   }

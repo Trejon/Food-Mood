@@ -76,10 +76,15 @@ h4:last-child {
     margin-left: -150px;
 }
 
+
+/* .ui.form.signUp {
+    margin-left: 29%;
+} */
+
 button.ui.button.primary {
     margin-right: 23% !important;
     width: 25%;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .homeGrid {
@@ -114,6 +119,22 @@ button.homePageButton {
     padding-left: 60px !important;
 }
 
+
+/* .homePageButtonLogin {
+    position: relative;
+    left: 200px;
+    transition: none 0s ease 0s;
+    cursor: move;
+    padding-right: 60px !important;
+    padding-left: 60px !important;
+    left: 450px;
+    top: -40px !important;
+} */
+
 .formInputEl {
     width: 150% !important;
+}
+
+h5.homeNote {
+    text-align: center;
 }
