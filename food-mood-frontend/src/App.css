@@ -145,3 +145,13 @@ h5.homeNote {
     text-align: center;
     left: 25%;
 }
+
+.ui.form.logout {
+    position: relative;
+    top: 15px;
+    left: -22px;
+}
+
+.searchBar {
+    width: 95% !important;
+}

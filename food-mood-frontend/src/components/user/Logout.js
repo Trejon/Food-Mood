@@ -63,10 +63,13 @@ class Logout extends React.Component {
             <div className="col-md-8 col-md-offset-2">
               <div className="panel panel-default">
                 <div className="panel-body">
-                  <form className="ui form" onSubmit={this.showBoxToggle}>
+                  <form
+                    className="ui form logout"
+                    onSubmit={this.showBoxToggle}
+                  >
                     <button
                       type="submit"
-                      className="ui button negative"
+                      className="ui button negative logout"
                       onMouseLeave={this.hideBoxToggle}
                     >
                       Logout
