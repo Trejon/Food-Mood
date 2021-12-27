@@ -3,9 +3,10 @@
 }
 
 .card-name {
-    display: unset;
+    display: inline;
+    width: 100%;
     text-decoration-line: underline;
-    margin: 3% 50% 3% 50%;
+    margin: 0 0 0 40vw;
     color: teal !important;
 }
 
