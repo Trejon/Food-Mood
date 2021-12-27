@@ -30,7 +30,10 @@ class AuthForm extends React.Component {
           <div className="col-md-8 col-md-offset-2">
             <div className="panel panel-default">
               <div className="panel-body">
-                <form className="ui form" onSubmit={this.handleOnSubmit}>
+                <form
+                  className="ui form homepage"
+                  onSubmit={this.handleOnSubmit}
+                >
                   <div className="field">
                     <input
                       className="formInputEl"

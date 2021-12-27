@@ -71,7 +71,7 @@ h4:last-child {
     width: 25px;
 }
 
-.ui.form {
+.ui.form.homepage {
     width: 500px;
     margin-left: -150px;
 }
@@ -94,9 +94,10 @@ button.ui.button.primary {
     cursor: move;
 }
 
-.ui.input>input {
+
+/* .ui.input>input {
     max-width: 500% !important;
-}
+} */
 
 h1.HomeHeader {
     color: white;
@@ -133,6 +134,7 @@ button.homePageButton {
 
 .formInputEl {
     width: 150% !important;
+    max-width: 500% !important;
 }
 
 h5.homeNote {
