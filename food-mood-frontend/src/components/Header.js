@@ -49,10 +49,6 @@ const Header = ({ currentUser, loggedIn }) => {
         <div className="right menu">
           {loggedIn ? (
             <>
-              <p className="item loggedin">
-                Currently logged in as{' '}
-                {currentUser.currentUser.data.attributes.name}
-              </p>{' '}
               <div className="ui item logout">
                 <Logout />
               </div>
@@ -87,10 +83,6 @@ const Header = ({ currentUser, loggedIn }) => {
         <div className="right menu">
           {loggedIn ? (
             <>
-              <p className="item loggedin">
-                Currently logged in as{' '}
-                {currentUser.currentUser.data.attributes.name}
-              </p>{' '}
               <div className="ui item logout">
                 <Logout />
               </div>

@@ -140,3 +140,8 @@ button.homePageButton {
 h5.homeNote {
     text-align: center;
 }
+
+.ui.standard.modal.visible.active {
+    text-align: center;
+    left: 25%;
+}
