@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Form } from 'semantic-ui-react';
 import { login } from '../../actions/currentUser';
+
+import '../../App.css';
 
 class AuthForm extends React.Component {
   state = {
@@ -30,6 +33,8 @@ class AuthForm extends React.Component {
                 <form className="ui form" onSubmit={this.handleOnSubmit}>
                   <div className="field">
                     <input
+                      className="formInputEl"
+                      width={18}
                       type="text"
                       placeholder="Email"
                       value={this.state.email}
@@ -37,24 +42,25 @@ class AuthForm extends React.Component {
                       onChange={this.handleOnChange}
                       autoComplete="off"
                     />
-                  </div>
+                  </div>{' '}
                   <div className="field">
                     <input
+                      className="formInputEl"
                       type="password"
                       placeholder="password"
                       value={this.state.password}
                       name="password"
                       onChange={this.handleOnChange}
-                    />
-                  </div>
+                    />{' '}
+                  </div>{' '}
                   <button type="submit" className="ui button primary">
-                    Log In
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+                    Log In{' '}
+                  </button>{' '}
+                </form>{' '}
+              </div>{' '}
+            </div>{' '}
+          </div>{' '}
+        </div>{' '}
       </div>
     );
   }

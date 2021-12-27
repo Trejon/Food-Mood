@@ -23,24 +23,24 @@ class Home extends React.Component {
       return (
         <div>
           <Segment placeholder>
-            <Grid columns={2} relaxed="very" stackable>
+            <Grid columns={3} relaxed="very" stackable>
               <Grid.Column className="homeGrid" verticalAlign="middle">
                 <Button
+                  className="homePageButton"
                   content="Login"
                   icon="login"
                   size="massive"
                   onClick={this.handleButtonClick}
                 >
-                  Login
-                </Button>
+                  Login{' '}
+                </Button>{' '}
               </Grid.Column>
-
               <Grid.Column>
                 <SignUp />
-              </Grid.Column>
-            </Grid>
-            <Divider vertical></Divider>
-          </Segment>
+              </Grid.Column>{' '}
+            </Grid>{' '}
+            <Divider vertical> </Divider>{' '}
+          </Segment>{' '}
         </div>
       );
     } else if (!this.props.currentUser && !this.state.signup) {
@@ -50,15 +50,15 @@ class Home extends React.Component {
             <Grid columns={2} relaxed="very" stackable>
               <Grid.Column className="homeGrid" verticalAlign="middle">
                 <Button
+                  className="homePageButton"
                   content="Sign Up"
                   icon="signup"
                   size="massive"
                   onClick={this.handleButtonClick}
                 >
-                  Sign Up
-                </Button>
+                  Sign Up{' '}
+                </Button>{' '}
               </Grid.Column>
-
               <Grid.Column>
                 <AuthForm
                   content="Log Up"
@@ -66,53 +66,17 @@ class Home extends React.Component {
                   size="massive"
                   onClick={() => this.handleButtonClick}
                 >
-                  Log In
-                </AuthForm>
-              </Grid.Column>
-            </Grid>
-            <Divider vertical></Divider>
-          </Segment>
+                  Log In{' '}
+                </AuthForm>{' '}
+              </Grid.Column>{' '}
+            </Grid>{' '}
+            <Divider vertical> </Divider>{' '}
+          </Segment>{' '}
         </div>
       );
     } else {
       return <MyLists />;
     }
-    //     <div>
-    //       {' '}
-    //       <div className="ui message">
-    //         <div className="ui center aligned header">
-    //           <br />
-    //           <h3>Enable your location to enjoy all of the features. </h3>{' '}
-    //           <h6>
-    //             {' '}
-    //             {/* <AccountHomePage /> */}
-    //             <SignUpPage />
-    //             Note: Google Map will have a filter due to the free API.{' '}
-    //           </h6>{' '}
-    //         </div>{' '}
-    //       </div>
-    //     </div>
-    //   );
-    // } else if (!this.props.currentUser && !this.state.signup) {
-    //   return (
-    //     <div>
-    //       {' '}
-    //       <div className="ui message">
-    //         <div className="ui center aligned header">
-    //           <br />
-    //           <h3>Enable your location to enjoy all of the features. </h3>{' '}
-    //           <h6>
-    //             {' '}
-    //             {/* <AccountHomePage /> */}
-    //             <LoginPage />
-    //             Note: Google Map will have a filter due to the free API.{' '}
-    //           </h6>{' '}
-    //         </div>{' '}
-    //       </div>
-    //     </div>
-    //   );
-    // } else {
-    //   return <MyLists />;
   }
 }
 

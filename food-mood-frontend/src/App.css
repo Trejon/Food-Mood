@@ -73,6 +73,13 @@ h4:last-child {
 
 .ui.form {
     width: 500px;
+    margin-left: -150px;
+}
+
+button.ui.button.primary {
+    margin-right: 23% !important;
+    width: 25%;
+    font-size: 20px;
 }
 
 .homeGrid {
@@ -83,5 +90,30 @@ h4:last-child {
 }
 
 .ui.input>input {
-    max-width: 200%;
+    max-width: 500% !important;
+}
+
+h1.HomeHeader {
+    color: white;
+    margin-bottom: 2%;
+}
+
+img.leadingHomeIcons {
+    left: -18px;
+    transition: none 0s ease 0s;
+    cursor: move;
+    position: relative;
+}
+
+button.homePageButton {
+    position: relative;
+    left: 200px;
+    transition: none 0s ease 0s;
+    cursor: move;
+    padding-right: 60px !important;
+    padding-left: 60px !important;
+}
+
+.formInputEl {
+    width: 150% !important;
 }

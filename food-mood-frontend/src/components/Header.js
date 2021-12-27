@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Logout from './user/Logout';
+import '../App.css';
 
 const Header = ({ currentUser, loggedIn }) => {
   if (currentUser) {
@@ -64,9 +65,15 @@ const Header = ({ currentUser, loggedIn }) => {
     return (
       <div className="ui teal one item menu">
         <div className="header item navitem">
-          <h1>
-            <img src="https://img.icons8.com/plasticine/100/000000/cookie.png" />
-            <img src="https://img.icons8.com/plasticine/100/000000/kawaii-taco.png" />
+          <h1 className="HomeHeader">
+            <img
+              className="leadingHomeIcons"
+              src="https://img.icons8.com/plasticine/100/000000/cookie.png"
+            />
+            <img
+              className="leadingHomeIcons"
+              src="https://img.icons8.com/plasticine/100/000000/kawaii-taco.png"
+            />
             Welcome to FoodMood
             <img src="https://img.icons8.com/plasticine/100/000000/kawaii-pizza.png" />
             <img src="https://img.icons8.com/plasticine/100/000000/sushi.png" />
