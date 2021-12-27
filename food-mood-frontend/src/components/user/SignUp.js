@@ -23,7 +23,6 @@ class SignUp extends React.Component {
   };
 
   render() {
-    // console.log(this.props);
     return (
       <div className="ui container">
         <div className="row">

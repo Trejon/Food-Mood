@@ -13,16 +13,13 @@ class Home extends React.Component {
   };
 
   handleButtonClick = () => {
-    console.log('we"re here ', this.state);
     this.setState((prevState) => ({
       signup: !prevState.signup,
     }));
   };
 
   render() {
-    console.log(this.state);
     if (!this.props.currentUser && this.state.signup) {
-      console.log('Maybe we finally made it');
       return (
         <div>
           <h5 className="homeNote">Enable location to enjoy all features.</h5>
