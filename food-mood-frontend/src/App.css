@@ -102,6 +102,9 @@ button.ui.button.primary {
 h1.HomeHeader {
     color: white;
     margin-bottom: 2%;
+    letter-spacing: 5px;
+    vertical-align: middle;
+    text-align: center;
 }
 
 img.leadingHomeIcons {
@@ -139,6 +142,9 @@ button.homePageButton {
 
 h5.homeNote {
     text-align: center;
+    letter-spacing: 1px;
+    font-family: cursive;
+    font-variant: none;
 }
 
 .ui.standard.modal.visible.active {
@@ -154,4 +160,8 @@ h5.homeNote {
 
 .searchBar {
     width: 95% !important;
+}
+
+.copyright {
+    height: 20px;
 }

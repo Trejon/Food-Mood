@@ -45,7 +45,7 @@ export const getUserCoords = () => {
 export const login = (credentials) => {
     console.log(credentials);
     return (dispatch) => {
-        return fetch('https://glacial-garden-59784.herokuapp.com/api/v1/login', {
+        return fetch('http://localhost:3001/api/v1/login', {
                 credentials: 'include',
                 method: 'POST',
                 headers: {
@@ -73,7 +73,7 @@ export const logout = () => {
     return (dispatch) => {
         dispatch(clearCurrentUser());
         dispatch(clearLists());
-        return fetch('https://glacial-garden-59784.herokuapp.com/api/v1/logout', {
+        return fetch('http://localhost:3001/api/v1/logout', {
             credentials: 'include',
             method: 'DELETE',
         });
@@ -82,7 +82,7 @@ export const logout = () => {
 
 export const signup = (credentials) => {
     return (dispatch) => {
-        return fetch('https://glacial-garden-59784.herokuapp.com/api/v1/signup', {
+        return fetch('http://localhost:3001/api/v1/signup', {
                 credentials: 'include',
                 method: 'POST',
                 headers: {
@@ -108,15 +108,13 @@ export const signup = (credentials) => {
 
 export const getCurrentUser = () => {
     return (dispatch) => {
-        return fetch(
-                'https://glacial-garden-59784.herokuapp.com/api/v1/get_current_user', {
-                    credentials: 'include',
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }
-            )
+        return fetch('http://localhost:3001/api/v1/get_current_user', {
+                credentials: 'include',
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
             .then((res) => res.json())
             .then((response) => {
                 if (response.error) {
