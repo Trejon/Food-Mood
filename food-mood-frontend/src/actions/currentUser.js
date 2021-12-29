@@ -43,7 +43,6 @@ export const getUserCoords = () => {
 };
 
 export const login = (credentials) => {
-    console.log(credentials);
     return (dispatch) => {
         return fetch('http://localhost:3001/api/v1/login', {
                 credentials: 'include',
