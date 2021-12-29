@@ -72,7 +72,7 @@ class SignUp extends React.Component {
                       required
                     />
                   </div>{' '}
-                  <button type="submit" className="ui button primary">
+                  <button type="submit" className="ui button primary auth">
                     Sign Up{' '}
                   </button>{' '}
                 </form>{' '}

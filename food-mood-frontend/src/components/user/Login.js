@@ -56,7 +56,7 @@ class AuthForm extends React.Component {
                       onChange={this.handleOnChange}
                     />{' '}
                   </div>{' '}
-                  <button type="submit" className="ui button primary">
+                  <button type="submit" className="ui button primary auth">
                     Log In{' '}
                   </button>{' '}
                 </form>{' '}
