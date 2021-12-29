@@ -9,15 +9,7 @@ const Header = ({ currentUser, loggedIn }) => {
     return (
       <div className="ui teal six item menu">
         <div className="header item navitem">
-          <NavLink
-            style={{
-              color: 'rgb(250, 239, 135, 0.967)',
-              fontSize: '40px',
-              borderStyle: 'double',
-            }}
-            exact
-            to=""
-          >
+          <NavLink className="logo" exact to="">
             FoodMood
           </NavLink>
         </div>
