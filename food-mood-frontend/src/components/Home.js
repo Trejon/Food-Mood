@@ -22,7 +22,9 @@ class Home extends React.Component {
     if (!this.props.currentUser && this.state.signup) {
       return (
         <div>
-          <h5 className="homeNote">Enable location to enjoy all features.</h5>
+          <h5 className="homeNote">
+            Enable location to search restaurants near you!
+          </h5>
           <Segment placeholder>
             <Grid columns={2} relaxed="very" stackable>
               <Grid.Column className="homeGrid" verticalAlign="middle">
