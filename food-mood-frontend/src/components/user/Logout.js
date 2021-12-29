@@ -44,7 +44,6 @@ class Logout extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     if (this.state.showBox) {
       return (
         <div>
