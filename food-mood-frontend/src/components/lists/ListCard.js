@@ -7,7 +7,7 @@ import { withRouter } from 'react-router';
 import { getMyMeals } from '../../actions/myMeals';
 import history from '../../history';
 
-import { Header, Icon, Image } from 'semantic-ui-react';
+import { Header, Icon } from 'semantic-ui-react';
 
 import './List.css';
 
