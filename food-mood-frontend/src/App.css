@@ -135,6 +135,20 @@ button.homePageButton {
     top: -40px !important;
 } */
 
+.redirectIcon {
+    margin-top: 5%;
+}
+
+.redirectIcon h2:hover,
+h3:hover {
+    color: #0067ee !important;
+}
+
+
+/* .redirectIcon:first-child:hover {
+    color: #0067ee;
+} */
+
 .formInputEl {
     width: 150% !important;
     max-width: 500% !important;

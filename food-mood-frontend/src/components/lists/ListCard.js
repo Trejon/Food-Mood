@@ -5,6 +5,9 @@ import EditMealFormWrapper from '../meals/EditMealFormWrapper';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { getMyMeals } from '../../actions/myMeals';
+import history from '../../history';
+
+import { Header, Icon, Image } from 'semantic-ui-react';
 
 import './List.css';
 
@@ -80,7 +83,14 @@ class ListCard extends Component {
         )}
       </div>
     ) : (
-      <p>This is the list card with no list!</p>
+      <div className="redirectIcon" onClick={() => history.push('/')}>
+        <Header as="h2" icon textAlign="center">
+          <Icon name="users" />
+          <Header.Content>
+            <h3>No lists available, log in or sign up!</h3>
+          </Header.Content>
+        </Header>
+      </div>
     );
   }
 }
