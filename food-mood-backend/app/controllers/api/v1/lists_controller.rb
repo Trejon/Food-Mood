@@ -1,5 +1,6 @@
 class Api::V1::ListsController < ApplicationController
   before_action :set_list, only: [:show, :update, :destroy]
+
   def index 
     if logged_in?
       @lists = current_user.lists 
@@ -12,14 +13,20 @@ class Api::V1::ListsController < ApplicationController
   end 
 
   def create 
-    @list = current_user.lists.build(list_params)
-    if @list.save
-      render json: ListSerializer.new(@list)
-    else
-      error_resp = {
-        error: @list.errors.full_messages.to_sentence
+    if logged_in?
+      @list = current_user.lists.build(list_params)
+      if @list.save
+        render json: ListSerializer.new(@list)
+      else
+        error_resp = {
+          error: @list.errors.full_messages.to_sentence
+        }
+        render json: { error: @list.errors, status: :unprocessable_entity }
+      end 
+    else 
+      render json: {
+        error: "You must be logged in to create lists."
       }
-      render json: { error: @list.errors, status: :unprocessable_entity }
     end 
   end 
 
