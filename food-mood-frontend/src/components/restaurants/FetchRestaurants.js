@@ -3,7 +3,8 @@ import SearchBar from './SearchBar';
 import { connect } from 'react-redux';
 import Restaurant from './Restaurant';
 import GoogleMaps from '../../apis/GoogleMaps';
-
+import { Header, Icon } from 'semantic-ui-react';
+import history from '../../history';
 class FetchRestaurants extends React.Component {
   constructor() {
     super();
@@ -59,6 +60,19 @@ class FetchRestaurants extends React.Component {
   // }
 
   render() {
+    if (!this.props.currentUser) {
+      return (
+        <div className="redirectIcon" onClick={() => history.push('/')}>
+          <Header as="h2" icon textAlign="center">
+            <Icon name="users" />
+            <Header.Content>
+              <h3>Please log in or sign up!</h3>
+            </Header.Content>
+          </Header>
+        </div>
+      );
+    }
+
     if (!this.state.restaurants) {
       return (
         <div>
@@ -82,6 +96,7 @@ class FetchRestaurants extends React.Component {
 const mapStateToProps = (state) => {
   return {
     location: state.location,
+    currentUser: state.currentUser,
   };
 };
 
