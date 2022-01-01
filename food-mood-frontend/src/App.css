@@ -12,6 +12,31 @@
     color: rgb(250, 239, 135, 0.967);
     font-size: 30px;
     border-style: double;
+    margin: 10px;
+}
+
+.ui.teal.six.item.menu {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+}
+
+.header.item.navitem {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font: 18px 'lato', sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding: 18px;
+    float: right;
+    margin-left: 50px;
+    transition: 1.5s;
+}
+
+.header.item.navitem:hover {
+    transition: 1.5s;
+    color: black !important;
 }
 
 .item.loggedin {
@@ -33,6 +58,8 @@
     margin: 0;
     display: table;
     width: 100%;
+    position: sticky;
+    opacity: 1;
 }
 
 .yelppicture {
@@ -45,10 +72,6 @@ h4:last-child {
 
 .active h4:last-child {
     color: black;
-}
-
-.logo {
-    position: fixed;
 }
 
 .cluster-marker {
