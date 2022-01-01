@@ -6,13 +6,11 @@
 }
 
 .logo {
-    /* color: rgba(250, 239, 135, 0.967); */
-    /* font-size: 30px; */
     letter-spacing: 5px !important;
     color: rgb(250, 239, 135, 0.967);
     font-size: 30px;
     border-style: double;
-    margin: 10px;
+    padding: 6px;
 }
 
 .ui.teal.six.item.menu {
@@ -22,7 +20,6 @@
 }
 
 .header.item.navitem {
-    text-transform: uppercase;
     letter-spacing: 5px;
     font: 18px 'lato', sans-serif;
     display: inline-block;
@@ -108,6 +105,10 @@ button.ui.button.primary {
     margin-right: 23% !important;
     width: 25%;
     font-size: 18px;
+}
+
+.ui.button.primary {
+    margin-bottom: 15px;
 }
 
 .homeGrid {
