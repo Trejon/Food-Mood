@@ -106,7 +106,7 @@ class MyLists extends React.Component {
       <div className="list-content ">
         <h3>These are your lists:</h3>
 
-        <List divided relaxed>
+        <List divided relaxed animated celled size="massive">
           {listCards}
         </List>
         <Link className="ui button primary" to="/lists/new">
