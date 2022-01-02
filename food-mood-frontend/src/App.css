@@ -14,8 +14,8 @@
 }
 
 .ui.teal.six.item.menu {
-    position: sticky;
-    position: -webkit-sticky;
+    /* position: sticky; */
+    /* position: -webkit-sticky; */
     top: 0;
 }
 
@@ -71,6 +71,10 @@ h4:last-child {
     color: black;
 }
 
+.ui.icon.header.mealIconBox {
+    width: 100%;
+}
+
 .cluster-marker {
     color: #fff;
     background: #1978c8;
@@ -118,17 +122,36 @@ button.ui.button.primary {
     cursor: move;
 }
 
+.list-content {
+    width: 50%;
+    text-align: center;
+    left: 25% !important;
+    position: relative;
+}
+
 .content {
     padding-top: 2% !important;
 }
 
 .ui.icon.header.lists {
-    position: relative;
-    top: -170px;
+    top: -90px !important;
+}
+
+.ui.button.meals {
+    width: 100%;
+    margin-top: 3%;
 }
 
 .content a {
     color: #009688;
+}
+
+.content h5 {
+    margin-bottom: 10px;
+}
+
+.item.item {
+    border: onset;
 }
 
 
