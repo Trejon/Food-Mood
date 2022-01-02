@@ -165,8 +165,8 @@ button.homePageButton {
 }
 
 .redirectIcon h2:hover,
-h3:hover {
-    color: #0067ee !important;
+.redirectIcon h3:hover {
+    color: #0067ee;
 }
 
 
