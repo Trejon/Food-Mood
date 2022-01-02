@@ -1,9 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import MyLists from './lists/MyLists';
+import MyMeals from './meals/MyMeals';
 import history from '../history';
 
-import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react';
+import {
+  Button,
+  Divider,
+  Header,
+  Grid,
+  Segment,
+  Image,
+  List,
+  Icon,
+  Search,
+} from 'semantic-ui-react';
 import AuthForm from './user/Login';
 import SignUp from './user/SignUp';
 import '../App.css';
@@ -19,7 +30,8 @@ class Home extends React.Component {
   };
 
   render() {
-    if (!this.props.currentUser && this.state.signup) {
+    const { currentUser } = this.props;
+    if (!currentUser && this.state.signup) {
       return (
         <div>
           <h5 className="homeNote">
@@ -46,7 +58,7 @@ class Home extends React.Component {
           </Segment>{' '}
         </div>
       );
-    } else if (!this.props.currentUser && !this.state.signup) {
+    } else if (!currentUser && !this.state.signup) {
       return (
         <div>
           <h5 className="homeNote">
@@ -74,7 +86,35 @@ class Home extends React.Component {
         </div>
       );
     } else {
-      return <MyLists />;
+      return (
+        <Segment placeholder>
+          <Grid columns={2} stackable textAlign="center" padded="vertically">
+            {/* <Divider vertical>Or</Divider> */}
+
+            <Grid.Row verticalAlign="middle">
+              <Grid.Column>
+                <Header icon className="lists">
+                  <Icon>
+                    <img src="https://img.icons8.com/ios-filled/100/000000/wish-list.png" />{' '}
+                  </Icon>
+                  Your Lists:
+                  <MyLists />
+                </Header>
+              </Grid.Column>
+
+              <Grid.Column>
+                <Header icon>
+                  <Icon>
+                    <img src="https://img.icons8.com/ios/100/000000/meal.png" />{' '}
+                  </Icon>
+                  Your meals:
+                  <MyMeals />
+                </Header>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Segment>
+      );
     }
   }
 }
