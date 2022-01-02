@@ -82,16 +82,16 @@ class MyLists extends React.Component {
         this.props.lists.map((l) => (
           <List.Item className="item" key={l.id}>
             {/* <i className="large list icon"></i> */}
-            <List.Icon size="massive" verticalAlign="middle">
+            {/* <List.Icon size="massive" verticalAlign="middle">
               <img src="https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/64/000000/external-list-shopping-and-commerce-flatart-icons-lineal-color-flatarticons.png" />
-            </List.Icon>
+            </List.Icon> */}
             <List.Content>
-              <List.Header as="a">
+              <List.Header as="div">
                 <h5>
                   <Link to={`/lists/${l.id}`}>{l.attributes.name}</Link>
                 </h5>
               </List.Header>
-              <List.Description as="a">
+              <List.Description as="div">
                 {l.attributes.description}
               </List.Description>
               {/* <button className="likes" onClick={() => this.incrementLikes(l.id)}>{this.state.likesCount[l.id]} Likes</button> */}
@@ -104,8 +104,6 @@ class MyLists extends React.Component {
 
     return (
       <div className="list-content ">
-        <h3>These are your lists:</h3>
-
         <List divided relaxed animated celled size="massive">
           {listCards}
         </List>
