@@ -97,17 +97,17 @@ class Home extends React.Component {
                   <Icon>
                     <img src="https://img.icons8.com/ios-filled/100/000000/wish-list.png" />{' '}
                   </Icon>
-                  Your Lists:
+                  <h3>Your Lists:</h3>
                   <MyLists />
                 </Header>
               </Grid.Column>
 
               <Grid.Column>
-                <Header icon>
+                <Header icon className="mealIconBox">
                   <Icon>
                     <img src="https://img.icons8.com/ios/100/000000/meal.png" />{' '}
                   </Icon>
-                  Your meals:
+                  <h3>Your Meals:</h3>
                   <MyMeals />
                 </Header>
               </Grid.Column>
