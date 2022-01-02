@@ -118,6 +118,10 @@ button.ui.button.primary {
     cursor: move;
 }
 
+.content {
+    padding-top: 2% !important;
+}
+
 
 /* .ui.input>input {
     max-width: 500% !important;
