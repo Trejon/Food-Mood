@@ -122,6 +122,15 @@ button.ui.button.primary {
     padding-top: 2% !important;
 }
 
+.ui.icon.header.lists {
+    position: relative;
+    top: -170px;
+}
+
+.content a {
+    color: #009688;
+}
+
 
 /* .ui.input>input {
     max-width: 500% !important;
