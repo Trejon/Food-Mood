@@ -10,10 +10,7 @@ import {
   Header,
   Grid,
   Segment,
-  Image,
-  List,
   Icon,
-  Search,
 } from 'semantic-ui-react';
 import AuthForm from './user/Login';
 import SignUp from './user/SignUp';
