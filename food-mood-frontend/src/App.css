@@ -14,8 +14,6 @@
 }
 
 .ui.teal.six.item.menu {
-    /* position: sticky; */
-    /* position: -webkit-sticky; */
     top: 0;
 }
 
@@ -100,11 +98,6 @@ h4:last-child {
     margin-left: -150px;
 }
 
-
-/* .ui.form.signUp {
-    margin-left: 29%;
-} */
-
 button.ui.button.primary {
     margin-right: 23% !important;
     width: 25%;
@@ -118,10 +111,6 @@ button.ui.button.primary {
 .homeGrid {
     position: relative;
     left: -20px;
-}
-
-.column h3 {
-    text-align: center;
 }
 
 .list-content {
@@ -156,11 +145,6 @@ button.ui.button.primary {
     border: onset;
 }
 
-
-/* .ui.input>input {
-    max-width: 500% !important;
-} */
-
 h1.HomeHeader {
     color: white;
     margin-bottom: 2%;
@@ -185,18 +169,6 @@ button.homePageButton {
     padding-left: 60px !important;
 }
 
-
-/* .homePageButtonLogin {
-    position: relative;
-    left: 200px;
-    transition: none 0s ease 0s;
-    cursor: move;
-    padding-right: 60px !important;
-    padding-left: 60px !important;
-    left: 450px;
-    top: -40px !important;
-} */
-
 .redirectIcon {
     margin-top: 3%;
     margin-bottom: 3%;
@@ -206,11 +178,6 @@ button.homePageButton {
 .redirectIcon h3:hover {
     color: #0067ee;
 }
-
-
-/* .redirectIcon:first-child:hover {
-    color: #0067ee;
-} */
 
 .formInputEl {
     width: 150% !important;
@@ -275,7 +242,6 @@ h5.homeNote {
         display: none;
     }
     div.header.item.navitem {
-        /* width: 20% !important; */
         contain: strict;
     }
     .header.item.navitem h4 {
@@ -287,5 +253,15 @@ h5.homeNote {
         width: 50%;
         margin-left: 30% !important;
         margin-bottom: 5%;
+    }
+    .column {
+        padding-top: 20% !important;
+    }
+    .description {
+        display: none !important;
+    }
+    .ui.massive.animated.celled.divided.relaxed.list {
+        text-align: left;
+        width: 150% !important;
     }
 }
