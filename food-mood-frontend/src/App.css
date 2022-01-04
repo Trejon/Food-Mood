@@ -118,8 +118,10 @@ button.ui.button.primary {
 .homeGrid {
     position: relative;
     left: -20px;
-    transition: none 0s ease 0s;
-    cursor: move;
+}
+
+.column h3 {
+    text-align: center;
 }
 
 .list-content {
