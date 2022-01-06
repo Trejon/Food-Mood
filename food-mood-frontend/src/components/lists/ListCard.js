@@ -7,7 +7,7 @@ import { withRouter } from 'react-router';
 import { getMyMeals } from '../../actions/myMeals';
 import history from '../../history';
 
-import { Header, Icon, Image } from 'semantic-ui-react';
+import { Header, Icon, Image, Grid, Segment } from 'semantic-ui-react';
 
 import './List.scss';
 
@@ -24,6 +24,7 @@ const HeaderExampleUsersIcon = (props) => {
     </div>
   );
 };
+
 class ListCard extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -48,7 +49,7 @@ class ListCard extends Component {
     const listMeals =
       list && meals
         ? meals.map((meal) => (
-            <li key={meal.id}>
+            <li className="mealItem" key={meal.id}>
               <Link to={`/meals/${meal.id}`}>
                 <h5>{meal.attributes.name}</h5>
                 <h6>{meal.attributes.description}</h6>
@@ -68,13 +69,28 @@ class ListCard extends Component {
                 </div>
                 <HeaderExampleUsersIcon content={listMeals} />
                 <ul className="list">{listMeals}</ul>
-                <Link
-                  className="ui primary button list-btn"
-                  list={list}
-                  to={`/lists/${list.id}/edit`}
-                >
-                  <h5>Edit this list</h5>
-                </Link>
+
+                <Grid columns="equal" className="buttons">
+                  <Grid.Column>
+                    <Link
+                      className="ui primary button list-btn"
+                      list={list}
+                      to={`/lists/${list.id}/edit`}
+                    >
+                      <h5>Edit this list</h5>
+                    </Link>
+                  </Grid.Column>
+
+                  <Grid.Column>
+                    <Link
+                      className="ui secondary button list-btn"
+                      list={list}
+                      to={`/lists/delete/${list.id}`}
+                    >
+                      <h5>Delete this list</h5>
+                    </Link>
+                  </Grid.Column>
+                </Grid>
               </div>
             </div>
           </div>
