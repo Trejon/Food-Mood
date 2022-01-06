@@ -7,10 +7,23 @@ import { withRouter } from 'react-router';
 import { getMyMeals } from '../../actions/myMeals';
 import history from '../../history';
 
-import { Header, Icon } from 'semantic-ui-react';
+import { Header, Icon, Image } from 'semantic-ui-react';
+
+import './List.scss';
 
 import './List.css';
 
+const HeaderExampleUsersIcon = (props) => {
+  console.log(props.content);
+  return (
+    <div>
+      <Header as="h2" icon textAlign="center">
+        <Icon name="users" circular />
+        <Header.Content>Restaurants and Recipes on this list:</Header.Content>
+      </Header>
+    </div>
+  );
+};
 class ListCard extends Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -38,6 +51,7 @@ class ListCard extends Component {
             <li key={meal.id}>
               <Link to={`/meals/${meal.id}`}>
                 <h5>{meal.attributes.name}</h5>
+                <h6>{meal.attributes.description}</h6>
               </Link>
             </li>
           ))
@@ -52,17 +66,17 @@ class ListCard extends Component {
                 <div className="header card-name">
                   <h3 className="listName">{list.attributes.name}</h3>
                 </div>
-                <h4>Restaurants and Recipes on this list:</h4>
-                <ul>{listMeals}</ul>
+                <HeaderExampleUsersIcon content={listMeals} />
+                <ul className="list">{listMeals}</ul>
+                <Link
+                  className="ui primary button list-btn"
+                  list={list}
+                  to={`/lists/${list.id}/edit`}
+                >
+                  <h5>Edit this list</h5>
+                </Link>
               </div>
             </div>
-            <Link
-              className="ui primary button list-btn"
-              list={list}
-              to={`/lists/${list.id}/edit`}
-            >
-              <h5>Edit this list</h5>
-            </Link>
           </div>
         </div>
         <h1>Add a new meal to this list:</h1>
