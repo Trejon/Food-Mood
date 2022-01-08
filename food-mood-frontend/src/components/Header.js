@@ -68,9 +68,6 @@ const Header = ({ currentUser, loggedIn }) => {
           </h1>
         </div>
 
-        {/* <div className="right menu">
-          <strong className="logo">FoodMood</strong>
-        </div> */}
 
         <div className="right menu">
           {loggedIn ? (
