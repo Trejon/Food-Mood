@@ -32,7 +32,7 @@ gem 'fast_jsonapi'
 gem 'json', '~> 2.6', '>= 2.6.3'
 gem 'OptionParser', '~> 0.5.1'
 gem 'rest-client', '~> 2.1'
-gem 'httparty', '~> 0.20.0'
+gem 'httparty', '~> 0.21.0'
 gem 'prettier'
 
 group :development, :test do
